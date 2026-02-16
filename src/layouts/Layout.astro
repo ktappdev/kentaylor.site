@@ -1,0 +1,163 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { 
+  title = 'Ken Taylor | Developer', 
+  description = 'Software developer building exceptional digital experiences. Explore my projects, sites, and thoughts.'
+} = Astro.props;
+
+const siteUrl = 'https://kentaylor.site';
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <meta name="author" content="Ken Taylor" />
+    
+    <link rel="canonical" href={siteUrl} />
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="theme-color" content="#0a0a0a" />
+    
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={siteUrl} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={`${siteUrl}/og-image.png`} />
+    
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={siteUrl} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    
+    <title>{title}</title>
+  </head>
+  <body class="noise-bg min-h-screen">
+    <slot />
+    
+    <script define:vars={{}}>
+      function initCursor() {
+        if (document.querySelector('.custom-cursor')) return;
+        
+        const cursor = document.createElement('div');
+        cursor.className = 'custom-cursor';
+        cursor.innerHTML = '<div class="cursor-dot"></div><div class="cursor-ring"></div>';
+        document.body.appendChild(cursor);
+        
+        let mouseX = 0;
+        let mouseY = 0;
+        let cursorX = 0;
+        let cursorY = 0;
+        
+        document.addEventListener('mousemove', (e) => {
+          mouseX = e.clientX;
+          mouseY = e.clientY;
+        });
+        
+        function animateCursor() {
+          cursorX += (mouseX - cursorX) * 0.15;
+          cursorY += (mouseY - cursorY) * 0.15;
+          
+          const dot = cursor.querySelector('.cursor-dot');
+          const ring = cursor.querySelector('.cursor-ring');
+          
+          if (dot instanceof HTMLElement) {
+            dot.style.transform = `translate(${mouseX}px, ${mouseY}px)`;
+          }
+          if (ring instanceof HTMLElement) {
+            ring.style.transform = `translate(${cursorX}px, ${cursorY}px)`;
+          }
+          
+          requestAnimationFrame(animateCursor);
+        }
+        
+        animateCursor();
+        
+        const interactiveElements = document.querySelectorAll('a, button, [data-cursor]');
+        interactiveElements.forEach((el) => {
+          el.addEventListener('mouseenter', () => {
+            cursor.classList.add('cursor-hover');
+          });
+          el.addEventListener('mouseleave', () => {
+            cursor.classList.remove('cursor-hover');
+          });
+        });
+      }
+      
+      document.addEventListener('DOMContentLoaded', initCursor);
+      document.addEventListener('astro:page-load', initCursor);
+    </script>
+    
+    <style is:global>
+      .custom-cursor {
+        pointer-events: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 9999;
+      }
+      
+      .cursor-dot {
+        width: 8px;
+        height: 8px;
+        background: #00ff88;
+        border-radius: 50%;
+        position: absolute;
+        transform: translate(-50%, -50%);
+        transition: width 0.2s, height 0.2s, background 0.2s;
+        box-shadow: 0 0 10px #00ff88, 0 0 20px rgba(0, 255, 136, 0.5);
+      }
+      
+      .cursor-ring {
+        width: 40px;
+        height: 40px;
+        border: 2px solid #00ff88;
+        border-radius: 50%;
+        position: absolute;
+        transform: translate(-50%, -50%);
+        transition: width 0.3s, height 0.3s, border 0.3s;
+      }
+      
+      .cursor-hover .cursor-dot {
+        width: 12px;
+        height: 12px;
+        background: #ffffff;
+        box-shadow: 0 0 15px #ffffff, 0 0 30px rgba(255, 255, 255, 0.5);
+      }
+      
+      .cursor-hover .cursor-ring {
+        width: 60px;
+        height: 60px;
+        border: 2px solid #ffffff;
+      }
+      
+      @media (max-width: 768px) {
+        .custom-cursor {
+          display: none;
+        }
+      }
+      
+      html {
+        cursor: none;
+      }
+      
+      @media (max-width: 768px) {
+        html {
+          cursor: auto;
+        }
+      }
+    </style>
+  </body>
+</html>

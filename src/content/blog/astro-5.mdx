@@ -1,0 +1,43 @@
+---
+title: "The Future of Web Development: Astro 5.0"
+excerpt: "Exploring the latest features in Astro 5.0 and how they revolutionize static site generation with the new Content Layer API."
+date: 2026-01-10
+tags: ["astro", "webdev", "performance"]
+image: "/images/blog/astro-5.jpg"
+---
+
+# The Future of Web Development: Astro 5.0
+
+Astro 5.0 marks a significant milestone in the evolution of static site generators. Let's explore what makes this release special.
+
+## Content Layer API
+
+The new Content Layer API provides a unified way to load content from any source:
+
+```typescript
+import {"{ defineCollection, z }"} from 'astro:content'
+
+const blog = defineCollection({
+  loader: glob({" pattern: '**/*.md', base: './src/content/blog "}),
+  schema: z.object({
+    title: z.string(),
+    date: z.date(),
+  }),
+})
+```
+
+## Server Islands
+
+Server Islands allow you to mix static and dynamic content seamlessly.
+
+## Performance Improvements
+
+Astro 5.0 introduces significant performance improvements:
+
+- **40% faster builds** through improved caching
+- **Smaller bundle sizes** with better tree shaking
+- **Improved dev server** with hot module replacement
+
+## Conclusion
+
+Astro 5.0 is a game-changer for modern web development. If you haven't tried Astro yet, now is the perfect time to start.

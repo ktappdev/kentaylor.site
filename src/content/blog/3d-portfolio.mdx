@@ -1,0 +1,73 @@
+---
+title: "Building a 3D Portfolio with Three.js and React"
+excerpt: "A deep dive into creating immersive 3D experiences on the web using Three.js, React Three Fiber, and modern animation libraries."
+date: 2026-01-15
+tags: ["threejs", "react", "webgl", "tutorial"]
+image: "/images/blog/3d-portfolio.jpg"
+---
+
+# Building a 3D Portfolio with Three.js and React
+
+Creating immersive 3D experiences on the web has never been more accessible. With the combination of Three.js and React Three Fiber, we can build stunning visual experiences that run smoothly in the browser.
+
+## Why 3D?
+
+Traditional 2D portfolios are great, but 3D adds an extra dimension of engagement. Users can interact with your content in ways that flat designs simply can't match.
+
+## Getting Started
+
+First, install the necessary dependencies:
+
+```
+npm install three @react-three/fiber @react-three/drei
+```
+
+## Creating Your First Scene
+
+The basic setup involves wrapping your 3D content in a Canvas component:
+
+```jsx
+import {"{ Canvas }"} from '@react-three/fiber'
+
+function App() {
+  return (
+    <Canvas>
+      <mesh>
+        <boxGeometry args={"{[1, 1, 1]}"} />
+        <meshStandardMaterial color="orange" />
+      </mesh>
+    </Canvas>
+  )
+}
+```
+
+## Adding Interactivity
+
+One of the most powerful aspects of React Three Fiber is how easy it makes adding interactivity:
+
+```jsx
+function InteractiveBox() {
+  const [hovered, setHovered] = useState(false)
+  
+  return (
+    <mesh
+      onPointerOver={"{() => setHovered(true)}"}
+      onPointerOut={"{() => setHovered(false)}"}
+    >
+      <boxGeometry args={"{[1, 1, 1]}"} />
+      <meshStandardMaterial color={"{hovered ? 'hotpink' : 'orange'}"} />
+    </mesh>
+  )
+}
+```
+
+## Performance Tips
+
+1. Use `React.memo` for complex components
+2. Implement LOD (Level of Detail) for complex models
+3. Use instancing for repeated geometries
+4. Consider using `useFrame` sparingly
+
+## Conclusion
+
+3D portfolios are a powerful way to stand out in the developer community. With the right tools and techniques, you can create memorable experiences that showcase both your technical skills and creative vision.

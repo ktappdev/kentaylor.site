@@ -1,0 +1,90 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navigation from '../../components/UI/Navigation';
+import Footer from '../../components/UI/Footer';
+import type { InferGetStaticPropsType, GetStaticPaths } from 'astro';
+import { getCollection } from 'astro:content';
+
+export const getStaticPaths = (async () => {
+  const blogPosts = await getCollection('blog');
+  return blogPosts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}) satisfies GetStaticPaths;
+
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+
+const { post } = Astro.props as Props;
+const { Content } = await post.render();
+
+const formatDate = (date: Date) => {
+  return new Intl.DateTimeFormat('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  }).format(date);
+};
+---
+
+<Layout title={`${post.data.title} | Ken Taylor`} description={post.data.excerpt}>
+  <Navigation client:load />
+  
+  <article class="pt-24 pb-16 min-h-screen">
+    <div class="max-w-3xl mx-auto px-6">
+      <header class="mb-12">
+        <div class="flex items-center gap-3 mb-4 text-sm text-muted font-mono">
+          <time datetime={post.data.date.toString()}>
+            {formatDate(post.data.date)}
+          </time>
+          <span>•</span>
+          <span>5 min read</span>
+        </div>
+        
+        <h1 class="text-4xl md:text-5xl font-bold mb-4">
+          {post.data.title}
+        </h1>
+        
+        <p class="text-xl text-muted mb-6">
+          {post.data.excerpt}
+        </p>
+        
+        <div class="flex flex-wrap gap-2">
+          {post.data.tags.map((tag: string) => (
+            <span class="px-3 py-1 text-sm font-mono text-accent bg-accent/10 rounded">
+              #{tag}
+            </span>
+          ))}
+        </div>
+      </header>
+      
+      <div class="prose prose-invert prose-lg max-w-none
+        prose-headings:font-mono prose-headings:font-bold
+        prose-h2:text-2xl prose-h2:mt-12 prose-h2:mb-4
+        prose-h3:text-xl prose-h3:mt-8 prose-h3:mb-3
+        prose-p:text-muted prose-p:leading-relaxed
+        prose-a:text-accent prose-a:no-underline hover:prose-a:underline
+        prose-code:text-accent prose-code:bg-surface prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:before:content-none prose-code:after:content-none
+        prose-pre:bg-surface prose-pre:border prose-pre:border-border prose-pre:rounded-lg
+        prose-strong:text-text
+        prose-ul:text-muted prose-ol:text-muted
+        prose-li:marker:text-accent">
+        <Content />
+      </div>
+      
+      <footer class="mt-16 pt-8 border-t border-border">
+        <a
+          href="/blog"
+          class="inline-flex items-center gap-2 text-muted hover:text-accent transition-colors font-mono"
+        >
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16l-4-4m0 0l4-4m-4 4h18" />
+          </svg>
+          Back to Blog
+        </a>
+      </footer>
+    </div>
+  </article>
+  
+  <Footer client:visible />
+</Layout>

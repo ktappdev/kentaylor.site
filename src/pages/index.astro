@@ -1,0 +1,36 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/UI/Navigation';
+import HeroTitle from '../components/Hero/HeroTitle';
+import HeroScene from '../components/Hero/HeroScene';
+import ScrollIndicator from '../components/Hero/ScrollIndicator';
+import ProjectGrid from '../components/Projects/ProjectGrid';
+import BlogList from '../components/Blog/BlogList';
+import Footer from '../components/UI/Footer';
+import { getCollection } from 'astro:content';
+
+const blogPosts = await getCollection('blog');
+const sortedPosts = blogPosts.sort((a: typeof blogPosts[number], b: typeof blogPosts[number]) => b.data.date.valueOf() - a.data.date.valueOf()).slice(0, 3);
+---
+
+<Layout>
+  <Navigation client:load />
+  
+  <section class="relative min-h-screen flex items-center justify-center overflow-hidden grid-bg">
+    <div class="absolute inset-0 z-0">
+      <HeroScene client:only="react" />
+    </div>
+    
+    <div class="relative z-10 text-center px-6 max-w-6xl mx-auto">
+      <HeroTitle client:load />
+    </div>
+    
+    <ScrollIndicator client:load />
+  </section>
+  
+  <ProjectGrid client:visible />
+  
+  <BlogList posts={sortedPosts} client:visible />
+  
+  <Footer client:visible />
+</Layout>
