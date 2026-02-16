@@ -4,6 +4,7 @@ import Navigation from '../components/UI/Navigation';
 import HeroTitle from '../components/Hero/HeroTitle';
 import HeroScene from '../components/Hero/HeroScene';
 import ScrollIndicator from '../components/Hero/ScrollIndicator';
+import AboutCard from '../components/About/AboutCard';
 import ProjectGrid from '../components/Projects/ProjectGrid';
 import BlogList from '../components/Blog/BlogList';
 import Footer from '../components/UI/Footer';
@@ -27,6 +28,8 @@ const sortedPosts = blogPosts.sort((a: typeof blogPosts[number], b: typeof blogP
     
     <ScrollIndicator client:load />
   </section>
+  
+  <AboutCard client:visible />
   
   <ProjectGrid client:visible />
   
