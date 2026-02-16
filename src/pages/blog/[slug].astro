@@ -28,6 +28,78 @@ const formatDate = (date: Date) => {
 ---
 
 <Layout title={`${post.data.title} | Ken Taylor`} description={post.data.excerpt}>
+  <style>
+    .blog-content {
+      line-height: 1.8;
+    }
+    .blog-content :where(h1, h2, h3, h4) {
+      font-family: 'JetBrains Mono', monospace !important;
+      font-weight: 700 !important;
+      margin-top: 2.5rem !important;
+      margin-bottom: 0 !important;
+      color: #fafafa !important;
+    }
+    .blog-content :where(h2) {
+      font-size: 1.75rem !important;
+      margin-top: 3rem !important;
+      margin-bottom: 0 !important;
+    }
+    .blog-content :where(h3) {
+      font-size: 1.25rem !important;
+      margin-top: 2rem !important;
+      margin-bottom: 0 !important;
+    }
+    .blog-content :where(h2) + p,
+    .blog-content :where(h3) + p,
+    .blog-content :where(h4) + p {
+      margin-top: 0.5rem !important;
+    }
+    .blog-content :where(p) {
+      margin-bottom: 1.25rem !important;
+      color: #737373 !important;
+    }
+    .blog-content ul,
+    .blog-content ol {
+      margin-bottom: 1.5rem;
+      padding-left: 1.5rem;
+      color: #737373;
+    }
+    .blog-content li {
+      margin-bottom: 0.5rem;
+    }
+    .blog-content li::marker {
+      color: #00ff88;
+    }
+    .blog-content a {
+      color: #00ff88;
+      text-decoration: none;
+    }
+    .blog-content a:hover {
+      text-decoration: underline;
+    }
+    .blog-content code {
+      color: #00ff88;
+      background: #141414;
+      padding: 0.2rem 0.4rem;
+      border-radius: 0.25rem;
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .blog-content pre {
+      background: #141414;
+      border: 1px solid #262626;
+      border-radius: 0.5rem;
+      padding: 1rem;
+      margin-bottom: 1.5rem;
+      overflow-x: auto;
+    }
+    .blog-content pre code {
+      background: transparent;
+      padding: 0;
+    }
+    .blog-content strong {
+      color: #fafafa;
+    }
+  </style>
   <Navigation client:load />
   
   <article class="pt-24 pb-16 min-h-screen">
@@ -58,17 +130,7 @@ const formatDate = (date: Date) => {
         </div>
       </header>
       
-      <div class="prose prose-invert prose-lg max-w-none
-        prose-headings:font-mono prose-headings:font-bold
-        prose-h2:text-2xl prose-h2:mt-12 prose-h2:mb-4
-        prose-h3:text-xl prose-h3:mt-8 prose-h3:mb-3
-        prose-p:text-muted prose-p:leading-relaxed
-        prose-a:text-accent prose-a:no-underline hover:prose-a:underline
-        prose-code:text-accent prose-code:bg-surface prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:before:content-none prose-code:after:content-none
-        prose-pre:bg-surface prose-pre:border prose-pre:border-border prose-pre:rounded-lg
-        prose-strong:text-text
-        prose-ul:text-muted prose-ol:text-muted
-        prose-li:marker:text-accent">
+      <div class="blog-content prose prose-invert max-w-none">
         <Content />
       </div>
       
