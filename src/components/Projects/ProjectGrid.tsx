@@ -21,7 +21,7 @@ const projects: Project[] = [
     category: "site",
     image: "https://www.maad97.com/logo.png",
     technologies: ["TypeScript", "React", "Streaming"],
-    github: "https://github.com/ktappdev/maad-radio",
+    link: "https://www.maad97.com/",
     featured: false,
   },
   {
