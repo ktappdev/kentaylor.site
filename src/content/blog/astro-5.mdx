@@ -1,43 +1,114 @@
 ---
-title: "The Future of Web Development: Astro 5.0"
-excerpt: "Exploring the latest features in Astro 5.0 and how they revolutionize static site generation with the new Content Layer API."
+title: "Why I Build Backends in Go: A Self-Taught Developer's Perspective"
+excerpt: "After years of exploring different languages, Go became my go-to for backend development. Here's why—and how it powers projects like ReviewIt.gy."
 date: 2026-01-10
-tags: ["astro", "webdev", "performance"]
-image: "/images/blog/astro-5.jpg"
+tags: ["golang", "backend", "devops", "architecture"]
+image: "/images/blog/golang.jpg"
 ---
 
-# The Future of Web Development: Astro 5.0
+# Why I Build Backends in Go: A Self-Taught Developer's Perspective
 
-Astro 5.0 marks a significant milestone in the evolution of static site generators. Let's explore what makes this release special.
+As a self-taught developer, I've explored many languages—C++, C#, TypeScript, Python. But when it comes to building robust backends, Go (Golang) has become my clear choice.
 
-## Content Layer API
+## The Journey to Go
 
-The new Content Layer API provides a unified way to load content from any source:
+My path wasn't traditional. No computer science degree, no formal training. I learned by building—radio automation tools, web apps, anything that solved real problems. When I discovered Go around 2020, something clicked.
 
-```typescript
-import {"{ defineCollection, z }"} from 'astro:content'
+## Simplicity as a Feature
 
-const blog = defineCollection({
-  loader: glob({" pattern: '**/*.md', base: './src/content/blog "}),
-  schema: z.object({
-    title: z.string(),
-    date: z.date(),
-  }),
-})
+Go's philosophy resonates with how I think about code:
+
+```go
+package main
+
+import "net/http"
+
+func main() {
+    http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+        w.Write([]byte("Building in Guyana, running everywhere."))
+    })
+    http.ListenAndServe(":8080", nil)
+}
 ```
 
-## Server Islands
+A web server in 10 lines. No frameworks needed. No magic. Just readable, maintainable code.
 
-Server Islands allow you to mix static and dynamic content seamlessly.
+## Performance That Matters
 
-## Performance Improvements
+For ReviewIt.gy and other Lugetech projects, performance isn't optional—it's essential. Go delivers:
 
-Astro 5.0 introduces significant performance improvements:
+- **Fast compilation** - Iterate quickly during development
+- **Efficient concurrency** - Goroutines handle thousands of requests with minimal overhead
+- **Small binaries** - Deploy anywhere, even on limited infrastructure
+- **Low memory footprint** - Critical when running multiple services
 
-- **40% faster builds** through improved caching
-- **Smaller bundle sizes** with better tree shaking
-- **Improved dev server** with hot module replacement
+## The Tooling Ecosystem
 
-## Conclusion
+Go's tooling changed how I work:
 
-Astro 5.0 is a game-changer for modern web development. If you haven't tried Astro yet, now is the perfect time to start.
+```bash
+go fmt     # No more formatting debates
+go test    # Testing built into the language
+go mod     # Dependency management that just works
+go build   # Single binary deployment
+```
+
+## Building Microservices
+
+At Lugetech, we've moved toward microservices architecture. Go excels here:
+
+```go
+// Each service is a self-contained binary
+// that communicates via HTTP/gRPC
+type ReviewService struct {
+    db *sql.DB
+    cache *redis.Client
+}
+
+func (s *ReviewService) GetBusinessReviews(id string) ([]Review, error) {
+    // Clean, testable, deployable independently
+}
+```
+
+## DevOps Integration
+
+Go integrates naturally with modern DevOps:
+
+- **Docker** - Minimal base images, tiny containers
+- **Kubernetes** - Native Go client libraries
+- **CI/CD** - Fast builds mean fast pipelines
+
+My `cicd-thing` project leverages this—GitHub-triggered deployments in seconds, not minutes.
+
+## The Learning Curve
+
+Go isn't perfect. The error handling takes getting used to:
+
+```go
+if err != nil {
+    return err
+}
+```
+
+But that verbosity forces you to think about error paths. In production systems, that's a feature.
+
+## What I've Built with Go
+
+- **ReviewIt.gy API** - Core backend services
+- **cicd-thing** - Automated deployment pipeline
+- **gitcomm** - CLI for automated git commits
+- **hitman** - TUI process manager
+- **bad-words-thing** - Content scanning service
+
+## Advice for Self-Taught Developers
+
+1. **Start simple** - Go's syntax is small. You can be productive in days.
+2. **Read the standard library** - It's beautifully written and documented.
+3. **Build real things** - CLI tools, APIs, services. Theory only gets you so far.
+4. **Embrace the community** - Go developers are helpful and welcoming.
+
+## Why It Matters
+
+In Guyana's growing tech scene, we need tools that let us build quickly, reliably, and efficiently. Go gives us that. It's not about following trends—it's about choosing technology that serves the mission.
+
+For me, that mission is building platforms that work for Guyanese businesses and consumers. Go helps me do that, day after day.

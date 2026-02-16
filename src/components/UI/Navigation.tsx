@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 const navLinks = [
   { href: '#projects', label: 'Projects' },
   { href: '#blog', label: 'Blog' },
-  { href: 'https://github.com/kentaylor', label: 'GitHub', external: true },
+  { href: 'https://github.com/ktappdev', label: 'GitHub', external: true },
 ];
 
 export default function Navigation() {

@@ -66,7 +66,7 @@ export default function HeroTitle({ className = '' }: HeroTitleProps) {
         className="mt-6 md:mt-8"
       >
         <p className="text-muted text-lg md:text-xl font-mono tracking-wide">
-          <span className="text-accent">&gt;</span> Developer • Creator • Builder
+          <span className="text-accent">&gt;</span> Code • Beats • Guyana
         </p>
       </motion.div>
       

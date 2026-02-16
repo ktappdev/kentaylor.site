@@ -4,10 +4,11 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
   
   const links = [
-    { href: 'https://github.com/kentaylor', label: 'GitHub' },
-    { href: 'https://twitter.com/kentaylor', label: 'Twitter' },
-    { href: 'https://linkedin.com/in/kentaylor', label: 'LinkedIn' },
-    { href: 'mailto:hello@kentaylor.site', label: 'Email' },
+    { href: 'https://github.com/ktappdev', label: 'GitHub' },
+    { href: 'https://x.com/ktappdev', label: 'X/Twitter' },
+    { href: 'https://gy.linkedin.com/in/ken-taylor-16006280', label: 'LinkedIn' },
+    { href: 'https://www.youtube.com/@KendaBeatMaker', label: 'YouTube' },
+    { href: 'mailto:kentaylorappdev@gmail.com', label: 'Email' },
   ];
   
   return (
@@ -24,7 +25,7 @@ export default function Footer() {
               <span className="text-accent">/</span>KT
             </a>
             <p className="text-muted text-sm mt-2">
-              Building the future, one line at a time.
+              Self-taught software engineer. Founder. Music producer. From Guyana.
             </p>
           </motion.div>
           

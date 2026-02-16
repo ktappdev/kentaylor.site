@@ -1,73 +1,120 @@
 ---
-title: "Building a 3D Portfolio with Three.js and React"
-excerpt: "A deep dive into creating immersive 3D experiences on the web using Three.js, React Three Fiber, and modern animation libraries."
-date: 2026-01-15
-tags: ["threejs", "react", "webgl", "tutorial"]
-image: "/images/blog/3d-portfolio.jpg"
+title: "Where Code Meets Beats: My Journey as a Developer-Music Producer"
+excerpt: "For over a decade, I've balanced software development with music production. Here's how these two worlds inform and inspire each other."
+date: 2026-02-01
+tags: ["music", "production", "creativity", "career"]
+image: "/images/blog/music-tech.jpg"
 ---
 
-# Building a 3D Portfolio with Three.js and React
+# Where Code Meets Beats: My Journey as a Developer-Music Producer
 
-Creating immersive 3D experiences on the web has never been more accessible. With the combination of Three.js and React Three Fiber, we can build stunning visual experiences that run smoothly in the browser.
+"His everything is music." That's what the Guyana Chronicle wrote about me in 2014. A decade later, I'd add: "And code." But really, they're the same thing—structured creativity.
 
-## Why 3D?
+## The Double Life
 
-Traditional 2D portfolios are great, but 3D adds an extra dimension of engagement. Users can interact with your content in ways that flat designs simply can't match.
+By day, I'm building backends in Go, architecting cloud solutions, running Lugetech. By night—or whenever inspiration hits—I'm in Brutal Tracks Recording Studio, producing beats, mixing tracks, engineering for local artists.
 
-## Getting Started
+Some see this as two separate careers. I see it as one continuous creative practice.
 
-First, install the necessary dependencies:
+## What Music Taught Me About Code
 
-```
-npm install three @react-three/fiber @react-three/drei
-```
+### Iteration is Everything
 
-## Creating Your First Scene
+A beat starts as an idea. You lay down drums, add melody, adjust levels. 50 versions later, you have something worth releasing.
 
-The basic setup involves wrapping your 3D content in a Canvas component:
-
-```jsx
-import {"{ Canvas }"} from '@react-three/fiber'
-
-function App() {
-  return (
-    <Canvas>
-      <mesh>
-        <boxGeometry args={"{[1, 1, 1]}"} />
-        <meshStandardMaterial color="orange" />
-      </mesh>
-    </Canvas>
-  )
-}
+```typescript
+// Same process in code
+const beat = initialIdea();
+const better = iterate(beat);
+const shipped = polish(better);
 ```
 
-## Adding Interactivity
+Code works the same way. First draft, refactor, optimize, ship. The patience I learned in the studio made me a better developer.
 
-One of the most powerful aspects of React Three Fiber is how easy it makes adding interactivity:
+### Listen Before You Build
 
-```jsx
-function InteractiveBox() {
-  const [hovered, setHovered] = useState(false)
-  
-  return (
-    <mesh
-      onPointerOver={"{() => setHovered(true)}"}
-      onPointerOut={"{() => setHovered(false)}"}
-    >
-      <boxGeometry args={"{[1, 1, 1]}"} />
-      <meshStandardMaterial color={"{hovered ? 'hotpink' : 'orange'}"} />
-    </mesh>
-  )
-}
+In mixing, you don't just slap effects on everything. You listen. What does this track need? What's the problem I'm solving?
+
+The same applies to software. Before writing code, I ask: What's the actual problem? Who's using this? What do they need?
+
+### Constraints Breed Creativity
+
+My studio setup isn't the most expensive in the world. I work with what I have. That constraint forces creativity—you find ways to make things sound great within limitations.
+
+In tech, we face constraints: budget, time, infrastructure. Guyana's internet connectivity isn't Silicon Valley's. Building for that context makes you innovative.
+
+## What Code Taught Me About Music
+
+### Systems Thinking
+
+Software architecture taught me to think in systems. A song isn't just individual tracks—it's how they interact, layer, create something greater.
+
+### Automation
+
+I built tools to automate radio workflows at Maad 97.5 FM. That same thinking applies in the studio—streamlining processes, creating templates, letting technology handle repetition so creativity can flow.
+
+### Documentation
+
+Documenting code made me better at organizing sessions. Proper file naming, clear project structures, notes on what each track contains. Future you will thank present you.
+
+## The Projects That Bridge Both Worlds
+
+### Maad Radio Platform
+
+Built the tech infrastructure for a radio station while contributing to its audio production. The website streams live video and audio, the backend handles scheduling—all informed by understanding what radio actually needs.
+
+### Bad Words Thing
+
+An AI-powered lyrics scanner that flags explicit content before airplay. Pure tech solution for a music industry problem. My dual perspective made this possible.
+
+### KendaBeatMaker YouTube
+
+6.65K subscribers watching beats, remixes, tutorials. The channel combines production skills with an understanding of digital platforms—how to title, tag, and present content online.
+
+## A Day in the Life
+
+There's no typical day, but here's a rough sketch:
+
+```
+6:00 AM  - Check server logs, handle any overnight issues
+8:00 AM  - Lugetech standup, project planning
+10:00 AM - Deep work on ReviewIt.gy features
+1:00 PM  - Client calls, business development
+3:00 PM  - Code review, team collaboration
+6:00 PM  - Studio time - beats, mixing, sessions
+9:00 PM  - Personal projects (hitman, cicd-thing, etc.)
+11:00 PM - Maybe more music, maybe rest
 ```
 
-## Performance Tips
+The balance shifts. During product launches, code dominates. During album productions, music takes over. The key is flexibility.
 
-1. Use `React.memo` for complex components
-2. Implement LOD (Level of Detail) for complex models
-3. Use instancing for repeated geometries
-4. Consider using `useFrame` sparingly
+## For Those Walking Two Paths
 
-## Conclusion
+If you're passionate about multiple things:
 
-3D portfolios are a powerful way to stand out in the developer community. With the right tools and techniques, you can create memorable experiences that showcase both your technical skills and creative vision.
+1. **Don't choose—integrate** - Your diverse skills are a feature, not a bug.
+2. **Find your rhythms** - Seasons of focus are natural.
+3. **Let each inform the other** - The best developers I know have outside passions.
+4. **Build things that combine them** - Your unique perspective is your competitive advantage.
+
+## The Guyanese Context
+
+Building tech and making music in Guyana comes with unique challenges and opportunities:
+
+- Limited infrastructure forces innovation
+- Small market means tight community
+- Growing scene means room to shape the future
+
+We're not just participating in global tech and music—we're bringing a distinctly Guyanese voice to both.
+
+## What's Next
+
+More code. More beats. More building.
+
+The studio keeps evolving. Lugetech keeps growing. ReviewIt.gy keeps connecting people.
+
+And I keep finding new ways to make code and music talk to each other.
+
+*"His everything is music."* Yes. And code. And community. And Guyana.
+
+That's everything.

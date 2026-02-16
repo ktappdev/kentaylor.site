@@ -54,9 +54,6 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
   
   const getGridSpan = () => {
     if (project.featured) {
-      return 'md:col-span-2 md:row-span-2';
-    }
-    if (index % 3 === 0) {
       return 'md:col-span-2';
     }
     return '';
@@ -93,7 +90,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
           </div>
         )}
         
-        <div className={`relative ${project.featured ? 'aspect-video' : 'aspect-[4/3]'}`}>
+        <div className="relative aspect-[4/3]">
           <img
             src={project.image}
             alt={project.title}
