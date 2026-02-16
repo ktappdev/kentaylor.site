@@ -7,10 +7,11 @@ interface Props {
 }
 
 const { 
-  title = 'Ken Taylor | Developer • Music Producer • Entrepreneur', 
-  description = 'Founder of Lugetech & ReviewIt.gy. Self-taught software engineer, music producer, and entrepreneur from Guyana building tech and creative solutions.'
+  title = 'Ken Taylor | Guyanese Developer • Music Producer • Entrepreneur', 
+  description = 'Co-founder of Lugetech & creator of ReviewIt.gy. Self-taught Guyanese software engineer, music producer, and entrepreneur from Georgetown, Guyana building tech and creative solutions for the Caribbean.'
 } = Astro.props;
 
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const siteUrl = 'https://kentaylor.site';
 ---
 
@@ -22,7 +23,16 @@ const siteUrl = 'https://kentaylor.site';
     <meta name="description" content={description} />
     <meta name="author" content="Ken Taylor" />
     
-    <link rel="canonical" href={siteUrl} />
+    <!-- Geo tags for Guyana -->
+    <meta name="geo.region" content="GY" />
+    <meta name="geo.placename" content="Georgetown, Guyana" />
+    <meta name="geo.position" content="6.8013;-58.1551" />
+    <meta name="ICBM" content="6.8013, -58.1551" />
+    
+    <!-- Keywords focused on Guyana -->
+    <meta name="keywords" content="Ken Taylor, Guyanese developer, Guyana software engineer, Georgetown Guyana, Caribbean tech, Lugetech, ReviewIt.gy, Guyanese entrepreneur, Guyana music producer, Guyanese coder" />
+    
+    <link rel="canonical" href={canonicalURL} />
     
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -32,15 +42,23 @@ const siteUrl = 'https://kentaylor.site';
     <meta name="theme-color" content="#0a0a0a" />
     
     <meta property="og:type" content="website" />
-    <meta property="og:url" content={siteUrl} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:site_name" content="Ken Taylor" />
+    <meta property="og:locale" content="en_GY" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content={`${siteUrl}/og-image.png`} />
+    <meta property="og:image" content={`${siteUrl}/og-image.svg`} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
     
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:url" content={siteUrl} />
+    <meta name="twitter:site" content="@kentaylor" />
+    <meta name="twitter:url" content={canonicalURL} />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={`${siteUrl}/og-image.svg`} />
+    
+    <slot name="head" />
     
     <title>{title}</title>
   </head>

@@ -25,9 +25,25 @@ const formatDate = (date: Date) => {
     day: 'numeric',
   }).format(date);
 };
+
+const pageTitle = `${post.data.title} | Ken Taylor - Guyanese Developer & Music Producer`;
+const pageDescription = `${post.data.excerpt} Written by Ken Taylor, co-founder of Lugetech from Georgetown, Guyana.`;
+const pageImage = post.data.image || '/og-image.svg';
 ---
 
-<Layout title={`${post.data.title} | Ken Taylor`} description={post.data.excerpt}>
+<Layout title={pageTitle} description={pageDescription}>
+  <Fragment slot="head">
+    <meta property="og:type" content="article" />
+    <meta property="article:published_time" content={post.data.date.toISOString()} />
+    <meta property="article:author" content="Ken Taylor" />
+    {post.data.tags.map((tag: string) => (
+      <meta property="article:tag" content={tag} />
+    ))}
+    <meta property="og:image" content={`${Astro.site}${pageImage}`} />
+    <meta name="twitter:image" content={`${Astro.site}${pageImage}`} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="keywords" content={`${post.data.tags.join(', ')}, Guyana, Guyanese, Georgetown, Caribbean, tech, developer`} />
+  </Fragment>
   <style>
     .blog-content {
       line-height: 1.8;
