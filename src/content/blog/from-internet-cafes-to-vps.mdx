@@ -1,0 +1,85 @@
+---
+title: "From Internet Cafes to VPS Servers: How I Became a Programmer in Guyana"
+excerpt: "A journey from bash scripts on borrowed computers to building Luge Tech and self-hosting everything. The story of learning to code in Guyana's internet cafe era."
+date: 2026-02-17
+tags:
+  [
+    "programming",
+    "guyana",
+    "personal",
+    "journey",
+    "self-hosting",
+    "typescript",
+    "go",
+    "rust",
+  ]
+image: "/images/blog/internet-cafes-vps.jpg"
+---
+
+# From Internet Cafes to VPS Servers: How I Became a Programmer in Guyana
+
+## It Didn't Start With a Computer
+
+Everybody says "it all started when I was young." Well, kind of, but I wasn't _that_ young. I was about 14 or 15 when I first touched code. Wish it was earlier, but that's how it was.
+
+I didn't even own a computer. I used to go on my uncle's machine from time to time, and somewhere along the line I learned: _oh, you can make stuff do things._ I started with bash programming. Put something on screen with `echo`, and I was hooked.
+
+Back then in Guyana, internet cafes were everywhere because computers weren't in every home like today. I'd go to the cafe, read up on different programming languages, and try to get the same computer every time. I installed a C++ compiler on their machine (sorry to whoever ran that place), printed out syntax guides and function references at the front desk, and took those papers home.
+
+I literally tried to build projects in my head because I had no computer to test on. Papers full of C++ code lived under my bed, just stacks of them. When I finally got my first laptop, a big chunky thing I bought from somebody, all I wanted to do was watch _Family Guy_ and code.
+
+## Visual Basic and the Hacking Phase
+
+Visual Basic became my thing, probably because of that Microsoft IDE where you drag and drop buttons. Instant feedback. Way easier than C++. I made little programs that did simple stuff.
+
+Then I got into the hacking scene. I even thought I invented my own type of virus (I know, I know. Nothing to boast about, but this is part of the story). Here's how it worked: the program would find executables like Yahoo Messenger, copy the binary, write my payload first, then append the original Yahoo code after it. Same filename, same everything. Windows would run my code first, which would then launch the real Yahoo from a temp file while my payload stayed resident. It worked. It could spread. I messed around with Sub7 too, back when half those tools had backdoors in them anyway.
+
+I was part of that scene. Let's move on.
+
+## The Music Years (and a Brief Return)
+
+I put down coding for a while to do music. Years went by without touching code. But there was this one time. Can't give too many details, but a guy came to me needing a certain tool for a certain thing. It wasn't legal. I took a week to update myself on what had changed, wrote the program, and it worked perfectly. He paid me 10,000 Guyana dollars. I'll leave the rest of that story untold.
+
+## GitHub, Chatbots, and Meeting Clint
+
+Slowly, I drifted back into programming. I had this old GitHub account and a project idea: a streaming radio app for the station where I worked. Never finished it, never put it in the store, but I had a working demo.
+
+That led to a chatbot project. Started simple. 300 predetermined responses based on what you said. Very deterministic. Then I made it smarter: it would take what the user said, search Twitter for related topics, and reply using actual tweet replies from those threads. I'd chat with it and have no idea what it would say next because it was pulling live data. Sound familiar? This was pre-LLM, pre-Grok, pre-all-of-this. Just me pulling from the internet to make conversations dynamic.
+
+Around this time, I noticed my gaming buddy Clint Eastman was doing computer science. I knew him, we gamed together for hours per day but I didn't know he was learning to code until I saw him working on something. We been linking up around coding since that day. He'd share what he learned at school, and I'd share what I learned from years of just figuring things out. I never had that formal background, so I was absorbing how "they do things at school." He learned from me too.
+
+We built common respect for each other and worked well together so we Eventually started **LugeTech**, a company focused on advancing tech and programming in Guyana with a Guyanese focus. We're a developing country with gaps everywhere, and we saw opportunity in filling them. Andre Blair joined later from the UK. He handles the business side, the talking. Clint and I just wanted to code back then. (Clint's at AWS now, way better with customers and integration than either of us were.)
+
+## The TypeScript Pivot
+
+One day Clint came to me, he had this internship using JavaScript and TypeScript. At the time, I was deep into C# and Blazor. TypeScript sounded terrifying. "Types? Jesus, that sounds hard." We didn't even know how to start a project. `npm init`? Never heard of it.
+
+That same night, I sat down and learned as much as I could. By morning, I realized: _oh, this is nice._ I dropped C# for web development immediately and never looked back. JavaScript and TypeScript became my world.
+
+I didn't learn it traditionally... no going through all the basics systematically. I learned by using it. Already knew C, C++, C#, so JavaScript came naturally. The functional stuff like `map` and `filter` took some learning, but once you know the fundamentals, you can run with it.
+
+Vue clicked for me before React did. Looked at both, couldn't get React, got Vue immediately. Later on, React made sense because "oh, it's like Vue but slightly different." I became a React/Next.js developer for years. These days I use Next.js, Astro, Svelte, Solid, whatever fits. This very site runs on Astro with React islands.
+
+## Backend Evolution: From Express to Go
+
+I started backend work with Express, but it got old and unmaintained. Tried C#. Entity Framework is beautiful, truly, but wanted something else. Stumbled on Go one day. _Easy as hell._ I already knew it without learning it, you know? Still use Go for most backend work today.
+
+## The Rust Journey (Third Time's the Charm?)
+
+My current learning target is Rust. This is my third attempt. First two times? Frustrated. Third time, I'm understanding more, but here's the thing. I don't really _need_ Rust yet. Go handles my backend fine. So I'm using Rust for desktop apps instead. Close-to-metal performance, small binaries, excellent cross-platform support. Tauri with Rust has been working great.
+
+I'm letting AI do a lot of the Rust lifting, but staying in the loop. Reading the Rust Book cover-to-cover while AI helps me move forward on actual projects. Hybrid approach. I want to get really good at Rust—it feels like the future.
+
+## Why I Self-Host Everything
+
+I love hosting my own servers, databases, routing, everything. Why? Cheaper. I can offer things for free, which matters when you're in Guyana and reliable online payment systems are still a work in progress. One VPS, do a bunch of stuff on it. I know Linux well enough to manage my own systems, and I genuinely enjoy understanding how things work under the hood.
+
+This site? Hosted on Vercel because it's simple, just displaying stuff, no real backend logic. But anything with logic, backends, satellites, monolith or not, I prefer my own infrastructure. I like being in control. I like seeing things work because _I_ made them work.
+
+## Where I'm At
+
+Still learning Rust. Still building with Go and JavaScript meta-frameworks. Still self-hosting. Still figuring things out the same way I did when I was printing code at internet cafes, just with better tools and my own computer this time.
+
+---
+
+_Written from Guyana, South America, where the internet cafes are mostly gone but the curiosity remains._
