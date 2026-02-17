@@ -146,6 +146,16 @@ const pageImage = post.data.image || '/og-image.svg';
         </div>
       </header>
       
+      {post.data.image && (
+        <div class="mb-12 -mx-6 md:-mx-12">
+          <img 
+            src={post.data.image} 
+            alt={post.data.title}
+            class="w-full h-auto rounded-lg shadow-lg"
+          />
+        </div>
+      )}
+      
       <div class="blog-content prose prose-invert max-w-none">
         <Content />
       </div>
