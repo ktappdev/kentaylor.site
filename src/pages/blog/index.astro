@@ -3,11 +3,14 @@ import Layout from '../../layouts/Layout.astro';
 import Navigation from '../../components/UI/Navigation';
 import Footer from '../../components/UI/Footer';
 import BlogCard from '../../components/Blog/BlogCard';
+import NewsletterEmbed from '../../components/Blog/NewsletterEmbed';
 import { getCollection } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
 
 const blogPosts = await getCollection('blog');
 const sortedPosts = blogPosts.sort((a: CollectionEntry<'blog'>, b: CollectionEntry<'blog'>) => b.data.date.valueOf() - a.data.date.valueOf());
+
+const BEEHIIV_EMBED_CODE = `<script async src="https://subscribe-forms.beehiiv.com/embed.js"></script><iframe src="https://subscribe-forms.beehiiv.com/89cd1477-b789-4179-a28d-bf2dc93d7028" class="beehiiv-embed" data-test-id="beehiiv-embed" frameborder="0" scrolling="no" style="width: 100%; height: 315px; margin: 0; border-radius: 0px; background-color: transparent; max-width: 100%;"></iframe>`;
 ---
 
 <Layout title="Blog | Ken Taylor - Guyanese Developer & Music Producer" description="Articles and insights on tech, music production, and entrepreneurship from Ken Taylor, co-founder of Lugetech based in Georgetown, Guyana.">
@@ -27,6 +30,10 @@ const sortedPosts = blogPosts.sort((a: CollectionEntry<'blog'>, b: CollectionEnt
           <BlogCard post={post} index={index} client:visible />
         ))}
       </div>
+
+      <section class="mt-20 pt-12 border-t border-border">
+        <NewsletterEmbed embedCode={BEEHIIV_EMBED_CODE} client:visible />
+      </section>
     </div>
   </main>
   
