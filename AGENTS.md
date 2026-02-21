@@ -1,4 +1,4 @@
-# Agent Guidelines for kentaylor.site
+# Agent Guidelines for kentaylor.dev
 
 ## Tailwind CSS v4 - Important Differences
 

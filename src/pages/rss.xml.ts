@@ -9,7 +9,7 @@ export async function GET(context: APIContext) {
   return rss({
     title: 'Ken Taylor - Blog',
     description: 'Thoughts, tutorials, and insights on tech, music production, and entrepreneurship from a Guyanese developer.',
-    site: context.site ?? 'https://kentaylor.site',
+    site: context.site ?? 'https://kentaylor.dev',
     items: sortedPosts.map((post) => ({
       title: post.data.title,
       pubDate: post.data.date,

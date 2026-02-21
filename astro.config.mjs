@@ -10,7 +10,7 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://kentaylor.site',
+  site: 'https://kentaylor.dev',
   integrations: [react(), mdx(), sitemap()],
 
   vite: {

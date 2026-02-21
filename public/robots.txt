@@ -28,4 +28,4 @@ User-agent: Amazonbot
 Allow: /
 
 # Sitemap
-Sitemap: https://kentaylor.site/sitemap-index.xml
+Sitemap: https://kentaylor.dev/sitemap-index.xml
