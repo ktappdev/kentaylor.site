@@ -3,13 +3,29 @@ import Layout from '../../layouts/Layout.astro';
 import Navigation from '../../components/UI/Navigation';
 import Footer from '../../components/UI/Footer';
 import NewsletterEmbed from '../../components/Blog/NewsletterEmbed';
+import Breadcrumbs from '../../components/Blog/Breadcrumbs.astro';
+import AuthorCard from '../../components/Blog/AuthorCard.astro';
+import PostPager from '../../components/Blog/PostPager.astro';
 import type { InferGetStaticPropsType, GetStaticPaths } from 'astro';
-import { getCollection } from 'astro:content';
+import {
+  getPostCoverImage,
+  getPostImageAlt,
+  getPostReadingTimeLabel,
+  getPostSeoDescription,
+  getPostSeoTitle,
+  getPostUpdatedDate,
+  getPostUrl,
+  getPublishedBlogPosts,
+} from '../../lib/blog';
+import {
+  buildBlogPostingSchemas,
+  buildBreadcrumbSchema,
+} from '../../lib/structured-data';
 
 const BEEHIIV_EMBED_CODE = `<script async src="https://subscribe-forms.beehiiv.com/embed.js"></script><iframe src="https://subscribe-forms.beehiiv.com/89cd1477-b789-4179-a28d-bf2dc93d7028" class="beehiiv-embed" data-test-id="beehiiv-embed" frameborder="0" scrolling="no" style="width: 100%; height: 315px; margin: 0; border-radius: 0px; background-color: transparent; max-width: 100%;"></iframe>`;
 
 export const getStaticPaths = (async () => {
-  const blogPosts = await getCollection('blog');
+  const blogPosts = await getPublishedBlogPosts();
   return blogPosts.map((post) => ({
     params: { slug: post.slug },
     props: { post },
@@ -20,6 +36,13 @@ type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 
 const { post } = Astro.props as Props;
 const { Content } = await post.render();
+const allPosts = await getPublishedBlogPosts();
+const currentIndex = allPosts.findIndex((entry) => entry.slug === post.slug);
+const newerPost = currentIndex > 0 ? allPosts[currentIndex - 1] : null;
+const olderPost =
+  currentIndex >= 0 && currentIndex < allPosts.length - 1
+    ? allPosts[currentIndex + 1]
+    : null;
 
 const formatDate = (date: Date) => {
   return new Intl.DateTimeFormat('en-US', {
@@ -29,24 +52,51 @@ const formatDate = (date: Date) => {
   }).format(date);
 };
 
-const pageTitle = `${post.data.title} | Ken Taylor - Guyanese Developer & Music Producer`;
-const pageDescription = `${post.data.excerpt} Written by Ken Taylor, co-founder of Lugetech from Georgetown, Guyana.`;
-const pageImage = post.data.image || '/og-image.svg';
+const pageTitle = getPostSeoTitle(post);
+const pageDescription = getPostSeoDescription(post);
+const pageImage = getPostCoverImage(post);
+const pageImageAlt = getPostImageAlt(post);
+const pageKeywords = [
+  ...post.data.tags,
+  'Ken Taylor',
+  'Guyanese developer',
+  'Guyana tech',
+];
+const readingTimeLabel = getPostReadingTimeLabel(post);
+const publishedTime = post.data.date.toISOString();
+const modifiedTime = getPostUpdatedDate(post).toISOString();
+const jsonLd = [
+  ...buildBlogPostingSchemas(post),
+  buildBreadcrumbSchema([
+    { name: 'Home', path: '/' },
+    { name: 'Blog', path: '/blog/' },
+    { name: post.data.title, path: getPostUrl(post) },
+  ]),
+];
 ---
 
-<Layout title={pageTitle} description={pageDescription}>
-  <Fragment slot="head">
-    <meta property="og:type" content="article" />
-    <meta property="article:published_time" content={post.data.date.toISOString()} />
-    <meta property="article:author" content="Ken Taylor" />
-    {post.data.tags.map((tag: string) => (
-      <meta property="article:tag" content={tag} />
-    ))}
-    <meta property="og:image" content={`${Astro.site}${pageImage}`} />
-    <meta name="twitter:image" content={`${Astro.site}${pageImage}`} />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="keywords" content={`${post.data.tags.join(', ')}, Guyana, Guyanese, Georgetown, Caribbean, tech, developer`} />
-  </Fragment>
+<Layout
+  title={pageTitle}
+  description={pageDescription}
+  canonical={getPostUrl(post)}
+  type="article"
+  image={{
+    src: pageImage,
+    alt: pageImageAlt,
+    width: 1200,
+    height: 630,
+    type: pageImage.endsWith('.jpg') || pageImage.endsWith('.jpeg')
+      ? 'image/jpeg'
+      : pageImage.endsWith('.png')
+        ? 'image/png'
+        : undefined,
+  }}
+  keywords={pageKeywords}
+  publishedTime={publishedTime}
+  modifiedTime={modifiedTime}
+  articleTags={post.data.tags}
+  jsonLd={jsonLd}
+>
   <style>
     .blog-content {
       line-height: 1.8;
@@ -123,13 +173,20 @@ const pageImage = post.data.image || '/og-image.svg';
   
   <article class="pt-24 pb-16 min-h-screen">
     <div class="max-w-3xl mx-auto px-6">
+      <Breadcrumbs
+        items={[
+          { label: 'Home', href: '/' },
+          { label: 'Blog', href: '/blog/' },
+          { label: post.data.title },
+        ]}
+      />
       <header class="mb-12">
         <div class="flex items-center gap-3 mb-4 text-sm text-muted font-mono">
-          <time datetime={post.data.date.toString()}>
+          <time datetime={publishedTime}>
             {formatDate(post.data.date)}
           </time>
           <span>•</span>
-          <span>5 min read</span>
+          <span>{readingTimeLabel}</span>
         </div>
         
         <h1 class="text-4xl md:text-5xl font-bold mb-4">
@@ -149,12 +206,16 @@ const pageImage = post.data.image || '/og-image.svg';
         </div>
       </header>
       
-      {post.data.image && (
+      {pageImage && (
         <div class="mb-12 -mx-6 md:-mx-12">
           <img 
-            src={post.data.image} 
-            alt={post.data.title}
+            src={pageImage} 
+            alt={pageImageAlt}
             class="w-full h-auto rounded-lg shadow-lg"
+            width="1200"
+            height="630"
+            loading="eager"
+            decoding="async"
           />
         </div>
       )}
@@ -162,6 +223,10 @@ const pageImage = post.data.image || '/og-image.svg';
       <div class="blog-content prose prose-invert max-w-none">
         <Content />
       </div>
+
+      <AuthorCard />
+
+      <PostPager newerPost={newerPost} olderPost={olderPost} />
       
       <section class="mt-16 pt-8 border-t border-border">
         <NewsletterEmbed embedCode={BEEHIIV_EMBED_CODE} client:visible />
@@ -169,7 +234,7 @@ const pageImage = post.data.image || '/og-image.svg';
       
       <footer class="mt-12 pt-8 border-t border-border">
         <a
-          href="/blog"
+          href="/blog/"
           class="inline-flex items-center gap-2 text-muted hover:text-accent transition-colors font-mono"
         >
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

@@ -2,8 +2,9 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const navLinks = [
-  { href: '#projects', label: 'Projects' },
-  { href: '#blog', label: 'Blog' },
+  { href: '/about/', label: 'About' },
+  { href: '/#projects', label: 'Projects' },
+  { href: '/blog/', label: 'Blog' },
   { href: 'https://github.com/ktappdev', label: 'GitHub', external: true },
 ];
 

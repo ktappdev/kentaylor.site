@@ -1,19 +1,45 @@
 ---
+import Analytics from '@vercel/analytics/astro';
+import SeoHead from '../components/SEO/SeoHead.astro';
 import '../styles/global.css';
+import type { JsonLd } from '../lib/structured-data';
+import { SITE } from '../lib/site';
 
 interface Props {
   title?: string;
   description?: string;
+  canonical?: string;
+  image?: {
+    src: string;
+    alt?: string;
+    width?: number;
+    height?: number;
+    type?: string;
+  };
+  keywords?: string[];
+  robots?: string;
+  type?: 'website' | 'article';
+  publishedTime?: string;
+  modifiedTime?: string;
+  articleTags?: string[];
+  authorUrl?: string;
+  jsonLd?: JsonLd | JsonLd[];
 }
 
-const { 
-  title = 'Ken Taylor | Guyanese Developer • Music Producer • Entrepreneur', 
-  description = 'Co-founder of Lugetech & creator of ReviewIt.gy. Self-taught Guyanese software engineer, music producer, and entrepreneur from Georgetown, Guyana building tech and creative solutions for the Caribbean.'
+const {
+  title = SITE.defaultTitle,
+  description = SITE.defaultDescription,
+  canonical,
+  image,
+  keywords = [],
+  robots,
+  type = 'website',
+  publishedTime,
+  modifiedTime,
+  articleTags = [],
+  authorUrl = SITE.aboutPath,
+  jsonLd,
 } = Astro.props;
-
-const canonicalURL = new URL(Astro.url.pathname, Astro.site);
-const siteUrl = 'https://kentaylor.dev';
-import Analytics from '@vercel/analytics/astro';
 ---
 
 <!doctype html>
@@ -21,8 +47,20 @@ import Analytics from '@vercel/analytics/astro';
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content={description} />
-    <meta name="author" content="Ken Taylor" />
+    <SeoHead
+      title={title}
+      description={description}
+      canonical={canonical}
+      image={image}
+      keywords={keywords}
+      robots={robots}
+      type={type}
+      publishedTime={publishedTime}
+      modifiedTime={modifiedTime}
+      articleTags={articleTags}
+      authorUrl={authorUrl}
+      jsonLd={jsonLd}
+    />
     
     <!-- Geo tags for Guyana -->
     <meta name="geo.region" content="GY" />
@@ -30,34 +68,11 @@ import Analytics from '@vercel/analytics/astro';
     <meta name="geo.position" content="6.8013;-58.1551" />
     <meta name="ICBM" content="6.8013, -58.1551" />
     
-    <!-- Keywords focused on Guyana -->
-    <meta name="keywords" content="Ken Taylor, Guyanese developer, Guyana software engineer, Georgetown Guyana, Caribbean tech, Lugetech, ReviewIt.gy, Guyanese entrepreneur, Guyana music producer, Guyanese coder" />
-    
-    <link rel="canonical" href={canonicalURL} />
-    
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
     
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="theme-color" content="#0a0a0a" />
-    
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content={canonicalURL} />
-    <meta property="og:site_name" content="Ken Taylor" />
-    <meta property="og:locale" content="en_GY" />
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
-    <meta property="og:image" content={`${siteUrl}/og-image.svg`} />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@kentaylor" />
-    <meta name="twitter:url" content={canonicalURL} />
-    <meta name="twitter:title" content={title} />
-    <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={`${siteUrl}/og-image.svg`} />
     
     <slot name="head" />
     

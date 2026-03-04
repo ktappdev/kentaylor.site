@@ -4,11 +4,14 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
   
   const links = [
-    { href: 'https://github.com/ktappdev', label: 'GitHub' },
-    { href: 'https://x.com/ktappdev', label: 'X/Twitter' },
-    { href: 'https://gy.linkedin.com/in/ken-taylor-16006280', label: 'LinkedIn' },
-    { href: 'https://www.youtube.com/@KendaBeatMaker', label: 'YouTube' },
-    { href: 'mailto:kentaylorappdev@gmail.com', label: 'Email' },
+    { href: '/about/', label: 'About', external: false },
+    { href: '/blog/', label: 'Blog', external: false },
+    { href: '/rss.xml', label: 'RSS', external: false },
+    { href: 'https://github.com/ktappdev', label: 'GitHub', external: true },
+    { href: 'https://x.com/ktappdev', label: 'X/Twitter', external: true },
+    { href: 'https://gy.linkedin.com/in/ken-taylor-16006280', label: 'LinkedIn', external: true },
+    { href: 'https://www.youtube.com/@KendaBeatMaker', label: 'YouTube', external: true },
+    { href: 'mailto:kentaylorappdev@gmail.com', label: 'Email', external: false },
   ];
   
   return (
@@ -39,8 +42,8 @@ export default function Footer() {
               <a
                 key={link.href}
                 href={link.href}
-                target="_blank"
-                rel="noopener noreferrer"
+                target={link.external ? '_blank' : undefined}
+                rel={link.external ? 'noopener noreferrer' : undefined}
                 className="text-muted hover:text-accent transition-colors text-sm font-mono"
               >
                 {link.label}

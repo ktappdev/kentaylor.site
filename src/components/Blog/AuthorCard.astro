@@ -1,0 +1,47 @@
+---
+import { SITE } from "../../lib/site";
+
+const socialLinks = [
+  { href: "https://github.com/ktappdev", label: "GitHub" },
+  { href: "https://x.com/ktappdev", label: "X" },
+  {
+    href: "https://gy.linkedin.com/in/ken-taylor-16006280",
+    label: "LinkedIn",
+  },
+];
+---
+
+<section class="mt-16 rounded-2xl border border-border bg-surface/70 p-6 md:p-8">
+  <p class="font-mono text-sm uppercase tracking-[0.2em] text-accent">
+    About The Author
+  </p>
+  <h2 class="mt-3 text-2xl font-bold">Ken Taylor</h2>
+  <p class="mt-4 max-w-2xl text-muted">
+    {SITE.author.longBio}
+  </p>
+
+  <div class="mt-6 flex flex-wrap gap-3">
+    <a
+      href={SITE.aboutPath}
+      class="inline-flex items-center gap-2 rounded-full border border-accent px-4 py-2 font-mono text-sm text-accent transition-colors hover:bg-accent hover:text-bg"
+    >
+      Full Profile
+    </a>
+    <a
+      href={SITE.rssPath}
+      class="inline-flex items-center gap-2 rounded-full border border-border px-4 py-2 font-mono text-sm text-muted transition-colors hover:text-text"
+    >
+      RSS Feed
+    </a>
+    {socialLinks.map((link) => (
+      <a
+        href={link.href}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-2 rounded-full border border-border px-4 py-2 font-mono text-sm text-muted transition-colors hover:text-text"
+      >
+        {link.label}
+      </a>
+    ))}
+  </div>
+</section>

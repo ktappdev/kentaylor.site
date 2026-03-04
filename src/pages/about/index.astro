@@ -1,0 +1,147 @@
+---
+import Breadcrumbs from "../../components/Blog/Breadcrumbs.astro";
+import Footer from "../../components/UI/Footer";
+import Navigation from "../../components/UI/Navigation";
+import Layout from "../../layouts/Layout.astro";
+import { getPublishedBlogPosts, getPostUrl } from "../../lib/blog";
+import {
+  buildBreadcrumbSchema,
+  buildProfilePageSchemas,
+} from "../../lib/structured-data";
+import { SITE } from "../../lib/site";
+
+const recentPosts = (await getPublishedBlogPosts()).slice(0, 3);
+const pageTitle =
+  "About Ken Taylor | Guyanese Developer, Music Producer, Entrepreneur";
+const pageDescription =
+  "Learn more about Ken Taylor, a self-taught software engineer, music producer, and entrepreneur from Georgetown, Guyana.";
+const jsonLd = [
+  ...buildProfilePageSchemas(recentPosts),
+  buildBreadcrumbSchema([
+    { name: "Home", path: "/" },
+    { name: "About", path: SITE.aboutPath },
+  ]),
+];
+
+const socialLinks = [
+  { href: "https://github.com/ktappdev", label: "GitHub" },
+  { href: "https://x.com/ktappdev", label: "X / Twitter" },
+  {
+    href: "https://gy.linkedin.com/in/ken-taylor-16006280",
+    label: "LinkedIn",
+  },
+  { href: "https://www.youtube.com/@KendaBeatMaker", label: "YouTube" },
+  { href: "mailto:kentaylorappdev@gmail.com", label: "Email" },
+];
+---
+
+<Layout
+  title={pageTitle}
+  description={pageDescription}
+  canonical={SITE.aboutPath}
+  keywords={[
+    'Ken Taylor',
+    'Guyanese developer',
+    'Georgetown Guyana',
+    'Caribbean software engineer',
+  ]}
+  image={{
+    src: SITE.defaultSocialImage,
+    alt: "Ken Taylor social card",
+    width: 1200,
+    height: 630,
+    type: "image/jpeg",
+  }}
+  jsonLd={jsonLd}
+>
+  <Navigation client:load />
+
+  <main class="min-h-screen pt-24 pb-16">
+    <div class="mx-auto max-w-4xl px-6">
+      <Breadcrumbs
+        items={[
+          { label: "Home", href: "/" },
+          { label: "About" },
+        ]}
+      />
+
+      <header class="mb-12">
+        <p class="font-mono text-sm uppercase tracking-[0.2em] text-accent">
+          About
+        </p>
+        <h1 class="mt-4 text-5xl font-bold md:text-6xl">Ken Taylor</h1>
+        <p class="mt-6 max-w-3xl text-lg text-muted">
+          {SITE.author.longBio}
+        </p>
+      </header>
+
+      <section class="grid gap-6 md:grid-cols-2">
+        <article class="rounded-2xl border border-border bg-surface/70 p-6">
+          <h2 class="text-2xl font-bold">What I Work On</h2>
+          <p class="mt-4 text-muted">
+            I build software across web, backend, and product systems, with a
+            focus on practical tools that solve real problems. My work spans
+            Astro, React, TypeScript, Go, and self-hosted infrastructure.
+          </p>
+        </article>
+
+        <article class="rounded-2xl border border-border bg-surface/70 p-6">
+          <h2 class="text-2xl font-bold">Beyond Code</h2>
+          <p class="mt-4 text-muted">
+            I also produce music and work on creative projects. That mix of
+            engineering and art shapes how I design products, write, and think
+            about building from Guyana for a global audience.
+          </p>
+        </article>
+      </section>
+
+      <section class="mt-10 rounded-2xl border border-border bg-surface/70 p-6">
+        <h2 class="text-2xl font-bold">Find Me</h2>
+        <div class="mt-5 flex flex-wrap gap-3">
+          {socialLinks.map((link) => (
+            <a
+              href={link.href}
+              target={link.href.startsWith("http") ? "_blank" : undefined}
+              rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}
+              class="inline-flex items-center gap-2 rounded-full border border-border px-4 py-2 font-mono text-sm text-muted transition-colors hover:text-text"
+            >
+              {link.label}
+            </a>
+          ))}
+        </div>
+      </section>
+
+      <section class="mt-10 rounded-2xl border border-border bg-surface/70 p-6">
+        <div class="flex items-center justify-between gap-4">
+          <div>
+            <h2 class="text-2xl font-bold">Recent Writing</h2>
+            <p class="mt-2 text-muted">
+              A few recent posts about software, music, entrepreneurship, and
+              building from Guyana.
+            </p>
+          </div>
+          <a
+            href="/blog/"
+            class="font-mono text-sm text-accent transition-colors hover:text-text"
+          >
+            View all posts
+          </a>
+        </div>
+
+        <div class="mt-6 space-y-4">
+          {recentPosts.map((post) => (
+            <a
+              href={getPostUrl(post)}
+              class="block rounded-xl border border-border px-4 py-4 transition-colors hover:border-accent/50"
+            >
+              <h3 class="text-lg font-bold">{post.data.title}</h3>
+              <p class="mt-2 text-sm text-muted">{post.data.excerpt}</p>
+            </a>
+          ))}
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <Footer client:visible />
+</Layout>

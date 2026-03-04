@@ -1,0 +1,19 @@
+---
+import type { JsonLd } from "../../lib/structured-data";
+
+interface Props {
+  data?: JsonLd | JsonLd[] | null;
+}
+
+const { data = null } = Astro.props;
+const items = (Array.isArray(data) ? data : [data]).filter(
+  (item): item is JsonLd => Boolean(item),
+);
+---
+
+{items.map((item) => (
+  <script
+    type="application/ld+json"
+    set:html={JSON.stringify(item).replace(/</g, "\\u003c")}
+  />
+))}

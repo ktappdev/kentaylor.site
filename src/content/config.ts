@@ -6,8 +6,13 @@ const blog = defineCollection({
     title: z.string(),
     excerpt: z.string(),
     date: z.date(),
+    updatedDate: z.date().optional(),
     tags: z.array(z.string()),
     image: z.string().optional(),
+    imageAlt: z.string().optional(),
+    seoTitle: z.string().optional(),
+    seoDescription: z.string().optional(),
+    draft: z.boolean().default(false),
   }),
 });
 

@@ -26,7 +26,7 @@ export default function BlogCard({ post, index }: BlogCardProps) {
       className="group"
     >
       <a
-        href={`/blog/${post.slug}`}
+        href={`/blog/${post.slug}/`}
         className="block p-6 bg-surface border border-border rounded-lg hover:border-accent/50 transition-all duration-300"
       >
         <div className="flex items-center gap-3 mb-4 text-sm text-muted font-mono">

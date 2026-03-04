@@ -53,6 +53,24 @@ Tailwind v4 automatically detects content - no `content: []` array needed.
 - `src/content/blog/*.mdx` - Blog posts
 - `src/layouts/Layout.astro` - Root layout
 
+## Blog Posts and SEO
+- New blog posts automatically get SEO metadata, structured data, sitemap inclusion, RSS inclusion, and social image support when they follow the existing MDX frontmatter format.
+- For new blog posts, follow the format of the existing files in `src/content/blog/*.mdx`.
+- Required blog frontmatter:
+  - `title`
+  - `excerpt`
+  - `date`
+  - `tags`
+- Optional blog frontmatter:
+  - `updatedDate`
+  - `image`
+  - `imageAlt`
+  - `seoTitle`
+  - `seoDescription`
+  - `draft`
+- If `image` is omitted or the referenced file does not exist, the site falls back to an auto-generated OG image for that post.
+- No extra manual SEO step is required for each new blog post after adding the file and deploying.
+
 ## Common Mistakes to Avoid
 1. Don't create a `tailwind.config.js` file
 2. Don't use `@import` for Tailwind plugins - use `@plugin`
