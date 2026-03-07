@@ -1,0 +1,128 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+const sshThing = {
+  name: 'SSH THING',
+  publisher: 'Ken Taylor / Lugetech',
+  supportEmail: 'kentaylorappdev@gmail.com',
+  primaryPlatform: 'Windows (Microsoft Store)',
+  alsoAvailableOn: ['macOS 11+ (Tauri bundle)', 'Linux (Tauri bundle)'],
+  socialLinks: {
+    github: 'https://github.com/ktappdev',
+    twitter: 'https://twitter.com/ktappdev'
+  },
+  primaryCta: { text: 'Get SSH THING', link: 'TBD' },
+  secondaryCta: { text: 'View Documentation', link: 'TBD' },
+  oneLiner: 'A friendly Tauri-based desktop SSH client for quick terminal access.',
+  shortDescription: 'A simple desktop SSH client for fast access, saved hosts, and secure storage.',
+  longDescription: 'Tired of juggling SSH connections? SSH THING makes it easy to save host profiles, connect in one click, and run repeatable commands. No fancy backend, no telemetry—just reliable access.',
+  keyFeatures: [
+    'Save host nicknames, port, user, and timeouts',
+    'Quick connect & session switching',
+    'Secure secrets via OS keychain/credential store',
+    'Save & run common command snippets',
+    'Multiple active sessions (with a max limit)',
+    'Terminal search & theme toggle'
+  ],
+  security: [
+    'Local-only server profiles & settings',
+    'Secrets stored via Windows Credential Manager/keychain',
+    'No developer-operated backend',
+    'CDN-loaded assets noted in privacy policy'
+  ],
+  faq: [
+    { q: 'Does SSH THING send my data anywhere?', a: 'No—no backend for syncing or analytics.' },
+    { q: 'Where are my passwords stored?', a: 'OS secure storage (not plain text).' },
+    { q: 'Can I copy from remote sessions?', a: 'Yes, via local-only clipboard support.' },
+    { q: 'Works offline?', a: 'UI opens offline—SSH needs network access.' }
+  ],
+  seo: {
+    title: 'SSH THING | Friendly Desktop SSH Client',
+    metaDescription: 'A simple, secure desktop SSH client for fast access, saved hosts, and repeatable commands.',
+    keywords: 'SSH client, desktop SSH, terminal, remote server, Tauri app',
+    privacyLink: '/landing/sshthing/privacy'
+  },
+  image: { src: '/screen1.jpg', alt: 'SSH THING saved hosts', caption: 'Saved hosts and fast connect' }
+};
+---
+<Layout
+  title={sshThing.seo.title}
+  description={sshThing.seo.metaDescription}
+  keywords={sshThing.seo.keywords.split(', ')}
+  image={{ src: sshThing.image.src, alt: sshThing.image.alt }}
+>
+  <!-- Hero Section (Friendly + Image Support) -->
+  <section class="relative min-h-screen flex flex-col items-center justify-center px-6 bg-[var(--color-bg)] text-white grid-bg">
+    <div class="max-w-6xl mx-auto text-center z-10">
+      <h1 class="text-5xl md:text-6xl font-bold mb-4 font-[var(--font-mono)] glow-text">{sshThing.name}</h1>
+      <p class="text-xl md:text-2xl text-gray-300 mb-4 max-w-3xl mx-auto">Welcome to your simpler SSH solution!</p>
+      <p class="text-lg md:text-xl text-gray-300 mb-8 max-w-3xl mx-auto">{sshThing.oneLiner}</p>
+
+      <!-- Product Image Space -->
+      <div class="max-w-4xl mx-auto mb-8 border-glow p-4 rounded-lg">
+        <img src={sshThing.image.src} alt={sshThing.image.alt} class="mx-auto rounded-lg glow" />
+        <p class="mt-2 text-sm text-gray-400">{sshThing.image.caption}</p>
+      </div>
+
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href={sshThing.primaryCta.link} class="bg-green-500 hover:bg-green-600 text-black font-semibold px-8 py-4 rounded-lg transition-colors">{sshThing.primaryCta.text}</a>
+        <a href={sshThing.secondaryCta.link} class="bg-[var(--color-surface)] hover:bg-gray-800 text-white font-semibold px-8 py-4 rounded-lg transition-colors border border-gray-700">{sshThing.secondaryCta.text}</a>
+      </div>
+      <p class="mt-8 text-sm text-gray-400">Available on: {sshThing.primaryPlatform} • {sshThing.alsoAvailableOn.join(' • ')}</p>
+    </div>
+  </section>
+
+  <!-- Feature Grid (Simplified) -->
+  <section class="py-16 px-6 bg-[var(--color-surface)] text-white">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-3xl font-bold mb-12 text-center font-[var(--font-mono)]">Useful Features</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {sshThing.keyFeatures.map((feature) => (
+          <div class="bg-[var(--color-bg)] p-6 rounded-lg border border-gray-800 hover:border-green-500 transition-colors">
+            <p class="text-lg">{feature}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Security Section (Friendly) -->
+  <section class="py-16 px-6 bg-[var(--color-bg)] text-white">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-3xl font-bold mb-8 font-[var(--font-mono)]">Security You Can Trust</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
+        {sshThing.security.map((item) => (
+          <div class="bg-[var(--color-surface)] p-6 rounded-lg">
+            <p>{item}</p>
+          </div>
+        ))}
+      </div>
+      <a href={sshThing.seo.privacyLink} class="mt-8 inline-block text-green-500 hover:underline">View Full Privacy Policy</a>
+    </div>
+  </section>
+
+  <!-- FAQ Section (Friendly) -->
+  <section class="py-16 px-6 bg-[var(--color-surface)] text-white">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="text-3xl font-bold mb-8 text-center font-[var(--font-mono)]">Quick Questions</h2>
+      <div class="space-y-4">
+        {sshThing.faq.map((item) => (
+          <div class="bg-[var(--color-bg)] p-6 rounded-lg">
+            <h3 class="font-semibold text-lg mb-2">{item.q}</h3>
+            <p class="text-gray-300">{item.a}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-8 px-6 bg-[var(--color-bg)] text-white border-t border-gray-800">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center">
+      <p class="mb-4 md:mb-0">{sshThing.publisher} • Support: <a href="mailto:{sshThing.supportEmail}" class="text-green-500">{sshThing.supportEmail}</a></p>
+      <div class="flex gap-4">
+        <a href={sshThing.socialLinks.github} class="text-gray-400 hover:text-white transition-colors">GitHub</a>
+        <a href={sshThing.socialLinks.twitter} class="text-gray-400 hover:text-white transition-colors">Twitter</a>
+      </div>
+    </div>
+  </footer>
+</Layout>
