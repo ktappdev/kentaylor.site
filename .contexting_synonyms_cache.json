@@ -1,0 +1,433 @@
+{
+  "3d-portfolio.mdx": [
+    "portfolio",
+    "3d",
+    "mdx",
+    "portfolio3d"
+  ],
+  "AGENTS.md": [
+    "agents",
+    "team",
+    "staff",
+    "representatives"
+  ],
+  "About": [
+    "info",
+    "overview",
+    "details",
+    "aboutsection"
+  ],
+  "AboutCard.tsx": [
+    "profilecard",
+    "infocard",
+    "biocard",
+    "aboutcomponent"
+  ],
+  "AuthorCard.astro": [
+    "authorprofile",
+    "writercard",
+    "authorinfo",
+    "authorcomponent"
+  ],
+  "Blog": [
+    "posts",
+    "articles",
+    "blogsection",
+    "blogroot"
+  ],
+  "BlogCard.tsx": [
+    "postcard",
+    "articlecard",
+    "blogitem",
+    "postcomponent"
+  ],
+  "BlogList.tsx": [
+    "postslist",
+    "articlelist",
+    "blogfeed",
+    "postlist"
+  ],
+  "Breadcrumbs.astro": [
+    "breadcrumb",
+    "navigation path",
+    "trail",
+    "breadcrumb component"
+  ],
+  "Footer.tsx": [
+    "page-footer",
+    "bottom-bar",
+    "footer component",
+    "site-footer"
+  ],
+  "Hero": [
+    "hero section",
+    "banner",
+    "hero component",
+    "hero area"
+  ],
+  "HeroScene.tsx": [
+    "hero scene",
+    "hero animation",
+    "hero section",
+    "hero component"
+  ],
+  "HeroTitle.tsx": [
+    "hero title",
+    "hero headline",
+    "hero text",
+    "hero heading"
+  ],
+  "Layout.astro": [
+    "layout",
+    "page layout",
+    "app layout",
+    "wrapper"
+  ],
+  "Navigation.tsx": [
+    "nav bar",
+    "navigation",
+    "menu",
+    "navigation component"
+  ],
+  "NewsletterEmbed.tsx": [
+    "newsletter form",
+    "email signup",
+    "subscribe form",
+    "newsletter embed"
+  ],
+  "PostPager.astro": [
+    "pagination",
+    "post navigation",
+    "page controls",
+    "post paging"
+  ],
+  "ProjectCard.tsx": [
+    "project card",
+    "project preview",
+    "project item",
+    "card component"
+  ],
+  "ProjectGrid.tsx": [
+    "project grid",
+    "project layout",
+    "project gallery",
+    "grid component"
+  ],
+  "Projects": [
+    "project list",
+    "portfolio",
+    "works",
+    "repo folder"
+  ],
+  "README.md": [
+    "readme",
+    "documentation",
+    "instructions",
+    "overview"
+  ],
+  "SEO": [
+    "search engine optimization",
+    "meta tags",
+    "sitemap",
+    "indexing"
+  ],
+  "ScrollIndicator.tsx": [
+    "scroll bar",
+    "progress bar",
+    "scroll progress",
+    "scroll indicator"
+  ],
+  "SeoHead.astro": [
+    "seo meta",
+    "head component",
+    "meta tags",
+    "head template"
+  ],
+  "StructuredData.astro": [
+    "metadata",
+    "structureddata",
+    "schema",
+    "jsonld"
+  ],
+  "UI": [
+    "userinterface",
+    "components",
+    "frontend",
+    "ui"
+  ],
+  "[ratio].png.ts": [
+    "aspectratioimage",
+    "ratioimage",
+    "imageratio",
+    "pngratio"
+  ],
+  "[slug": [
+    "identifier",
+    "slug",
+    "path",
+    "route"
+  ],
+  "[slug].astro": [
+    "pagetemplate",
+    "routecomponent",
+    "slugcomponent",
+    "dynamicpage"
+  ],
+  "[slug].png.ts": [
+    "imagemodule",
+    "slugimage",
+    "dynamicimage",
+    "pngasset"
+  ],
+  "about": [
+    "aboutpage",
+    "aboutus",
+    "info",
+    "companyinfo"
+  ],
+  "astro.config.mjs": [
+    "astroconfig",
+    "config",
+    "astrosetup",
+    "moduleconfig"
+  ],
+  "blog": [
+    "post",
+    "article",
+    "blogging",
+    "blogsection"
+  ],
+  "blog.ts": [
+    "blogscript",
+    "blogcomponent",
+    "bloghandler",
+    "blogservice"
+  ],
+  "components": [
+    "ui",
+    "widgets",
+    "modules",
+    "pieces"
+  ],
+  "config.ts": [
+    "settings",
+    "configfile",
+    "appconfig",
+    "configscript"
+  ],
+  "content": [
+    "assets",
+    "markdown",
+    "body"
+  ],
+  "context.toml": [
+    "configurationfile",
+    "settingstoml",
+    "appcontext",
+    "tomlconfig"
+  ],
+  "domain-echo-promo3.png": [
+    "promoimage",
+    "domainechopromo",
+    "banner",
+    "promographic"
+  ],
+  "favicon.ico": [
+    "websiteicon",
+    "appicon",
+    "sitefavicon",
+    "faviconfile"
+  ],
+  "favicon.svg": [
+    "site-icon",
+    "browser-icon",
+    "app-favicon",
+    "favicon-file"
+  ],
+  "from-internet-cafes-to-vps.mdx": [
+    "cafe-to-vps",
+    "vps migration guide",
+    "mdx article",
+    "internet-cafes-vps"
+  ],
+  "global.css": [
+    "site-wide styles",
+    "app stylesheet",
+    "base css",
+    "global stylesheet"
+  ],
+  "images": [
+    "assets",
+    "media",
+    "pictures",
+    "imgs"
+  ],
+  "index.astro": [
+    "home page",
+    "root page",
+    "astro entry",
+    "main page"
+  ],
+  "internet-cafes-vps.png": [
+    "cafe vps image",
+    "vps screenshot",
+    "internet-cafes-vps pic",
+    "image"
+  ],
+  "landing": [
+    "homepage",
+    "landing-page",
+    "intro",
+    "start"
+  ],
+  "layouts": [
+    "templates",
+    "page layouts",
+    "structure",
+    "components"
+  ],
+  "lib": [
+    "library",
+    "src",
+    "utilities",
+    "modules"
+  ],
+  "lyricut.mdx": [
+    "lyricut",
+    "mdx component",
+    "lyrics page",
+    "lyric-cut"
+  ],
+  "og": [
+    "open-graph",
+    "og folder",
+    "social-data",
+    "og content"
+  ],
+  "og-image.jpg": [
+    "open-graph image",
+    "social preview",
+    "og thumbnail",
+    "preview image"
+  ],
+  "og-image.svg": [
+    "open-graph svg",
+    "og vector",
+    "social preview svg",
+    "preview icon"
+  ],
+  "og.ts": [
+    "open-graph script",
+    "og typescript",
+    "og module",
+    "social-meta"
+  ],
+  "package-lock.json": [
+    "npm lockfile",
+    "lock file",
+    "package lock",
+    "npm lock"
+  ],
+  "package.json": [
+    "npm package",
+    "project config",
+    "dependencies file",
+    "package file"
+  ],
+  "pages": [
+    "routes",
+    "views",
+    "components",
+    "templates"
+  ],
+  "privacy.astro": [
+    "privacypolicy",
+    "policypage",
+    "termspage",
+    "privacydocument"
+  ],
+  "projects": [
+    "repos",
+    "portfolio",
+    "workspaces",
+    "tasks"
+  ],
+  "public": [
+    "assets",
+    "static",
+    "publicdir",
+    "frontend"
+  ],
+  "robots.txt": [
+    "useragent.txt",
+    "crawler.txt",
+    "webbot.txt",
+    "spider.txt"
+  ],
+  "rss.xml.ts": [
+    "feed.ts",
+    "rssfeed.ts",
+    "newsfeed.ts",
+    "feedgenerator.ts"
+  ],
+  "scangy-logo.webp": [
+    "logo.webp",
+    "brandlogo.webp",
+    "applogo.webp",
+    "logoimage.webp"
+  ],
+  "screen1.jpg": [
+    "screenshot1.jpg",
+    "image1.jpg",
+    "capture1.jpg",
+    "shot1.jpg"
+  ],
+  "site.ts": [
+    "homepage.ts",
+    "index.ts",
+    "root.ts",
+    "app.ts"
+  ],
+  "src": [
+    "source",
+    "code",
+    "implementation",
+    "src-folder"
+  ],
+  "sshthing": [
+    "ssh-client",
+    "ssh-connector",
+    "ssh-wrapper",
+    "ssh-tool"
+  ],
+  "sshthing.png": [
+    "ssh-icon.png",
+    "ssh-image.png",
+    "ssh-graphic.png",
+    "ssh-pic.png"
+  ],
+  "structured-data.ts": [
+    "data-model.ts",
+    "schema.ts",
+    "payload.ts",
+    "structured.ts"
+  ],
+  "styles": [
+    "css",
+    "stylesheets",
+    "theme",
+    "layout"
+  ],
+  "tsconfig.json": [
+    "tsconfig",
+    "typescript-config",
+    "ts-config",
+    "tsconfig.settings"
+  ],
+  "vibe-coding-slur.mdx": [
+    "blog-post.mdx",
+    "article.mdx",
+    "story.mdx",
+    "content.mdx"
+  ]
+}

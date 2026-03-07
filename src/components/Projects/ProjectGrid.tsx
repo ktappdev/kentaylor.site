@@ -88,7 +88,7 @@ const projects: Project[] = [
     category: "software",
     image: "/images/sshthing.png",
     technologies: ["Tauri", "Rust", "HTML/JS", "SSH"],
-    link: "https://github.com/ktappdev/ssh-thing/releases",
+    link: "https://github.com/ktappdev/ssh-thing/",
     featured: false,
   },
   {

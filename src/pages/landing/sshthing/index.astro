@@ -12,7 +12,7 @@ const sshThing = {
   },
   primaryCta: { text: 'Get SSH THING', link: 'TBD' },
   secondaryCta: { text: 'View Documentation', link: 'TBD' },
-  oneLiner: 'A friendly Tauri-based desktop SSH client for quick terminal access.',
+  oneLiner: 'Written in rust for small footprint',
   shortDescription: 'A simple desktop SSH client for fast access, saved hosts, and secure storage.',
   longDescription: 'Tired of juggling SSH connections? SSH THING makes it easy to save host profiles, connect in one click, and run repeatable commands. No fancy backend, no telemetry—just reliable access.',
   keyFeatures: [
@@ -118,7 +118,10 @@ const sshThing = {
   <!-- Footer -->
   <footer class="py-8 px-6 bg-[var(--color-bg)] text-white border-t border-gray-800">
     <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center">
-      <p class="mb-4 md:mb-0">{sshThing.publisher} • Support: <a href="mailto:{sshThing.supportEmail}" class="text-green-500">{sshThing.supportEmail}</a></p>
+      <div class="mb-4 md:mb-0">
+        <p class="mb-2">{sshThing.publisher} • Support: <a href="mailto:{sshThing.supportEmail}" class="text-green-500">{sshThing.supportEmail}</a></p>
+        <p class="text-sm text-gray-400">This product has been tested to meet accessibility guidelines.</p>
+      </div>
       <div class="flex gap-4">
         <a href={sshThing.socialLinks.github} class="text-gray-400 hover:text-white transition-colors">GitHub</a>
         <a href={sshThing.socialLinks.twitter} class="text-gray-400 hover:text-white transition-colors">Twitter</a>
