@@ -1,20 +1,11 @@
 import { useRef, useState } from 'react';
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
+import type { CollectionEntry } from 'astro:content';
 
-export interface Project {
-  id: string;
-  title: string;
-  description: string;
-  category: 'software' | 'site';
-  image: string;
-  technologies: string[];
-  link?: string;
-  github?: string;
-  featured: boolean;
-}
+type ProjectData = CollectionEntry<'projects'>['data'];
 
 interface ProjectCardProps {
-  project: Project;
+  project: ProjectData;
   index: number;
 }
 

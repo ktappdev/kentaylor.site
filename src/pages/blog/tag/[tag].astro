@@ -1,0 +1,61 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Navigation from '../../../components/UI/Navigation';
+import Footer from '../../../components/UI/Footer';
+import BlogCard from '../../../components/Blog/BlogCard';
+import Breadcrumbs from '../../../components/Blog/Breadcrumbs.astro';
+import { getPublishedBlogPosts } from '../../../lib/blog';
+import { buildBreadcrumbSchema } from '../../../lib/structured-data';
+
+export const getStaticPaths = async () => {
+  const posts = await getPublishedBlogPosts();
+  const tags = [...new Set(posts.flatMap(post => post.data.tags))];
+  
+  return tags.map(tag => ({
+    params: { tag: tag.toLowerCase().replace(/\s+/g, '-') },
+    props: { tag, posts: posts.filter(post => post.data.tags.includes(tag)) },
+  }));
+};
+
+const { tag, posts } = Astro.props;
+const pageTitle = `#${tag} | Ken Taylor Blog`;
+const pageDescription = `Blog posts tagged with "${tag}" by Ken Taylor.`;
+const jsonLd = [
+  buildBreadcrumbSchema([
+    { name: 'Home', path: '/' },
+    { name: 'Blog', path: '/blog/' },
+    { name: `#${tag}` },
+  ]),
+];
+---
+
+<Layout title={pageTitle} description={pageDescription} jsonLd={jsonLd}>
+  <Navigation client:load />
+  
+  <main id="main-content" class="pt-24 pb-16 min-h-screen">
+    <div class="max-w-4xl mx-auto px-6">
+      <Breadcrumbs
+        items={[
+          { label: 'Home', href: '/' },
+          { label: 'Blog', href: '/blog/' },
+          { label: `#${tag}` },
+        ]}
+      />
+      
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">
+        <span class="text-accent">#</span>{tag}
+      </h1>
+      <p class="text-muted mb-12">
+        {posts.length} post{posts.length !== 1 ? 's' : ''} tagged with "{tag}"
+      </p>
+      
+      <div class="space-y-6">
+        {posts.map((post, index) => (
+          <BlogCard post={post} index={index} client:visible />
+        ))}
+      </div>
+    </div>
+  </main>
+  
+  <Footer client:visible />
+</Layout>

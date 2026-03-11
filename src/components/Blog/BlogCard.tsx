@@ -1,13 +1,31 @@
 import { motion } from 'framer-motion';
 import type { CollectionEntry } from 'astro:content';
 
+const WORDS_PER_MINUTE = 200;
+
 interface BlogCardProps {
   post: CollectionEntry<'blog'>;
   index: number;
 }
 
+function calculateReadingTime(body: string): number {
+  const cleaned = body
+    .replace(/```[\s\S]*?```/g, ' ')
+    .replace(/`[^`]*`/g, ' ')
+    .replace(/<[^>]+>/g, ' ')
+    .replace(/!\[[^\]]*\]\([^)]+\)/g, ' ')
+    .replace(/\[[^\]]*\]\([^)]+\)/g, ' ')
+    .replace(/[#>*_~-]/g, ' ')
+    .trim();
+
+  if (!cleaned) return 1;
+  const wordCount = cleaned.split(/\s+/).length;
+  return Math.max(1, Math.ceil(wordCount / WORDS_PER_MINUTE));
+}
+
 export default function BlogCard({ post, index }: BlogCardProps) {
   const { title, excerpt, date, tags } = post.data;
+  const readingTime = calculateReadingTime(post.body || '');
   
   const formatDate = (dateString: Date) => {
     return new Intl.DateTimeFormat('en-US', {
@@ -32,7 +50,7 @@ export default function BlogCard({ post, index }: BlogCardProps) {
         <div className="flex items-center gap-3 mb-4 text-sm text-muted font-mono">
           <time dateTime={date.toString()}>{formatDate(date)}</time>
           <span>•</span>
-          <span>5 min read</span>
+          <span>{readingTime} min read</span>
         </div>
         
         <h3 className="text-xl md:text-2xl font-bold mb-2 group-hover:text-accent transition-colors">
@@ -45,12 +63,13 @@ export default function BlogCard({ post, index }: BlogCardProps) {
         
         <div className="flex flex-wrap gap-2">
           {tags.slice(0, 3).map((tag: string) => (
-            <span
+            <a
               key={tag}
-              className="px-2 py-1 text-xs font-mono text-accent/80 bg-accent/10 rounded"
+              href={`/blog/tag/${tag.toLowerCase().replace(/\s+/g, '-')}/`}
+              className="px-2 py-1 text-xs font-mono text-accent/80 bg-accent/10 rounded hover:bg-accent/20 transition-colors"
             >
               #{tag}
-            </span>
+            </a>
           ))}
         </div>
       </a>

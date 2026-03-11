@@ -1,0 +1,120 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navigation from '../../components/UI/Navigation';
+import Footer from '../../components/UI/Footer';
+import Breadcrumbs from '../../components/Blog/Breadcrumbs.astro';
+import { getPublishedBlogPosts } from '../../lib/blog';
+import { buildBreadcrumbSchema } from '../../lib/structured-data';
+
+const posts = await getPublishedBlogPosts();
+const pageTitle = 'Search Blog | Ken Taylor';
+const jsonLd = [
+  buildBreadcrumbSchema([
+    { name: 'Home', path: '/' },
+    { name: 'Blog', path: '/blog/' },
+    { name: 'Search' },
+  ]),
+];
+---
+
+<Layout title={pageTitle} description="Search blog posts by Ken Taylor" jsonLd={jsonLd}>
+  <Navigation client:load />
+  
+  <main id="main-content" class="pt-24 pb-16 min-h-screen">
+    <div class="max-w-4xl mx-auto px-6">
+      <Breadcrumbs
+        items={[
+          { label: 'Home', href: '/' },
+          { label: 'Blog', href: '/blog/' },
+          { label: 'Search' },
+        ]}
+      />
+      
+      <h1 class="text-4xl md:text-5xl font-bold mb-8">
+        <span class="text-accent">#</span> Search Posts
+      </h1>
+      
+      <div class="mb-8">
+        <input
+          type="text"
+          id="search-input"
+          placeholder="Search by title, excerpt, or tags..."
+          class="w-full px-4 py-3 bg-surface border border-border rounded-lg font-mono text-text placeholder:text-muted focus:border-accent focus:outline-none transition-colors"
+        />
+      </div>
+      
+      <div id="search-results" class="space-y-6">
+        <p class="text-muted font-mono">Start typing to search posts...</p>
+      </div>
+      
+      <div id="no-results" class="hidden text-center py-12">
+        <p class="text-muted font-mono">No posts found matching your search.</p>
+      </div>
+    </div>
+  </main>
+  
+  <Footer client:visible />
+  
+  <script define:vars={{ posts }}>
+    const postsData = posts.map(post => ({
+      slug: post.slug,
+      title: post.data.title,
+      excerpt: post.data.excerpt,
+      date: post.data.date,
+      tags: post.data.tags,
+    }));
+    
+    const searchInput = document.getElementById('search-input');
+    const resultsContainer = document.getElementById('search-results');
+    const noResults = document.getElementById('no-results');
+    
+    function formatDate(date) {
+      return new Intl.DateTimeFormat('en-US', {
+        year: 'numeric',
+        month: 'short',
+        day: 'numeric',
+      }).format(new Date(date));
+    }
+    
+    function renderPosts(filteredPosts) {
+      if (filteredPosts.length === 0) {
+        resultsContainer.innerHTML = '';
+        noResults.classList.remove('hidden');
+        return;
+      }
+      
+      noResults.classList.add('hidden');
+      resultsContainer.innerHTML = filteredPosts.map(post => `
+        <article class="p-6 bg-surface border border-border rounded-lg hover:border-accent/50 transition-all duration-300">
+          <a href="/blog/${post.slug}/">
+            <div class="flex items-center gap-3 mb-4 text-sm text-muted font-mono">
+              <time>${formatDate(post.date)}</time>
+              <span>•</span>
+              <span>${post.tags.slice(0, 2).join(', ')}</span>
+            </div>
+            <h3 class="text-xl font-bold mb-2 hover:text-accent transition-colors">${post.title}</h3>
+            <p class="text-muted line-clamp-2">${post.excerpt}</p>
+          </a>
+        </article>
+      `).join('');
+    }
+    
+    searchInput.addEventListener('input', (e) => {
+      const query = e.target.value.toLowerCase().trim();
+      
+      if (!query) {
+        resultsContainer.innerHTML = '<p class="text-muted font-mono">Start typing to search posts...</p>';
+        noResults.classList.add('hidden');
+        return;
+      }
+      
+      const filtered = postsData.filter(post => 
+        post.title.toLowerCase().includes(query) ||
+        post.excerpt.toLowerCase().includes(query) ||
+        post.tags.some(tag => tag.toLowerCase().includes(query))
+      );
+      
+      renderPosts(filtered);
+    });
+  </script>
+</Layout>

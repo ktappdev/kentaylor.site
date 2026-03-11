@@ -9,15 +9,18 @@ import ProjectGrid from '../components/Projects/ProjectGrid';
 import BlogList from '../components/Blog/BlogList';
 import Footer from '../components/UI/Footer';
 import { getPublishedBlogPosts } from '../lib/blog';
+import { getPublishedProjects } from '../lib/projects';
 import { buildHomePageSchemas } from '../lib/structured-data';
 
 const sortedPosts = (await getPublishedBlogPosts()).slice(0, 3);
+const projects = await getPublishedProjects();
 ---
 
 <Layout jsonLd={buildHomePageSchemas()}>
   <Navigation client:load />
   
-  <section class="relative min-h-screen flex items-center justify-center overflow-hidden grid-bg">
+  <main id="main-content">
+    <section class="relative min-h-screen flex items-center justify-center overflow-hidden grid-bg">
     <div class="absolute inset-0 z-0">
       <HeroScene client:only="react" />
     </div>
@@ -31,9 +34,10 @@ const sortedPosts = (await getPublishedBlogPosts()).slice(0, 3);
   
   <AboutCard client:visible />
   
-  <ProjectGrid client:visible />
+  <ProjectGrid projects={projects} client:visible />
   
   <BlogList posts={sortedPosts} client:visible />
   
   <Footer client:visible />
+  </main>
 </Layout>
