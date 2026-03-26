@@ -13,6 +13,9 @@ import vercel from '@astrojs/vercel';
 export default defineConfig({
   site: 'https://kentaylor.dev',
   output: 'static',
+  legacy: {
+    collectionsBackwardsCompat: true
+  },
   integrations: [react(), mdx(), sitemap(), vercel({ 
     imageOptimization: true
   })],

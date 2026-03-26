@@ -16,7 +16,7 @@ export async function getPublishedBlogPosts(): Promise<BlogPost[]> {
 }
 
 export function getPostUrl(postOrSlug: BlogPost | string): string {
-  const slug = typeof postOrSlug === "string" ? postOrSlug : postOrSlug.slug;
+  const slug = typeof postOrSlug === "string" ? postOrSlug : postOrSlug.slug || (postOrSlug.id ? postOrSlug.id.split('/').pop() : 'default-slug');
   return `/blog/${slug}/`;
 }
 
