@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import type { CollectionEntry } from 'astro:content';
+import { getPostSlug } from '../../lib/post-slug';
 
 interface RelatedPostsProps {
   posts: CollectionEntry<'blog'>[];
@@ -25,14 +26,14 @@ export default function RelatedPosts({ posts }: RelatedPostsProps) {
       <div className="grid gap-4 md:grid-cols-2">
         {posts.slice(0, 2).map((post, index) => (
           <motion.article
-            key={post.slug}
+            key={getPostSlug(post)}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: index * 0.1 }}
           >
             <a
-              href={`/blog/${post.slug}/`}
+              href={`/blog/${getPostSlug(post)}/`}
               className="block p-4 bg-surface border border-border rounded-lg hover:border-accent/50 transition-all"
             >
               <div className="text-xs text-muted font-mono mb-2">

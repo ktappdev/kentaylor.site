@@ -1,5 +1,9 @@
 import type { APIRoute, GetStaticPaths } from "astro";
-import { getPublishedBlogPosts, type BlogPost } from "../../lib/blog";
+import {
+  getPublishedBlogPosts,
+  type BlogPost,
+} from "../../lib/blog";
+import { getPostSlug } from "../../lib/post-slug";
 import { createBlogOgImage, OG_SOCIAL_SIZE } from "../../lib/og";
 
 interface StaticPathProps {
@@ -10,7 +14,7 @@ export const getStaticPaths = (async () => {
   const posts = await getPublishedBlogPosts();
 
   return posts.map((post) => ({
-    params: { slug: post.slug },
+    params: { slug: getPostSlug(post) },
     props: { post },
   }));
 }) satisfies GetStaticPaths;

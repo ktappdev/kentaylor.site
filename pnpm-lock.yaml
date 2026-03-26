@@ -9,10 +9,10 @@ importers:
   .:
     dependencies:
       '@astrojs/mdx':
-        specifier: ^5.0.3
+        specifier: 5.0.3
         version: 5.0.3(astro@6.1.0(@types/node@24.12.0)(@vercel/functions@3.4.3)(jiti@2.6.1)(lightningcss@1.32.0)(rollup@4.60.0))
       '@astrojs/react':
-        specifier: ^5.0.2
+        specifier: 5.0.2
         version: 5.0.2(@types/node@24.12.0)(@types/react-dom@19.2.3(@types/react@19.2.14))(@types/react@19.2.14)(jiti@2.6.1)(lightningcss@1.32.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
       '@astrojs/rss':
         specifier: ^4.0.18
@@ -21,7 +21,7 @@ importers:
         specifier: ^3.7.2
         version: 3.7.2
       '@astrojs/vercel':
-        specifier: ^10.0.3
+        specifier: 10.0.3
         version: 10.0.3(astro@6.1.0(@types/node@24.12.0)(@vercel/functions@3.4.3)(jiti@2.6.1)(lightningcss@1.32.0)(rollup@4.60.0))(react@19.2.4)(rollup@4.60.0)
       '@react-three/drei':
         specifier: ^10.7.7
@@ -45,7 +45,7 @@ importers:
         specifier: ^1.6.1
         version: 1.6.1(react@19.2.4)
       astro:
-        specifier: ^6.1.0
+        specifier: 6.1.0
         version: 6.1.0(@types/node@24.12.0)(@vercel/functions@3.4.3)(jiti@2.6.1)(lightningcss@1.32.0)(rollup@4.60.0)
       framer-motion:
         specifier: ^12.34.0

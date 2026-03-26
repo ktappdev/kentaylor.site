@@ -1,6 +1,7 @@
 import { existsSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { getCollection, type CollectionEntry } from "astro:content";
+import { getPostSlug } from "./post-slug";
 import { SITE } from "./site";
 
 export type BlogPost = CollectionEntry<"blog">;
@@ -16,19 +17,17 @@ export async function getPublishedBlogPosts(): Promise<BlogPost[]> {
 }
 
 export function getPostUrl(postOrSlug: BlogPost | string): string {
-  const slug = typeof postOrSlug === "string" ? postOrSlug : postOrSlug.slug || (postOrSlug.id ? postOrSlug.id.split('/').pop() : 'default-slug');
-  return `/blog/${slug}/`;
+  return `/blog/${getPostSlug(postOrSlug)}/`;
 }
 
 export function getPostOgImageUrl(postOrSlug: BlogPost | string): string {
-  const slug = typeof postOrSlug === "string" ? postOrSlug : postOrSlug.slug;
-  return `/og/${slug}.png`;
+  return `/og/${getPostSlug(postOrSlug)}.png`;
 }
 
 export function getPostStructuredImageUrls(
   postOrSlug: BlogPost | string,
 ): string[] {
-  const slug = typeof postOrSlug === "string" ? postOrSlug : postOrSlug.slug;
+  const slug = getPostSlug(postOrSlug);
   return [
     `/og/${slug}/16x9.png`,
     `/og/${slug}/4x3.png`,
@@ -61,7 +60,7 @@ export function getPostCoverImage(post: BlogPost): string {
 }
 
 export function getPostReadingTimeMinutes(post: BlogPost): number {
-  const wordCount = countWords(post.body);
+  const wordCount = countWords(post.body ?? "");
   return Math.max(1, Math.ceil(wordCount / WORDS_PER_MINUTE));
 }
 

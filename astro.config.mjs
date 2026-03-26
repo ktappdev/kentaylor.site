@@ -14,23 +14,20 @@ export default defineConfig({
   site: 'https://kentaylor.dev',
   output: 'static',
   legacy: {
-    collectionsBackwardsCompat: true
+    collectionsBackwardsCompat: true,
   },
-  integrations: [react(), mdx(), sitemap(), vercel({ 
-    imageOptimization: true
-  })],
+  integrations: [
+    react(),
+    mdx(),
+    sitemap(),
+    vercel({
+      imageService: true,
+    }),
+  ],
   image: {
-    service: {
-      name: 'vercel',
-      options: {
-        remotePatterns: [
-          { hostname: 'kentaylor.dev' }
-        ]
-      }
-    }
+    remotePatterns: [{ hostname: 'kentaylor.dev' }],
   },
-
   vite: {
-    plugins: [tailwindcss()]
-  }
+    plugins: [tailwindcss()],
+  },
 });

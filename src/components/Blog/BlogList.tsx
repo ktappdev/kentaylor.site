@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import type { CollectionEntry } from 'astro:content';
 import BlogCard from './BlogCard';
+import { getPostSlug } from '../../lib/post-slug';
 
 interface BlogListProps {
   posts: CollectionEntry<'blog'>[];
@@ -26,7 +27,7 @@ export default function BlogList({ posts }: BlogListProps) {
         
         <div className="space-y-6">
           {posts.map((post, index) => (
-            <BlogCard key={post.slug} post={post} index={index} />
+            <BlogCard key={getPostSlug(post)} post={post} index={index} />
           ))}
         </div>
         

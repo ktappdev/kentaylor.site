@@ -105,7 +105,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
           </p>
           
           <div className="flex flex-wrap gap-2 mb-4">
-            {project.technologies.slice(0, 4).map((tech) => (
+            {project.technologies.slice(0, 4).map((tech: string) => (
               <span
                 key={tech}
                 className="px-2 py-1 bg-border/50 text-text text-xs font-mono rounded"

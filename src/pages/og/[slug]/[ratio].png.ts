@@ -1,5 +1,9 @@
 import type { APIRoute, GetStaticPaths } from "astro";
-import { getPublishedBlogPosts, type BlogPost } from "../../../lib/blog";
+import {
+  getPublishedBlogPosts,
+  type BlogPost,
+} from "../../../lib/blog";
+import { getPostSlug } from "../../../lib/post-slug";
 import {
   createBlogOgImage,
   isOgStructuredRatio,
@@ -18,7 +22,7 @@ export const getStaticPaths = (async () => {
 
   return posts.flatMap((post) =>
     ratios.map((ratio) => ({
-      params: { slug: post.slug, ratio },
+      params: { slug: getPostSlug(post), ratio },
       props: { post, ratio },
     })),
   );

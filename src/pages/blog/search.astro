@@ -4,6 +4,7 @@ import Navigation from '../../components/UI/Navigation';
 import Footer from '../../components/UI/Footer';
 import Breadcrumbs from '../../components/Blog/Breadcrumbs.astro';
 import { getPublishedBlogPosts } from '../../lib/blog';
+import { getPostSlug } from '../../lib/post-slug';
 import { buildBreadcrumbSchema } from '../../lib/structured-data';
 
 const posts = await getPublishedBlogPosts();
@@ -57,7 +58,7 @@ const jsonLd = [
   
   <script define:vars={{ posts }}>
     const postsData = posts.map(post => ({
-      slug: post.slug,
+      slug: getPostSlug(post),
       title: post.data.title,
       excerpt: post.data.excerpt,
       date: post.data.date,
