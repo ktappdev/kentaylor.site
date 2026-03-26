@@ -12,12 +12,13 @@ export const SITE = {
   aboutPath: "/about/",
   author: {
     name: "Ken Taylor",
+    alternateNames: ["KenDaBeatmaker", "ktappdev"],
     location: "Georgetown, Guyana",
     email: "kentaylorappdev@gmail.com",
     shortBio:
       "Self-taught software engineer, music producer, and entrepreneur from Georgetown, Guyana.",
     longBio:
-      "Self-taught Guyanese software engineer, music producer, and entrepreneur from Georgetown, Guyana building tech and creative solutions for the Caribbean.",
+      "Self-taught Guyanese software engineer, music producer (known professionally as KenDaBeatmaker), and entrepreneur from Georgetown, Guyana building tech and creative solutions for the Caribbean.",
     jobTitle: "Software Engineer, Music Producer, Entrepreneur",
     socialHandle: "@ktappdev",
     sameAs: [

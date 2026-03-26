@@ -8,6 +8,7 @@ import AuthorCard from '../../components/Blog/AuthorCard.astro';
 import PostPager from '../../components/Blog/PostPager.astro';
 import RelatedPosts from '../../components/Blog/RelatedPosts';
 import type { InferGetStaticPropsType, GetStaticPaths } from 'astro';
+import { Image } from 'astro:assets';
 import {
   getPostCoverImage,
   getPostImageAlt,
@@ -254,13 +255,13 @@ const jsonLd = [
       
       {pageImage && (
         <div class="mb-12 -mx-6 md:-mx-12">
-          <img 
+          <Image 
             src={pageImage} 
             alt={pageImageAlt}
             class="w-full h-auto rounded-lg shadow-lg"
             width="1200"
             height="630"
-            loading="eager"
+            loading="lazy"
             decoding="async"
           />
         </div>
