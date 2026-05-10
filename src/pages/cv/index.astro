@@ -1,0 +1,257 @@
+---
+import Breadcrumbs from "../../components/Blog/Breadcrumbs.astro";
+import Footer from "../../components/UI/Footer";
+import Navigation from "../../components/UI/Navigation";
+import Layout from "../../layouts/Layout.astro";
+import { buildBreadcrumbSchema, buildProfilePageSchemas } from "../../lib/structured-data";
+import { SITE } from "../../lib/site";
+import { getPublishedBlogPosts } from "../../lib/blog";
+
+const recentPosts = (await getPublishedBlogPosts()).slice(0, 3);
+
+const pageTitle = "Ken Taylor | Full-Stack Systems Engineer CV";
+const pageDescription = "Curriculum Vitae of Ken Taylor — Full-Stack Systems Engineer & AI Specialist based in Georgetown, Guyana. Specializing in Go, Rust, AI/LLM systems, and production infrastructure.";
+
+const jsonLd = [
+  ...buildProfilePageSchemas(recentPosts),
+  buildBreadcrumbSchema([
+    { name: "Home", path: "/" },
+    { name: "CV", path: "/cv/" },
+  ]),
+  {
+    "@context": "https://schema.org",
+    "@type": "Resume",
+    name: "Ken Taylor - Full-Stack Systems Engineer CV",
+    description: pageDescription,
+    url: `${SITE.url}/cv/`,
+    person: {
+      "@id": `${SITE.url}#person`,
+      name: SITE.author.name,
+      jobTitle: SITE.author.jobTitle,
+      email: SITE.author.email,
+      url: SITE.url,
+      sameAs: SITE.author.sameAs,
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Georgetown",
+        addressCountry: "Guyana",
+      },
+    },
+  },
+];
+
+const technicalStack = [
+  {
+    category: "Languages",
+    items: ["Go (High-Performance APIs)", "Rust", "TypeScript", "JavaScript", "SQL"],
+  },
+  {
+    category: "Web Architecture",
+    items: ["Next.js (App Router)", "Astro", "SvelteKit", "Tailwind CSS", "PWA", "REST"],
+  },
+  {
+    category: "Data & DevOps",
+    items: ["Redis (Caching/Queues)", "PostgreSQL", "Linux SysAdmin", "VPS Management", "Docker", "Tailscale", "GitHub", "Node"],
+  },
+  {
+    category: "AI & Hardware",
+    items: ["Local LLM Serving (vLLM, llama.cpp, IPEX-LLM)", "GPU Acceleration", "Multi-Agent AI Systems", "Intel Arc B580"],
+  },
+  {
+    category: "Media Engineering",
+    items: ["Professional Audio Production", "Radio Automation (Myriad)", "Signal Processing", "Remote Audio"],
+  },
+];
+
+const coreProjects = [
+  {
+    title: "Proprietary AI Orchestration Engine",
+    description: "Architected an in-house multi-agent development system featuring specialized Orchestrator, Scout, Builder, and Reviewer roles. Optimized local inference for Gemma and Qwen models using hardware acceleration on Intel Arc B580 media engines.",
+  },
+  {
+    title: "Full-Stack Live Production: ReviewIt.gy",
+    description: "Built and deployed a localized business review platform using a Go-Next.js-Redis stack on a private VPS. Managed end-to-end infrastructure including server hardening, SEO optimization, and database management.",
+  },
+];
+
+const experience = [
+  {
+    role: "Lead Audio Engineer & Music Producer",
+    company: "Brutal Tracks Recording Studio",
+    description: "Produced commercially successful music, advertisements, and multimedia content. Combined technical expertise with creative production workflows.",
+  },
+  {
+    role: "Self-Taught Software Engineer",
+    company: "Independent",
+    description: "Advanced independent study in distributed systems, systems programming, and LLM architectures. Production portfolio validated through a decade of shipped software and live production systems serving the Guyanese market.",
+  },
+];
+---
+
+<Layout
+  title={pageTitle}
+  description={pageDescription}
+  canonical="/cv/"
+  keywords={[
+    'Ken Taylor',
+    'Full-Stack Engineer',
+    'Systems Engineer',
+    'AI Specialist',
+    'Go Developer',
+    'Rust Developer',
+    'Guyana',
+  ]}
+  type="website"
+  jsonLd={jsonLd}
+>
+  <Navigation client:load />
+
+  <main id="main-content" class="min-h-screen pt-24 pb-16">
+    <div class="mx-auto max-w-5xl px-6">
+      <Breadcrumbs
+        items={[
+          { label: "Home", href: "/" },
+          { label: "CV" },
+        ]}
+      />
+
+      <!-- Hero Section -->
+      <header class="mt-8 mb-12">
+        <p class="font-mono text-sm uppercase tracking-[0.2em] text-accent">
+          Curriculum Vitae
+        </p>
+        <h1 class="mt-4 text-5xl font-bold md:text-6xl">Ken Taylor</h1>
+        <p class="mt-4 text-xl text-muted">
+          Full-Stack Systems Engineer & AI Specialist
+        </p>
+        <p class="mt-2 text-muted">
+          Georgetown, Guyana
+        </p>
+
+        <div class="mt-8 flex flex-wrap items-center gap-4">
+          <a
+            href="/cv/ken-taylor-cv.pdf"
+            download="Ken-Taylor-CV.pdf"
+            class="inline-flex items-center gap-2 rounded-full border border-accent px-6 py-3 font-mono text-sm text-accent transition-all hover:bg-accent hover:text-bg hover:shadow-[0_0_20px_rgba(0,255,136,0.3)]"
+          >
+            <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+            </svg>
+            Download PDF
+          </a>
+          <a
+            href="mailto:{SITE.author.email}"
+            class="inline-flex items-center gap-2 rounded-full border border-border px-6 py-3 font-mono text-sm text-muted transition-colors hover:border-accent hover:text-accent"
+          >
+            <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg>
+            {SITE.author.email}
+          </a>
+          <a
+            href={SITE.url}
+            class="inline-flex items-center gap-2 rounded-full border border-border px-6 py-3 font-mono text-sm text-muted transition-colors hover:border-accent hover:text-accent"
+          >
+            <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+            </svg>
+            {SITE.url.replace('https://', '')}
+          </a>
+        </div>
+      </header>
+
+      <!-- Technical Profile -->
+      <section class="mb-12 rounded-2xl border border-border bg-surface/70 p-8">
+        <h2 class="text-2xl font-bold">Technical Profile</h2>
+        <p class="mt-4 text-muted leading-relaxed">
+          Systems-focused Software Engineer and Entrepreneur with a deep specialization in Go, Rust, and modern full-stack frameworks (Next.js and SvelteKit), and AI/LLM systems. Knowledgeable in the full software lifecycle: from architecting high-performance backends and local AI orchestration to managing production deployments on private VPS infrastructure. Extensive background in professional audio production and broadcast technology integration.
+        </p>
+      </section>
+
+      <!-- Technical Stack -->
+      <section class="mb-12">
+        <h2 class="mb-6 text-2xl font-bold">Technical Stack & Infrastructure</h2>
+        <div class="grid gap-4 md:grid-cols-2">
+          {technicalStack.map((stack) => (
+            <article class="rounded-xl border border-border bg-surface/50 p-6">
+              <h3 class="font-mono text-sm uppercase tracking-[0.15em] text-accent">
+                {stack.category}
+              </h3>
+              <ul class="mt-4 space-y-2">
+                {stack.items.map((item) => (
+                  <li class="flex items-start gap-2 text-muted">
+                    <span class="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-accent" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <!-- Core Engineering Projects -->
+      <section class="mb-12">
+        <h2 class="mb-6 text-2xl font-bold">Core Engineering Projects</h2>
+        <div class="space-y-4">
+          {coreProjects.map((project) => (
+            <article class="rounded-xl border border-border bg-surface/50 p-6 transition-colors hover:border-accent/50">
+              <h3 class="text-xl font-bold">{project.title}</h3>
+              <p class="mt-3 text-muted leading-relaxed">{project.description}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <!-- Professional Experience -->
+      <section class="mb-12">
+        <h2 class="mb-6 text-2xl font-bold">Professional Experience</h2>
+        <div class="space-y-4">
+          {experience.map((exp) => (
+            <article class="rounded-xl border border-border bg-surface/50 p-6">
+              <div class="flex flex-wrap items-baseline justify-between gap-2">
+                <h3 class="text-xl font-bold">{exp.role}</h3>
+                <span class="font-mono text-sm text-accent">{exp.company}</span>
+              </div>
+              <p class="mt-3 text-muted leading-relaxed">{exp.description}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <!-- CTA Section -->
+      <section class="rounded-2xl border border-accent/30 bg-accent/5 p-8 text-center">
+        <h2 class="text-2xl font-bold">Let's Work Together</h2>
+        <p class="mt-3 text-muted">
+          Available for consulting, contract work, and full-time opportunities.
+        </p>
+        <div class="mt-6 flex flex-wrap justify-center gap-4">
+          <a
+            href="mailto:{SITE.author.email}"
+            class="inline-flex items-center gap-2 rounded-full border border-accent px-6 py-3 font-mono text-sm text-accent transition-all hover:bg-accent hover:text-bg"
+          >
+            Get in Touch
+          </a>
+          <a
+            href="https://github.com/ktappdev"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 rounded-full border border-border px-6 py-3 font-mono text-sm text-muted transition-colors hover:border-accent hover:text-accent"
+          >
+            View GitHub
+          </a>
+          <a
+            href="https://gy.linkedin.com/in/ken-taylor-16006280"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 rounded-full border border-border px-6 py-3 font-mono text-sm text-muted transition-colors hover:border-accent hover:text-accent"
+          >
+            LinkedIn Profile
+          </a>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <Footer client:visible />
+</Layout>
