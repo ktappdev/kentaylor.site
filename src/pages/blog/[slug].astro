@@ -227,6 +227,35 @@ const jsonLd = [
           { label: post.data.title },
         ]}
       />
+      <header class="mb-12">
+        <div class="flex items-center gap-3 mb-4 text-sm text-muted font-mono">
+          <time datetime={publishedTime}>
+            {formatDate(post.data.date)}
+          </time>
+          <span>•</span>
+          <span>{readingTimeLabel}</span>
+        </div>
+        
+        <h1 class="text-4xl md:text-5xl font-bold mb-4">
+          {post.data.title}
+        </h1>
+        
+        <p class="text-xl text-muted mb-6">
+          {post.data.excerpt}
+        </p>
+        
+        <div class="flex flex-wrap gap-2">
+          {post.data.tags.map((tag: string) => (
+            <a
+              key={tag}
+              href={`/blog/tag/${tag.toLowerCase().replace(/\s+/g, '-')}/`}
+              class="px-3 py-1 text-sm font-mono text-accent bg-accent/10 rounded hover:bg-accent/20 transition-colors"
+            >
+              #{tag}
+            </a>
+          ))}
+        </div>
+      </header>
       
       {pageImage && (
         <div class="mb-12 -mx-6 md:-mx-12">
