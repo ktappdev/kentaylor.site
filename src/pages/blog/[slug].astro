@@ -257,6 +257,20 @@ const jsonLd = [
         </div>
       </header>
       
+      {pageImage && !pageImage.startsWith('/og/') && (
+        <div class="mb-12 -mx-6 md:-mx-12">
+          <Image 
+            src={pageImage} 
+            alt={pageImageAlt}
+            class="w-full h-auto rounded-lg shadow-lg"
+            width="1200"
+            height="630"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+      )}
+      
       <div class="blog-content prose prose-invert max-w-none">
         <Content />
       </div>
