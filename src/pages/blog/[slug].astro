@@ -257,10 +257,10 @@ const jsonLd = [
         </div>
       </header>
       
-      {pageImage && !pageImage.startsWith('/og/') && (
+      {post.data.image && (
         <div class="mb-12 -mx-6 md:-mx-12">
           <Image 
-            src={pageImage} 
+            src={post.data.image} 
             alt={pageImageAlt}
             class="w-full h-auto rounded-lg shadow-lg"
             width="1200"
