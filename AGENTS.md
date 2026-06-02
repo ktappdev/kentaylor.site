@@ -76,3 +76,32 @@ Tailwind v4 automatically detects content - no `content: []` array needed.
 2. Don't use `@import` for Tailwind plugins - use `@plugin`
 3. Custom colors use CSS variables (`--color-*`) not JS config
 4. The typography plugin classes work differently in v4
+
+## Writing Style — Anti-AI-Tell Rules
+
+Blog posts on this site start as the author's spoken thoughts, then get rewritten for clarity. DO NOT introduce AI stylistic fingerprints during rewriting.
+
+### Banned patterns (remove if you see them)
+- **Em dashes (—)** — Use commas, periods, semicolons, or sentence breaks instead. A real person doesn't lean on — for every aside.
+- **"Here's the thing" / "Here's where it gets interesting" / "Here's the setup"** — Cut these. AI transition filler.
+- **"I must tell you something" / "Trust me" / "Don't get me wrong"** — AI rapport-building. Cut it.
+- **"Full stop." / "Big time." / "Period."** — AI trying to sound punchy. Remove.
+- **"Think about that." / rhetorical nudges** — Cut. The reader doesn't need to be told to think.
+- **"We're talking..." / "I'm talking..."** — Just state the thing. Not "we're talking RTX 4060 level" but "RTX 4060 level."
+- **"The clever part?" / "The [adj] part?"** — Rephrase naturally. AI loves this structure.
+
+### Reduce (use sparingly, if at all)
+- **"Honestly" / "Genuinely" / "Actually"** — 90% can be cut without losing meaning.
+- **Italic emphasis** (*word*) — One or two per post max. Not every paragraph.
+- **Bold emphasis** (**word**) — Only for structural purposes (list headers, key terms on first use). Never for dramatic effect.
+- **"Way" as intensifier** — "Way better" → "much better." "Way too slow" → "too slow."
+- **"Let me..." / "Let's be..."** — Just say the thing. Don't announce you're about to say it.
+
+### Keep
+- **Contractions** — "I'm", "don't", "it's" are natural. Use them.
+- **Sentence fragments** — Real people write fragments. They're fine.
+- **The author's actual opinions and facts** — Never change what's being said, only how it's said.
+- **Imperfect grammar** — If something reads like natural speech (run-ons, casual phrasing), leave it. Over-correction is itself an AI tell.
+
+### North star
+After writing, ask: would someone who knows the author recognize his voice? If the answer is no, rewrite.
