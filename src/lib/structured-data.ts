@@ -6,6 +6,7 @@ import {
   getPostUrl,
   type BlogPost,
 } from "./blog";
+import type { Project } from "./projects";
 import { absoluteUrl, SITE } from "./site";
 
 export type JsonLd = Record<string, unknown>;
@@ -13,7 +14,7 @@ export type JsonLd = Record<string, unknown>;
 const PERSON_ID = `${SITE.url}#person`;
 const WEBSITE_ID = `${SITE.url}#website`;
 
-export function buildHomePageSchemas(): JsonLd[] {
+export function buildHomePageSchemas(projects?: Project[]): JsonLd[] {
   return [
     buildPersonSchema(),
     buildWebSiteSchema(),
@@ -27,6 +28,36 @@ export function buildHomePageSchemas(): JsonLd[] {
       isPartOf: { "@id": WEBSITE_ID },
       about: { "@id": PERSON_ID },
       inLanguage: SITE.language,
+      ...(projects && projects.length > 0 && {
+        mainEntity: {
+          "@type": "ItemList",
+          itemListOrder: "https://schema.org/ItemListOrderAscending",
+          numberOfItems: projects.length,
+          itemListElement: projects.map((project, index) => ({
+            "@type": "ListItem",
+            position: index + 1,
+            url: project.data.link || project.data.github || SITE.url,
+            name: project.data.title,
+            item: {
+              "@type": project.data.category === "site" ? "WebSite" : "SoftwareApplication",
+              name: project.data.title,
+              description: project.data.description,
+              url: project.data.link || project.data.github || SITE.url,
+              ...(project.data.category !== "site" && { applicationCategory: "WebApplication" }),
+              ...(project.data.image && {
+                image: project.data.image.startsWith("http")
+                  ? project.data.image
+                  : absoluteUrl(project.data.image),
+              }),
+              offers: {
+                "@type": "Offer",
+                price: "0",
+                priceCurrency: "USD",
+              },
+            },
+          })),
+        },
+      }),
     },
   ];
 }

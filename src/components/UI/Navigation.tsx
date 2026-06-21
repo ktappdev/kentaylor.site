@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const navLinks = [
@@ -13,6 +13,9 @@ const navLinks = [
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const navRef = useRef<HTMLDivElement>(null);
+  const buttonRef = useRef<HTMLButtonElement>(null);
+  const menuId = 'mobile-menu';
   
   useEffect(() => {
     const handleScroll = () => {
@@ -22,6 +25,52 @@ export default function Navigation() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+  
+  useEffect(() => {
+    if (!isMobileMenuOpen) return;
+
+    // Lock body scroll
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+
+    // Focus first link
+    const firstLink = navRef.current?.querySelector('a');
+    firstLink?.focus();
+
+    // Escape key + focus trap
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        closeMenu();
+        return;
+      }
+
+      if (e.key === 'Tab' && navRef.current) {
+        const focusable = navRef.current.querySelectorAll<HTMLElement>('a, button');
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault();
+          last?.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault();
+          first?.focus();
+        }
+      }
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      document.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [isMobileMenuOpen]);
+  
+  const closeMenu = () => {
+    setIsMobileMenuOpen(false);
+    requestAnimationFrame(() => buttonRef.current?.focus());
+  };
   
   return (
     <motion.header
@@ -53,9 +102,13 @@ export default function Navigation() {
         </div>
         
         <button
+          ref={buttonRef}
+          id={menuId + '-button'}
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           className="md:hidden w-10 h-10 flex flex-col justify-center items-center gap-1.5"
-          aria-label="Toggle menu"
+          aria-label={isMobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+          aria-expanded={isMobileMenuOpen}
+          aria-controls={menuId}
         >
           <motion.span
             animate={isMobileMenuOpen ? { rotate: 45, y: 6 } : { rotate: 0, y: 0 }}
@@ -75,6 +128,10 @@ export default function Navigation() {
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
+            ref={navRef}
+            id={menuId}
+            role="navigation"
+            aria-label="Mobile navigation"
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
@@ -87,7 +144,7 @@ export default function Navigation() {
                   href={link.href}
                   target={link.external ? '_blank' : undefined}
                   rel={link.external ? 'noopener noreferrer' : undefined}
-                  onClick={() => setIsMobileMenuOpen(false)}
+                  onClick={closeMenu}
                   className="font-mono text-muted hover:text-text transition-colors py-2"
                 >
                   {link.label}

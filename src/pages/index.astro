@@ -16,7 +16,7 @@ const sortedPosts = (await getPublishedBlogPosts()).slice(0, 3);
 const projects = await getPublishedProjects();
 ---
 
-<Layout jsonLd={buildHomePageSchemas()}>
+<Layout jsonLd={buildHomePageSchemas(projects)}>
   <Navigation client:load />
   
   <main id="main-content">
