@@ -7,6 +7,7 @@ import Breadcrumbs from '../../components/Blog/Breadcrumbs.astro';
 import AuthorCard from '../../components/Blog/AuthorCard.astro';
 import PostPager from '../../components/Blog/PostPager.astro';
 import RelatedPosts from '../../components/Blog/RelatedPosts';
+import ShareButtons from '../../components/Blog/ShareButtons';
 import type { InferGetStaticPropsType, GetStaticPaths } from 'astro';
 import { Image } from 'astro:assets';
 import { render } from 'astro:content';
@@ -21,6 +22,7 @@ import {
   getPublishedBlogPosts,
 } from '../../lib/blog';
 import { getPostSlug } from '../../lib/post-slug';
+import { absoluteUrl } from '../../lib/site';
 import {
   buildBlogPostingSchemas,
   buildBreadcrumbSchema,
@@ -274,6 +276,12 @@ const jsonLd = [
       <div class="blog-content prose prose-invert max-w-none">
         <Content />
       </div>
+
+      <ShareButtons
+        url={absoluteUrl(getPostUrl(post))}
+        title={post.data.title}
+        client:visible
+      />
 
       <AuthorCard />
 
