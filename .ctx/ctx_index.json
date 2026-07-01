@@ -1,0 +1,1260 @@
+{
+  "root_path": "/Users/kentaylor/developer/kentaylor.site",
+  "generated_at": "2026-06-17T01:07:24.176108Z",
+  "model": "meta-llama/llama-3.1-8b-instruct",
+  "tree": {
+    "full_path": "/Users/kentaylor/developer/kentaylor.site",
+    "type": "directory",
+    "children": {
+      "AGENTS.md": {
+        "full_path": "/Users/kentaylor/developer/kentaylor.site/AGENTS.md",
+        "type": "file",
+        "synonyms": [
+          "agents",
+          "markdown file",
+          "documentation",
+          "guide"
+        ]
+      },
+      "BLOG-GUIDE.md": {
+        "full_path": "/Users/kentaylor/developer/kentaylor.site/BLOG-GUIDE.md",
+        "type": "file",
+        "synonyms": [
+          "blog guide",
+          "markdown file",
+          "documentation",
+          "tutorial"
+        ]
+      },
+      "README.md": {
+        "full_path": "/Users/kentaylor/developer/kentaylor.site/README.md",
+        "type": "file",
+        "synonyms": [
+          "readme",
+          "documentation",
+          "info",
+          "about"
+        ]
+      },
+      "astro.config.mjs": {
+        "full_path": "/Users/kentaylor/developer/kentaylor.site/astro.config.mjs",
+        "type": "file",
+        "synonyms": [
+          "astro_config",
+          "astro_settings",
+          "astro_file",
+          "config_file"
+        ]
+      },
+      "context.json": {
+        "full_path": "/Users/kentaylor/developer/kentaylor.site/context.json",
+        "type": "file",
+        "synonyms": [
+          "context_data",
+          "context_file",
+          "context_settings",
+          "context_config"
+        ]
+      },
+      "context.toml": {
+        "full_path": "/Users/kentaylor/developer/kentaylor.site/context.toml",
+        "type": "file",
+        "synonyms": [
+          "context_data",
+          "context_file",
+          "context_settings",
+          "context_config"
+        ]
+      },
+      "package-lock.json": {
+        "full_path": "/Users/kentaylor/developer/kentaylor.site/package-lock.json",
+        "type": "file",
+        "synonyms": [
+          "package-lock-json-file",
+          "package-lock-json",
+          "package-lock-file",
+          "package-lock"
+        ]
+      },
+      "package.json": {
+        "full_path": "/Users/kentaylor/developer/kentaylor.site/package.json",
+        "type": "file",
+        "synonyms": [
+          "package-json-file",
+          "package-json",
+          "package-file",
+          "package"
+        ]
+      },
+      "pnpm-lock.yaml": {
+        "full_path": "/Users/kentaylor/developer/kentaylor.site/pnpm-lock.yaml",
+        "type": "file",
+        "synonyms": [
+          "pnpm-lock-yaml-file",
+          "pnpm-lock-yaml",
+          "pnpm-lock-file",
+          "pnpm-lock"
+        ]
+      },
+      "public": {
+        "full_path": "/Users/kentaylor/developer/kentaylor.site/public",
+        "type": "directory",
+        "synonyms": [
+          "static",
+          "assets",
+          "files",
+          "uploads"
+        ],
+        "children": {
+          "cv": {
+            "full_path": "/Users/kentaylor/developer/kentaylor.site/public/cv",
+            "type": "directory",
+            "synonyms": [
+              "resume",
+              "bio",
+              "cv_page",
+              "resume_page"
+            ],
+            "children": {
+              "ken-taylor-cv.pdf": {
+                "full_path": "/Users/kentaylor/developer/kentaylor.site/public/cv/ken-taylor-cv.pdf",
+                "type": "file",
+                "synonyms": [
+                  "cv-file",
+                  "ken-taylor-resume",
+                  "resume-file",
+                  "ken-taylor-cv"
+                ]
+              }
+            }
+          },
+          "favicon.ico": {
+            "full_path": "/Users/kentaylor/developer/kentaylor.site/public/favicon.ico",
+            "type": "file",
+            "synonyms": [
+              "site-icon",
+              "favicon-image",
+              "icon",
+              "website-icon"
+            ]
+          },
+          "favicon.svg": {
+            "full_path": "/Users/kentaylor/developer/kentaylor.site/public/favicon.svg",
+            "type": "file",
+            "synonyms": [
+              "site-icon-svg",
+              "favicon-svg",
+              "svg-icon",
+              "website-icon-svg"
+            ]
+          },
+          "images": {
+            "full_path": "/Users/kentaylor/developer/kentaylor.site/public/images",
+            "type": "directory",
+            "synonyms": [
+              "image-folder",
+              "image-library",
+              "site-images",
+              "image-assets"
+            ],
+            "children": {
+              "blog": {
+                "full_path": "/Users/kentaylor/developer/kentaylor.site/public/images/blog",
+                "type": "directory",
+                "synonyms": [
+                  "posts",
+                  "articles",
+                  "blog_page",
+                  "blog_posts"
+                ],
+                "children": {
+                  "internet-cafes-vps-optimized.png": {
+                    "full_path": "/Users/kentaylor/developer/kentaylor.site/public/images/blog/internet-cafes-vps-optimized.png",
+                    "type": "file",
+                    "synonyms": [
+                      "optimized-image",
+                      "vps-image",
+                      "cafes-image",
+                      "optimized-vps-image"
+                    ]
+                  },
+                  "internet-cafes-vps.png": {
+                    "full_path": "/Users/kentaylor/developer/kentaylor.site/public/images/blog/internet-cafes-vps.png",
+                    "type": "file",
+                    "synonyms": [
+                      "vps-image",
+                      "cafes-image",
+                      "internet-cafes-image",
+                      "vps-graphics"
+                    ]
+                  },
+                  "internet-cafes-vps.webp": {
+                    "full_path": "/Users/kentaylor/developer/kentaylor.site/public/images/blog/internet-cafes-vps.webp",
+                    "type": "file",
+                    "synonyms": [
+                      "webp-image",
+                      "vps-webp",
+                      "cafes-webp",
+                      "vps-image-webp"
+                    ]
+                  },
+                  "local-llms-intel-arc.webp": {
+                    "full_path": "/Users/kentaylor/developer/kentaylor.site/public/images/blog/local-llms-intel-arc.webp",
+                    "type": "file",
+                    "synonyms": [
+                      "local-llms-intel-arc-webp-image",
+                      "arc-local-llms-webp",
+                      "local-llms-intel-arc-web-image",
+                      "intel-arc-webp"
+                    ]
+                  },
+                  "never-applied-before.webp": {
+                    "full_path": "/Users/kentaylor/developer/kentaylor.site/public/images/blog/never-applied-before.webp",
+                    "type": "file",
+                    "synonyms": [
+                      "never-applied-before-webp-image",
+                      "never-applied-before-web-image",
+                      "never-applied-before-webp",
+                      "never"
+                    ]
+                  },
+                  "vibe-coding-slur.webp": {
+                    "full_path": "/Users/kentaylor/developer/kentaylor.site/public/images/blog/vibe-coding-slur.webp",
+                    "type": "file",
+                    "synonyms": [
+                      "coding",
+                      "vibe",
+                      "slur",
+                      "image"
+                    ]
+                  }
+                }
+              },
+              "domain-echo-promo3.png": {
+                "full_path": "/Users/kentaylor/developer/kentaylor.site/public/images/domain-echo-promo3.png",
+                "type": "file",
+                "synonyms": [
+                  "image",
+                  "logo",
+                  "image_file",
+                  "logo_file"
+                ]
+              },
+              "scangy-logo.webp": {
+                "full_path": "/Users/kentaylor/developer/kentaylor.site/public/images/scangy-logo.webp",
+                "type": "file",
+                "synonyms": [
+                  "logo",
+                  "icon",
+                  "branding",
+                  "scangy"
+                ]
+              },
+              "sshthing.png": {
+                "full_path": "/Users/kentaylor/developer/kentaylor.site/public/images/sshthing.png",
+                "type": "file",
+                "synonyms": [
+                  "ssh",
+                  "connection",
+                  "terminal",
+                  "image"
+                ]
+              }
+            }
+          },
+          "og-image.jpg": {
+            "full_path": "/Users/kentaylor/developer/kentaylor.site/public/og-image.jpg",
+            "type": "file",
+            "synonyms": [
+              "open-graph-image-jpg",
+              "open-graph-image",
+              "og-image-jpg",
+              "og"
+            ]
+          },
+          "og-image.svg": {
+            "full_path": "/Users/kentaylor/developer/kentaylor.site/public/og-image.svg",
+            "type": "file",
+            "synonyms": [
+              "open-graph-image-svg",
+              "open-graph-image",
+              "og-image-svg",
+              "og"
+            ]
+          },
+          "robots.txt": {
+            "full_path": "/Users/kentaylor/developer/kentaylor.site/public/robots.txt",
+            "type": "file",
+            "synonyms": [
+              "robots-file",
+              "crawler-rules",
+              "search-engine-optimization",
+              "robots"
+            ]
+          },
+          "screen1.jpg": {
+            "full_path": "/Users/kentaylor/developer/kentaylor.site/public/screen1.jpg",
+            "type": "file",
+            "synonyms": [
+              "image",
+              "screenshot",
+              "snapshot",
+              "screen1"
+            ]
+          }
+        }
+      },
+      "src": {
+        "full_path": "/Users/kentaylor/developer/kentaylor.site/src",
+        "type": "directory",
+        "synonyms": [
+          "source",
+          "code",
+          "files",
+          "src"
+        ],
+        "children": {
+          "components": {
+            "full_path": "/Users/kentaylor/developer/kentaylor.site/src/components",
+            "type": "directory",
+            "synonyms": [
+              "ui",
+              "elements",
+              "components_folder",
+              "ui_components"
+            ],
+            "children": {
+              "About": {
+                "full_path": "/Users/kentaylor/developer/kentaylor.site/src/components/About",
+                "type": "directory",
+                "synonyms": [
+                  "about us",
+                  "description",
+                  "page",
+                  "about"
+                ],
+                "children": {
+                  "AboutCard.tsx": {
+                    "full_path": "/Users/kentaylor/developer/kentaylor.site/src/components/About/AboutCard.tsx",
+                    "type": "file",
+                    "synonyms": [
+                      "about card",
+                      "info card",
+                      "tsx file",
+                      "component"
+                    ]
+                  }
+                }
+              },
+              "Blog": {
+                "full_path": "/Users/kentaylor/developer/kentaylor.site/src/components/Blog",
+                "type": "directory",
+                "synonyms": [
+                  "blog page",
+                  "blog post",
+                  "page",
+                  "blog"
+                ],
+                "children": {
+                  "AuthorCard.astro": {
+                    "full_path": "/Users/kentaylor/developer/kentaylor.site/src/components/Blog/AuthorCard.astro",
+                    "type": "file",
+                    "synonyms": [
+                      "author card",
+                      "user card",
+                      "astro file",
+                      "component"
+                    ]
+                  },
+                  "BlogCard.tsx": {
+                    "full_path": "/Users/kentaylor/developer/kentaylor.site/src/components/Blog/BlogCard.tsx",
+                    "type": "file",
+                    "synonyms": [
+                      "blog card",
+                      "post card",
+                      "tsx file",
+                      "component"
+                    ],
+                    "symbols": [
+                      "calculateReadingTime",
+                      "WORDS_PER_MINUTE",
+                      "BlogCardProps"
+                    ]
+                  },
+                  "BlogList.tsx": {
+                    "full_path": "/Users/kentaylor/developer/kentaylor.site/src/components/Blog/BlogList.tsx",
+                    "type": "file",
+                    "synonyms": [
+                      "blog list",
+                      "post list",
+                      "tsx file",
+                      "component"
+                    ],
+                    "symbols": [
+                      "BlogListProps"
+                    ]
+                  },
+                  "Breadcrumbs.astro": {
+                    "full_path": "/Users/kentaylor/developer/kentaylor.site/src/components/Blog/Breadcrumbs.astro",
+                    "type": "file",
+                    "synonyms": [
+                      "breadcrumbs",
+                      "navigation",
+                      "astro file",
+                      "component"
+                    ]
+                  },
+                  "NewsletterEmbed.tsx": {
+                    "full_path": "/Users/kentaylor/developer/kentaylor.site/src/components/Blog/NewsletterEmbed.tsx",
+                    "type": "file",
+                    "synonyms": [
+                      "newsletter",
+                      "email",
+                      "embed",
+                      "subscribe"
+                    ],
+                    "symbols": [
+                      "NewsletterEmbedProps"
+                    ]
+                  },
+                  "PostPager.astro": {
+                    "full_path": "/Users/kentaylor/developer/kentaylor.site/src/components/Blog/PostPager.astro",
+                    "type": "file",
+                    "synonyms": [
+                      "post",
+                      "pager",
+                      "pagination",
+                      "listing"
+                    ]
+                  },
+                  "RelatedPosts.tsx": {
+                    "full_path": "/Users/kentaylor/developer/kentaylor.site/src/components/Blog/RelatedPosts.tsx",
+                    "type": "file",
+                    "synonyms": [
+                      "related",
+                      "posts",
+                      "similar",
+                      "articles"
+                    ],
+                    "symbols": [
+                      "RelatedPostsProps"
+                    ]
+                  }
+                }
+              },
+              "Hero": {
+                "full_path": "/Users/kentaylor/developer/kentaylor.site/src/components/Hero",
+                "type": "directory",
+                "synonyms": [
+                  "hero section",
+                  "hero image",
+                  "page",
+                  "hero"
+                ],
+                "children": {
+                  "HeroScene.tsx": {
+                    "full_path": "/Users/kentaylor/developer/kentaylor.site/src/components/Hero/HeroScene.tsx",
+                    "type": "file",
+                    "synonyms": [
+                      "hero scene",
+                      "tsx file",
+                      "component",
+                      "layout"
+                    ],
+                    "symbols": [
+                      "FloatingShape"
+                    ]
+                  },
+                  "HeroTitle.tsx": {
+                    "full_path": "/Users/kentaylor/developer/kentaylor.site/src/components/Hero/HeroTitle.tsx",
+                    "type": "file",
+                    "synonyms": [
+                      "hero title",
+                      "tsx file",
+                      "component",
+                      "layout"
+                    ],
+                    "symbols": [
+                      "HeroTitleProps"
+                    ]
+                  },
+                  "ScrollIndicator.tsx": {
+                    "full_path": "/Users/kentaylor/developer/kentaylor.site/src/components/Hero/ScrollIndicator.tsx",
+                    "type": "file",
+                    "synonyms": [
+                      "scroll",
+                      "indicator",
+                      "loading",
+                      "progress"
+                    ]
+                  }
+                }
+              },
+              "Projects": {
+                "full_path": "/Users/kentaylor/developer/kentaylor.site/src/components/Projects",
+                "type": "directory",
+                "synonyms": [
+                  "project",
+                  "portfolio",
+                  "collection",
+                  "gallery"
+                ],
+                "children": {
+                  "ProjectCard.tsx": {
+                    "full_path": "/Users/kentaylor/developer/kentaylor.site/src/components/Projects/ProjectCard.tsx",
+                    "type": "file",
+                    "synonyms": [
+                      "project",
+                      "card",
+                      "display",
+                      "showcase"
+                    ],
+                    "symbols": [
+                      "ProjectCardProps",
+                      "ProjectData"
+                    ]
+                  },
+                  "ProjectGrid.tsx": {
+                    "full_path": "/Users/kentaylor/developer/kentaylor.site/src/components/Projects/ProjectGrid.tsx",
+                    "type": "file",
+                    "synonyms": [
+                      "project",
+                      "grid",
+                      "layout",
+                      "display"
+                    ],
+                    "symbols": [
+                      "ProjectGridProps",
+                      "Project"
+                    ]
+                  }
+                }
+              },
+              "SEO": {
+                "full_path": "/Users/kentaylor/developer/kentaylor.site/src/components/SEO",
+                "type": "directory",
+                "synonyms": [
+                  "search",
+                  "engine",
+                  "optimization",
+                  "meta"
+                ],
+                "children": {
+                  "SeoHead.astro": {
+                    "full_path": "/Users/kentaylor/developer/kentaylor.site/src/components/SEO/SeoHead.astro",
+                    "type": "file",
+                    "synonyms": [
+                      "seo",
+                      "head",
+                      "metadata",
+                      "tags"
+                    ]
+                  },
+                  "StructuredData.astro": {
+                    "full_path": "/Users/kentaylor/developer/kentaylor.site/src/components/SEO/StructuredData.astro",
+                    "type": "file",
+                    "synonyms": [
+                      "structured",
+                      "schema",
+                      "markup",
+                      "organization"
+                    ]
+                  }
+                }
+              },
+              "UI": {
+                "full_path": "/Users/kentaylor/developer/kentaylor.site/src/components/UI",
+                "type": "directory",
+                "synonyms": [
+                  "user",
+                  "interface",
+                  "design",
+                  "components"
+                ],
+                "children": {
+                  "Footer.tsx": {
+                    "full_path": "/Users/kentaylor/developer/kentaylor.site/src/components/UI/Footer.tsx",
+                    "type": "file",
+                    "synonyms": [
+                      "footer",
+                      "tsx file",
+                      "component",
+                      "layout"
+                    ]
+                  },
+                  "Navigation.tsx": {
+                    "full_path": "/Users/kentaylor/developer/kentaylor.site/src/components/UI/Navigation.tsx",
+                    "type": "file",
+                    "synonyms": [
+                      "nav",
+                      "menu",
+                      "sidebar",
+                      "navigation"
+                    ],
+                    "symbols": [
+                      "navLinks"
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "content": {
+            "full_path": "/Users/kentaylor/developer/kentaylor.site/src/content",
+            "type": "directory",
+            "synonyms": [
+              "content_folder",
+              "content_data",
+              "content_files",
+              "content"
+            ],
+            "children": {
+              "blog": {
+                "full_path": "/Users/kentaylor/developer/kentaylor.site/src/content/blog",
+                "type": "directory",
+                "synonyms": [
+                  "posts",
+                  "articles",
+                  "blog_page",
+                  "blog_posts"
+                ],
+                "children": {
+                  "3d-portfolio.mdx": {
+                    "full_path": "/Users/kentaylor/developer/kentaylor.site/src/content/blog/3d-portfolio.mdx",
+                    "type": "file",
+                    "synonyms": [
+                      "portfolio",
+                      "3d portfolio",
+                      "markdown file",
+                      "portfolio page"
+                    ]
+                  },
+                  "from-internet-cafes-to-vps.mdx": {
+                    "full_path": "/Users/kentaylor/developer/kentaylor.site/src/content/blog/from-internet-cafes-to-vps.mdx",
+                    "type": "file",
+                    "synonyms": [
+                      "cafes-to-vps",
+                      "vps-from-cafes",
+                      "vps-guide",
+                      "internet-cafes-vps"
+                    ]
+                  },
+                  "local-llms-intel-arc.mdx": {
+                    "full_path": "/Users/kentaylor/developer/kentaylor.site/src/content/blog/local-llms-intel-arc.mdx",
+                    "type": "file",
+                    "synonyms": [
+                      "local-llms-intel-arc-markdown",
+                      "intel-arc-documentation",
+                      "local-llms-intel-arc-content",
+                      "arc-local-llms-documentation"
+                    ]
+                  },
+                  "lyricut.mdx": {
+                    "full_path": "/Users/kentaylor/developer/kentaylor.site/src/content/blog/lyricut.mdx",
+                    "type": "file",
+                    "synonyms": [
+                      "lyricut-markdown",
+                      "lyricut-content",
+                      "lyricut-documentation",
+                      "lyricut-markdown-document"
+                    ]
+                  },
+                  "never-applied-before.mdx": {
+                    "full_path": "/Users/kentaylor/developer/kentaylor.site/src/content/blog/never-applied-before.mdx",
+                    "type": "file",
+                    "synonyms": [
+                      "never-applied-before-markdown",
+                      "never-applied-before-content",
+                      "never-applied-before-documentation",
+                      "never-applied-before-markdown-document"
+                    ]
+                  },
+                  "vibe-coding-slur.mdx": {
+                    "full_path": "/Users/kentaylor/developer/kentaylor.site/src/content/blog/vibe-coding-slur.mdx",
+                    "type": "file",
+                    "synonyms": [
+                      "coding",
+                      "vibe",
+                      "slur",
+                      "markdown"
+                    ]
+                  }
+                }
+              },
+              "projects": {
+                "full_path": "/Users/kentaylor/developer/kentaylor.site/src/content/projects",
+                "type": "directory",
+                "synonyms": [
+                  "portfolio",
+                  "work",
+                  "gallery",
+                  "collection"
+                ],
+                "children": {
+                  "domain-echo.mdx": {
+                    "full_path": "/Users/kentaylor/developer/kentaylor.site/src/content/projects/domain-echo.mdx",
+                    "type": "file",
+                    "synonyms": [
+                      "domain-echo-page",
+                      "echo-page",
+                      "domain-page",
+                      "echo-domain"
+                    ]
+                  },
+                  "hitman.mdx": {
+                    "full_path": "/Users/kentaylor/developer/kentaylor.site/src/content/projects/hitman.mdx",
+                    "type": "file",
+                    "synonyms": [
+                      "hitman-page",
+                      "hitman-article",
+                      "hitman-post",
+                      "hitman-content"
+                    ]
+                  },
+                  "lugetech.mdx": {
+                    "full_path": "/Users/kentaylor/developer/kentaylor.site/src/content/projects/lugetech.mdx",
+                    "type": "file",
+                    "synonyms": [
+                      "lugetech-markdown",
+                      "lugetech-content",
+                      "lugetech-documentation",
+                      "lugetech-markdown-document"
+                    ]
+                  },
+                  "lyricut.mdx": {
+                    "full_path": "/Users/kentaylor/developer/kentaylor.site/src/content/projects/lyricut.mdx",
+                    "type": "file",
+                    "synonyms": [
+                      "lyricut-markdown",
+                      "lyricut-content",
+                      "lyricut-documentation",
+                      "lyricut-markdown-document"
+                    ]
+                  },
+                  "maad-radio.mdx": {
+                    "full_path": "/Users/kentaylor/developer/kentaylor.site/src/content/projects/maad-radio.mdx",
+                    "type": "file",
+                    "synonyms": [
+                      "maad-radio-markdown",
+                      "maad-radio-content",
+                      "maad-radio-documentation",
+                      "maad-radio-markdown-document"
+                    ]
+                  },
+                  "reviewit.mdx": {
+                    "full_path": "/Users/kentaylor/developer/kentaylor.site/src/content/projects/reviewit.mdx",
+                    "type": "file",
+                    "synonyms": [
+                      "review",
+                      "feedback",
+                      "testimonial",
+                      "comment"
+                    ]
+                  },
+                  "scangy.mdx": {
+                    "full_path": "/Users/kentaylor/developer/kentaylor.site/src/content/projects/scangy.mdx",
+                    "type": "file",
+                    "synonyms": [
+                      "about",
+                      "info",
+                      "description",
+                      "company"
+                    ]
+                  },
+                  "secretnotez.mdx": {
+                    "full_path": "/Users/kentaylor/developer/kentaylor.site/src/content/projects/secretnotez.mdx",
+                    "type": "file",
+                    "synonyms": [
+                      "note",
+                      "blog",
+                      "article",
+                      "secretnotez"
+                    ]
+                  },
+                  "ssh-thing.mdx": {
+                    "full_path": "/Users/kentaylor/developer/kentaylor.site/src/content/projects/ssh-thing.mdx",
+                    "type": "file",
+                    "synonyms": [
+                      "ssh",
+                      "connection",
+                      "terminal",
+                      "mdx"
+                    ]
+                  }
+                }
+              },
+              "test": {
+                "full_path": "/Users/kentaylor/developer/kentaylor.site/src/content/test",
+                "type": "directory",
+                "synonyms": [
+                  "testing",
+                  "example",
+                  "demo",
+                  "test"
+                ],
+                "children": {
+                  "test.mdx": {
+                    "full_path": "/Users/kentaylor/developer/kentaylor.site/src/content/test/test.mdx",
+                    "type": "file",
+                    "synonyms": [
+                      "test",
+                      "example",
+                      "demo",
+                      "markdown"
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "content.config.ts": {
+            "full_path": "/Users/kentaylor/developer/kentaylor.site/src/content.config.ts",
+            "type": "file",
+            "synonyms": [
+              "content_config",
+              "content_settings",
+              "content_file",
+              "config_file"
+            ],
+            "symbols": [
+              "blogCollection",
+              "collections"
+            ]
+          },
+          "layouts": {
+            "full_path": "/Users/kentaylor/developer/kentaylor.site/src/layouts",
+            "type": "directory",
+            "synonyms": [
+              "layout-folder",
+              "site-layouts",
+              "layout-library",
+              "page-layouts"
+            ],
+            "children": {
+              "Layout.astro": {
+                "full_path": "/Users/kentaylor/developer/kentaylor.site/src/layouts/Layout.astro",
+                "type": "file",
+                "synonyms": [
+                  "layout",
+                  "template",
+                  "page",
+                  "structure"
+                ]
+              }
+            }
+          },
+          "lib": {
+            "full_path": "/Users/kentaylor/developer/kentaylor.site/src/lib",
+            "type": "directory",
+            "synonyms": [
+              "library-folder",
+              "site-lib",
+              "library-assets",
+              "code-library"
+            ],
+            "children": {
+              "blog.ts": {
+                "full_path": "/Users/kentaylor/developer/kentaylor.site/src/lib/blog.ts",
+                "type": "file",
+                "synonyms": [
+                  "blog_route",
+                  "blog_url",
+                  "blog_path",
+                  "blog_route_file"
+                ],
+                "symbols": [
+                  "getPublishedBlogPosts",
+                  "getPostUrl",
+                  "getPostOgImageUrl",
+                  "getPostStructuredImageUrls",
+                  "getPostSeoTitle",
+                  "getPostSeoDescription",
+                  "getPostUpdatedDate",
+                  "getPostImageAlt",
+                  "getPostCoverImage",
+                  "getPostReadingTimeMinutes",
+                  "getPostReadingTimeLabel",
+                  "countWords",
+                  "publicAssetExists",
+                  "WORDS_PER_MINUTE",
+                  "BlogPost"
+                ]
+              },
+              "og.ts": {
+                "full_path": "/Users/kentaylor/developer/kentaylor.site/src/lib/og.ts",
+                "type": "file",
+                "synonyms": [
+                  "open-graph-typescript",
+                  "open-graph-ts",
+                  "open-graph-file",
+                  "open-graph-typescript-file"
+                ],
+                "symbols": [
+                  "createBlogOgImage",
+                  "isOgStructuredRatio",
+                  "buildSvg",
+                  "buildGrid",
+                  "wrapText",
+                  "truncate",
+                  "escapeXml",
+                  "OG_SOCIAL_SIZE",
+                  "OG_STRUCTURED_SIZES",
+                  "CreateOgImageOptions",
+                  "OgStructuredRatio"
+                ]
+              },
+              "post-slug.ts": {
+                "full_path": "/Users/kentaylor/developer/kentaylor.site/src/lib/post-slug.ts",
+                "type": "file",
+                "synonyms": [
+                  "slug",
+                  "post",
+                  "route",
+                  "router"
+                ],
+                "symbols": [
+                  "getPostSlug",
+                  "SlugCandidate"
+                ]
+              },
+              "projects.ts": {
+                "full_path": "/Users/kentaylor/developer/kentaylor.site/src/lib/projects.ts",
+                "type": "file",
+                "synonyms": [
+                  "project",
+                  "portfolio",
+                  "work",
+                  "gallery"
+                ],
+                "symbols": [
+                  "getPublishedProjects",
+                  "getFeaturedProjects",
+                  "Project"
+                ]
+              },
+              "site.ts": {
+                "full_path": "/Users/kentaylor/developer/kentaylor.site/src/lib/site.ts",
+                "type": "file",
+                "synonyms": [
+                  "site",
+                  "website",
+                  "configuration",
+                  "ts"
+                ],
+                "symbols": [
+                  "absoluteUrl",
+                  "SITE"
+                ]
+              },
+              "structured-data.ts": {
+                "full_path": "/Users/kentaylor/developer/kentaylor.site/src/lib/structured-data.ts",
+                "type": "file",
+                "synonyms": [
+                  "structure",
+                  "typescript",
+                  "schema",
+                  "structured"
+                ],
+                "symbols": [
+                  "buildHomePageSchemas",
+                  "buildBlogIndexSchemas",
+                  "buildProfilePageSchemas",
+                  "buildBlogPostingSchemas",
+                  "buildBreadcrumbSchema",
+                  "buildPersonSchema",
+                  "buildWebSiteSchema",
+                  "PERSON_ID",
+                  "WEBSITE_ID",
+                  "JsonLd"
+                ]
+              }
+            }
+          },
+          "pages": {
+            "full_path": "/Users/kentaylor/developer/kentaylor.site/src/pages",
+            "type": "directory",
+            "synonyms": [
+              "page-files",
+              "page-directory",
+              "pages-folder",
+              "page-content"
+            ],
+            "children": {
+              "404.astro": {
+                "full_path": "/Users/kentaylor/developer/kentaylor.site/src/pages/404.astro",
+                "type": "file",
+                "synonyms": [
+                  "not found page",
+                  "error page",
+                  "404 page",
+                  "astro file"
+                ]
+              },
+              "about": {
+                "full_path": "/Users/kentaylor/developer/kentaylor.site/src/pages/about",
+                "type": "directory",
+                "synonyms": [
+                  "description",
+                  "info",
+                  "about_page",
+                  "info_page"
+                ],
+                "children": {
+                  "index.astro": {
+                    "full_path": "/Users/kentaylor/developer/kentaylor.site/src/pages/about/index.astro",
+                    "type": "file",
+                    "synonyms": [
+                      "site-index",
+                      "astro-index",
+                      "site-home",
+                      "home-page"
+                    ]
+                  }
+                }
+              },
+              "blog": {
+                "full_path": "/Users/kentaylor/developer/kentaylor.site/src/pages/blog",
+                "type": "directory",
+                "synonyms": [
+                  "posts",
+                  "articles",
+                  "blog_page",
+                  "blog_posts"
+                ],
+                "children": {
+                  "[slug].astro": {
+                    "full_path": "/Users/kentaylor/developer/kentaylor.site/src/pages/blog/[slug].astro",
+                    "type": "file",
+                    "synonyms": [
+                      "slug",
+                      "astro"
+                    ]
+                  },
+                  "index.astro": {
+                    "full_path": "/Users/kentaylor/developer/kentaylor.site/src/pages/blog/index.astro",
+                    "type": "file",
+                    "synonyms": [
+                      "site-index",
+                      "astro-index",
+                      "site-home",
+                      "home-page"
+                    ]
+                  },
+                  "search.astro": {
+                    "full_path": "/Users/kentaylor/developer/kentaylor.site/src/pages/blog/search.astro",
+                    "type": "file",
+                    "synonyms": [
+                      "search-bar",
+                      "search-functionality",
+                      "search-engine",
+                      "search"
+                    ]
+                  },
+                  "tag": {
+                    "full_path": "/Users/kentaylor/developer/kentaylor.site/src/pages/blog/tag",
+                    "type": "directory",
+                    "synonyms": [
+                      "label",
+                      "identifier",
+                      "metadata",
+                      "tag"
+                    ],
+                    "children": {
+                      "[tag].astro": {
+                        "full_path": "/Users/kentaylor/developer/kentaylor.site/src/pages/blog/tag/[tag].astro",
+                        "type": "file",
+                        "synonyms": [
+                          "tag",
+                          "astro"
+                        ]
+                      }
+                    }
+                  }
+                }
+              },
+              "cv": {
+                "full_path": "/Users/kentaylor/developer/kentaylor.site/src/pages/cv",
+                "type": "directory",
+                "synonyms": [
+                  "resume",
+                  "bio",
+                  "cv_page",
+                  "resume_page"
+                ],
+                "children": {
+                  "index.astro": {
+                    "full_path": "/Users/kentaylor/developer/kentaylor.site/src/pages/cv/index.astro",
+                    "type": "file",
+                    "synonyms": [
+                      "site-index",
+                      "astro-index",
+                      "site-home",
+                      "home-page"
+                    ]
+                  }
+                }
+              },
+              "index.astro": {
+                "full_path": "/Users/kentaylor/developer/kentaylor.site/src/pages/index.astro",
+                "type": "file",
+                "synonyms": [
+                  "site-index",
+                  "astro-index",
+                  "site-home",
+                  "home-page"
+                ]
+              },
+              "landing": {
+                "full_path": "/Users/kentaylor/developer/kentaylor.site/src/pages/landing",
+                "type": "directory",
+                "synonyms": [
+                  "site-landing",
+                  "landing-page",
+                  "site-home",
+                  "home-page"
+                ],
+                "children": {
+                  "sshthing": {
+                    "full_path": "/Users/kentaylor/developer/kentaylor.site/src/pages/landing/sshthing",
+                    "type": "directory",
+                    "synonyms": [
+                      "ssh",
+                      "connection",
+                      "terminal",
+                      "sshthing"
+                    ],
+                    "children": {
+                      "index.astro": {
+                        "full_path": "/Users/kentaylor/developer/kentaylor.site/src/pages/landing/sshthing/index.astro",
+                        "type": "file",
+                        "synonyms": [
+                          "site-index",
+                          "astro-index",
+                          "site-home",
+                          "home-page"
+                        ]
+                      },
+                      "privacy.astro": {
+                        "full_path": "/Users/kentaylor/developer/kentaylor.site/src/pages/landing/sshthing/privacy.astro",
+                        "type": "file",
+                        "synonyms": [
+                          "privacy-policy",
+                          "data-protection",
+                          "terms",
+                          "conditions"
+                        ]
+                      }
+                    }
+                  }
+                }
+              },
+              "og": {
+                "full_path": "/Users/kentaylor/developer/kentaylor.site/src/pages/og",
+                "type": "directory",
+                "synonyms": [
+                  "open-graph",
+                  "open-graph-metadata",
+                  "open-graph-tag",
+                  "open-graph-metadata-tag"
+                ],
+                "children": {
+                  "[slug]": {
+                    "full_path": "/Users/kentaylor/developer/kentaylor.site/src/pages/og/[slug]",
+                    "type": "directory",
+                    "synonyms": [
+                      "slug"
+                    ],
+                    "children": {
+                      "[ratio].png.ts": {
+                        "full_path": "/Users/kentaylor/developer/kentaylor.site/src/pages/og/[slug]/[ratio].png.ts",
+                        "type": "file",
+                        "synonyms": [
+                          "ratio",
+                          "image",
+                          "asset",
+                          "sprite"
+                        ],
+                        "symbols": [
+                          "getStaticPaths",
+                          "StaticPathProps"
+                        ]
+                      }
+                    }
+                  },
+                  "[slug].png.ts": {
+                    "full_path": "/Users/kentaylor/developer/kentaylor.site/src/pages/og/[slug].png.ts",
+                    "type": "file",
+                    "synonyms": [
+                      "slug",
+                      "png",
+                      "ts"
+                    ],
+                    "symbols": [
+                      "getStaticPaths",
+                      "StaticPathProps"
+                    ]
+                  }
+                }
+              },
+              "projects": {
+                "full_path": "/Users/kentaylor/developer/kentaylor.site/src/pages/projects",
+                "type": "directory",
+                "synonyms": [
+                  "portfolio",
+                  "work",
+                  "gallery",
+                  "collection"
+                ]
+              },
+              "rss.xml.ts": {
+                "full_path": "/Users/kentaylor/developer/kentaylor.site/src/pages/rss.xml.ts",
+                "type": "file",
+                "synonyms": [
+                  "rss-feed",
+                  "rss-generator",
+                  "xml-feed",
+                  "rss"
+                ],
+                "symbols": [
+                  "GET"
+                ]
+              }
+            }
+          },
+          "styles": {
+            "full_path": "/Users/kentaylor/developer/kentaylor.site/src/styles",
+            "type": "directory",
+            "synonyms": [
+              "css",
+              "styling",
+              "layout",
+              "design"
+            ],
+            "children": {
+              "global.css": {
+                "full_path": "/Users/kentaylor/developer/kentaylor.site/src/styles/global.css",
+                "type": "file",
+                "synonyms": [
+                  "site-css",
+                  "global-style",
+                  "css-file",
+                  "site-styles"
+                ]
+              }
+            }
+          }
+        }
+      },
+      "tsconfig.json": {
+        "full_path": "/Users/kentaylor/developer/kentaylor.site/tsconfig.json",
+        "type": "file",
+        "synonyms": [
+          "typescript",
+          "configuration",
+          "settings",
+          "tsconfig"
+        ]
+      }
+    }
+  }
+}

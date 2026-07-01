@@ -1,0 +1,588 @@
+{
+  "3d-portfolio.mdx": [
+    "portfolio",
+    "3d portfolio",
+    "markdown file",
+    "portfolio page"
+  ],
+  "404.astro": [
+    "not found page",
+    "error page",
+    "404 page",
+    "astro file"
+  ],
+  "AGENTS.md": [
+    "agents",
+    "markdown file",
+    "documentation",
+    "guide"
+  ],
+  "About": [
+    "about us",
+    "description",
+    "page"
+  ],
+  "AboutCard.tsx": [
+    "about card",
+    "info card",
+    "tsx file",
+    "component"
+  ],
+  "AuthorCard.astro": [
+    "author card",
+    "user card",
+    "astro file",
+    "component"
+  ],
+  "BLOG-GUIDE.md": [
+    "blog guide",
+    "markdown file",
+    "documentation",
+    "tutorial"
+  ],
+  "Blog": [
+    "blog page",
+    "blog post",
+    "page"
+  ],
+  "BlogCard.tsx": [
+    "blog card",
+    "post card",
+    "tsx file",
+    "component"
+  ],
+  "BlogList.tsx": [
+    "blog list",
+    "post list",
+    "tsx file",
+    "component"
+  ],
+  "Breadcrumbs.astro": [
+    "breadcrumbs",
+    "navigation",
+    "astro file",
+    "component"
+  ],
+  "Footer.tsx": [
+    "footer",
+    "tsx file",
+    "component",
+    "layout"
+  ],
+  "Hero": [
+    "hero section",
+    "hero image",
+    "page"
+  ],
+  "HeroScene.tsx": [
+    "hero scene",
+    "tsx file",
+    "component",
+    "layout"
+  ],
+  "HeroTitle.tsx": [
+    "hero title",
+    "tsx file",
+    "component",
+    "layout"
+  ],
+  "Layout.astro": [
+    "layout",
+    "template",
+    "page",
+    "structure"
+  ],
+  "Navigation.tsx": [
+    "nav",
+    "menu",
+    "sidebar",
+    "navigation"
+  ],
+  "NewsletterEmbed.tsx": [
+    "newsletter",
+    "email",
+    "embed",
+    "subscribe"
+  ],
+  "PostPager.astro": [
+    "post",
+    "pager",
+    "pagination",
+    "listing"
+  ],
+  "ProjectCard.tsx": [
+    "project",
+    "card",
+    "display",
+    "showcase"
+  ],
+  "ProjectGrid.tsx": [
+    "project",
+    "grid",
+    "layout",
+    "display"
+  ],
+  "Projects": [
+    "project",
+    "portfolio",
+    "collection",
+    "gallery"
+  ],
+  "README.md": [
+    "readme",
+    "documentation",
+    "info",
+    "about"
+  ],
+  "RelatedPosts.tsx": [
+    "related",
+    "posts",
+    "similar",
+    "articles"
+  ],
+  "SEO": [
+    "search",
+    "engine",
+    "optimization",
+    "meta"
+  ],
+  "ScrollIndicator.tsx": [
+    "scroll",
+    "indicator",
+    "loading",
+    "progress"
+  ],
+  "SeoHead.astro": [
+    "seo",
+    "head",
+    "metadata",
+    "tags"
+  ],
+  "StructuredData.astro": [
+    "structured",
+    "schema",
+    "markup",
+    "organization"
+  ],
+  "UI": [
+    "user",
+    "interface",
+    "design",
+    "components"
+  ],
+  "[ratio].png.ts": [
+    "ratio",
+    "image",
+    "asset",
+    "sprite"
+  ],
+  "about": [
+    "description",
+    "info",
+    "about_page",
+    "info_page"
+  ],
+  "astro.config.mjs": [
+    "astro_config",
+    "astro_settings",
+    "astro_file",
+    "config_file"
+  ],
+  "blog": [
+    "posts",
+    "articles",
+    "blog_page",
+    "blog_posts"
+  ],
+  "blog.ts": [
+    "blog_route",
+    "blog_url",
+    "blog_path",
+    "blog_route_file"
+  ],
+  "components": [
+    "ui",
+    "elements",
+    "components_folder",
+    "ui_components"
+  ],
+  "content": [
+    "content_folder",
+    "content_data",
+    "content_files"
+  ],
+  "content.config.ts": [
+    "content_config",
+    "content_settings",
+    "content_file",
+    "config_file"
+  ],
+  "context.json": [
+    "context_data",
+    "context_file",
+    "context_settings",
+    "context_config"
+  ],
+  "context.toml": [
+    "context_data",
+    "context_file",
+    "context_settings",
+    "context_config"
+  ],
+  "cv": [
+    "resume",
+    "bio",
+    "cv_page",
+    "resume_page"
+  ],
+  "domain-echo-promo3.png": [
+    "image",
+    "logo",
+    "image_file",
+    "logo_file"
+  ],
+  "domain-echo.mdx": [
+    "domain-echo-page",
+    "echo-page",
+    "domain-page",
+    "echo-domain"
+  ],
+  "favicon.ico": [
+    "site-icon",
+    "favicon-image",
+    "icon",
+    "website-icon"
+  ],
+  "favicon.svg": [
+    "site-icon-svg",
+    "favicon-svg",
+    "svg-icon",
+    "website-icon-svg"
+  ],
+  "from-internet-cafes-to-vps.mdx": [
+    "cafes-to-vps",
+    "vps-from-cafes",
+    "vps-guide",
+    "internet-cafes-vps"
+  ],
+  "global.css": [
+    "site-css",
+    "global-style",
+    "css-file",
+    "site-styles"
+  ],
+  "hitman.mdx": [
+    "hitman-page",
+    "hitman-article",
+    "hitman-post",
+    "hitman-content"
+  ],
+  "images": [
+    "image-folder",
+    "image-library",
+    "site-images",
+    "image-assets"
+  ],
+  "index.astro": [
+    "site-index",
+    "astro-index",
+    "site-home",
+    "home-page"
+  ],
+  "internet-cafes-vps-optimized.png": [
+    "optimized-image",
+    "vps-image",
+    "cafes-image",
+    "optimized-vps-image"
+  ],
+  "internet-cafes-vps.png": [
+    "vps-image",
+    "cafes-image",
+    "internet-cafes-image",
+    "vps-graphics"
+  ],
+  "internet-cafes-vps.webp": [
+    "webp-image",
+    "vps-webp",
+    "cafes-webp",
+    "vps-image-webp"
+  ],
+  "ken-taylor-cv.pdf": [
+    "cv-file",
+    "ken-taylor-resume",
+    "resume-file",
+    "ken-taylor-cv"
+  ],
+  "landing": [
+    "site-landing",
+    "landing-page",
+    "site-home",
+    "home-page"
+  ],
+  "layouts": [
+    "layout-folder",
+    "site-layouts",
+    "layout-library",
+    "page-layouts"
+  ],
+  "lib": [
+    "library-folder",
+    "site-lib",
+    "library-assets",
+    "code-library"
+  ],
+  "local-llms-intel-arc.mdx": [
+    "local-llms-intel-arc-markdown",
+    "intel-arc-documentation",
+    "local-llms-intel-arc-content",
+    "arc-local-llms-documentation"
+  ],
+  "local-llms-intel-arc.webp": [
+    "local-llms-intel-arc-webp-image",
+    "arc-local-llms-webp",
+    "local-llms-intel-arc-web-image",
+    "intel-arc-webp"
+  ],
+  "lugetech.mdx": [
+    "lugetech-markdown",
+    "lugetech-content",
+    "lugetech-documentation",
+    "lugetech-markdown-document"
+  ],
+  "lyricut.mdx": [
+    "lyricut-markdown",
+    "lyricut-content",
+    "lyricut-documentation",
+    "lyricut-markdown-document"
+  ],
+  "maad-radio.mdx": [
+    "maad-radio-markdown",
+    "maad-radio-content",
+    "maad-radio-documentation",
+    "maad-radio-markdown-document"
+  ],
+  "never-applied-before.mdx": [
+    "never-applied-before-markdown",
+    "never-applied-before-content",
+    "never-applied-before-documentation",
+    "never-applied-before-markdown-document"
+  ],
+  "never-applied-before.webp": [
+    "never-applied-before-webp-image",
+    "never-applied-before-web-image",
+    "never-applied-before-webp"
+  ],
+  "og": [
+    "open-graph",
+    "open-graph-metadata",
+    "open-graph-tag",
+    "open-graph-metadata-tag"
+  ],
+  "og-image.jpg": [
+    "open-graph-image-jpg",
+    "open-graph-image",
+    "og-image-jpg"
+  ],
+  "og-image.svg": [
+    "open-graph-image-svg",
+    "open-graph-image",
+    "og-image-svg"
+  ],
+  "og.ts": [
+    "open-graph-typescript",
+    "open-graph-ts",
+    "open-graph-file",
+    "open-graph-typescript-file"
+  ],
+  "package-lock.json": [
+    "package-lock-json-file",
+    "package-lock-json",
+    "package-lock-file",
+    "package-lock"
+  ],
+  "package.json": [
+    "package-json-file",
+    "package-json",
+    "package-file",
+    "package"
+  ],
+  "pages": [
+    "page-files",
+    "page-directory",
+    "pages-folder",
+    "page-content"
+  ],
+  "pnpm-lock.yaml": [
+    "pnpm-lock-yaml-file",
+    "pnpm-lock-yaml",
+    "pnpm-lock-file",
+    "pnpm-lock"
+  ],
+  "post-slug.ts": [
+    "slug",
+    "post",
+    "route",
+    "router"
+  ],
+  "privacy.astro": [
+    "privacy-policy",
+    "data-protection",
+    "terms",
+    "conditions"
+  ],
+  "projects": [
+    "portfolio",
+    "work",
+    "gallery",
+    "collection"
+  ],
+  "projects.ts": [
+    "project",
+    "portfolio",
+    "work",
+    "gallery"
+  ],
+  "public": [
+    "static",
+    "assets",
+    "files",
+    "uploads"
+  ],
+  "reviewit.mdx": [
+    "review",
+    "feedback",
+    "testimonial",
+    "comment"
+  ],
+  "robots.txt": [
+    "robots-file",
+    "crawler-rules",
+    "search-engine-optimization"
+  ],
+  "rss.xml.ts": [
+    "rss-feed",
+    "rss-generator",
+    "xml-feed"
+  ],
+  "scangy-logo.webp": [
+    "logo",
+    "icon",
+    "branding"
+  ],
+  "scangy.mdx": [
+    "about",
+    "info",
+    "description",
+    "company"
+  ],
+  "screen1.jpg": [
+    "image",
+    "screenshot",
+    "snapshot"
+  ],
+  "search.astro": [
+    "search-bar",
+    "search-functionality",
+    "search-engine"
+  ],
+  "secretnotez.mdx": [
+    "note",
+    "blog",
+    "article"
+  ],
+  "site.ts": [
+    "site",
+    "website",
+    "configuration"
+  ],
+  "slug": [
+    "url",
+    "path",
+    "route",
+    "route_path"
+  ],
+  "slug.astro": [
+    "astro_route",
+    "astro_url",
+    "astro_path",
+    "astro_route_file"
+  ],
+  "slug.png.ts": [
+    "image_route",
+    "image_url",
+    "image_path",
+    "image_route_file"
+  ],
+  "src": [
+    "source",
+    "code",
+    "files"
+  ],
+  "ssh-thing.mdx": [
+    "ssh",
+    "connection",
+    "terminal",
+    "mdx"
+  ],
+  "sshthing": [
+    "ssh",
+    "connection",
+    "terminal"
+  ],
+  "sshthing.png": [
+    "ssh",
+    "connection",
+    "terminal",
+    "image"
+  ],
+  "structured-data.ts": [
+    "structure",
+    "typescript",
+    "schema"
+  ],
+  "styles": [
+    "css",
+    "styling",
+    "layout",
+    "design"
+  ],
+  "tag": [
+    "label",
+    "identifier",
+    "metadata"
+  ],
+  "tag.astro": [
+    "astro_tag",
+    "astro_category",
+    "astro_label",
+    "astro_tag_file"
+  ],
+  "test": [
+    "testing",
+    "example",
+    "demo"
+  ],
+  "test.mdx": [
+    "test",
+    "example",
+    "demo",
+    "markdown"
+  ],
+  "tsconfig.json": [
+    "typescript",
+    "configuration",
+    "settings"
+  ],
+  "vibe-coding-slur.mdx": [
+    "coding",
+    "vibe",
+    "slur",
+    "markdown"
+  ],
+  "vibe-coding-slur.webp": [
+    "coding",
+    "vibe",
+    "slur",
+    "image"
+  ]
+}
