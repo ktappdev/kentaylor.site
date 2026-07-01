@@ -48,14 +48,42 @@ function buildSvg({
   const brandFontSize = isSquare ? 28 : 24;
   const titleMaxChars = isSquare ? 18 : width >= 1500 ? 24 : 22;
   const excerptMaxChars = isSquare ? 24 : width >= 1500 ? 44 : 40;
-  const titleLines = wrapText(title, titleMaxChars, isSquare ? 5 : 4);
-  const excerptLines = wrapText(excerpt, excerptMaxChars, isSquare ? 4 : 3);
+  const titleLineHeight = titleFontSize + 14;
+  const excerptLineHeight = excerptFontSize + 12;
+  // Title baseline starts below the "BLOG POST" pill with a gap for cap height
+  const titleTop = padding + 76 + 44 + 28 + Math.round(titleFontSize * 0.75);
+  const bottomY = height - padding - 64;
+  const dividerY = bottomY - 48;
+  const titleGap = isSquare ? 48 : 28;
+  // Cap title lines to available space before the divider
+  const maxTitleLinesBySpace = Math.max(
+    1,
+    Math.floor((dividerY - titleTop) / titleLineHeight) + 1,
+  );
+  const titleLines = wrapText(
+    title,
+    titleMaxChars,
+    Math.min(isSquare ? 5 : 3, maxTitleLinesBySpace),
+  );
+  // Excerpt starts after the last title baseline + descender + gap
+  const excerptTop =
+    titleTop +
+    (titleLines.length - 1) * titleLineHeight +
+    Math.round(titleFontSize * 0.25) +
+    titleGap;
+  // Cap excerpt lines to available space before the divider
+  const availableExcerptSpace = dividerY - excerptTop;
+  const maxExcerptLinesBySpace =
+    availableExcerptSpace >= excerptFontSize
+      ? 1 + Math.floor((availableExcerptSpace - excerptFontSize) / excerptLineHeight)
+      : 0;
+  const excerptLines = wrapText(
+    excerpt,
+    excerptMaxChars,
+    Math.max(0, Math.min(isSquare ? 4 : 3, maxExcerptLinesBySpace)),
+  );
   const tagText = tags.slice(0, 4).map((tag) => `#${tag}`).join("   ");
   const maxExcerptWidth = width - padding * 2;
-  const titleTop = padding + 120;
-  const excerptTop =
-    titleTop + titleLines.length * (titleFontSize + 14) + (isSquare ? 48 : 28);
-  const bottomY = height - padding - 64;
 
   return `<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}">
@@ -101,7 +129,7 @@ function buildSvg({
       .join("")}
   </g>
 
-  <line x1="${padding}" x2="${padding + maxExcerptWidth}" y1="${bottomY - 48}" y2="${bottomY - 48}" stroke="rgba(255,255,255,0.12)" />
+  <line x1="${padding}" x2="${padding + maxExcerptWidth}" y1="${dividerY}" y2="${dividerY}" stroke="rgba(255,255,255,0.12)" />
 
   <text x="${padding}" y="${bottomY}" fill="${accent}" font-size="${labelFontSize + 2}" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace">${escapeXml(tagText || "#kentaylor")}</text>
   <text x="${width - padding}" y="${bottomY}" fill="${text}" font-size="${brandFontSize}" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace">/KT</text>
