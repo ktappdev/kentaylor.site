@@ -52,6 +52,51 @@ export default function ProjectGrid({ projects }: ProjectGridProps) {
             </motion.div>
           ))}
         </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mt-12 text-center"
+        >
+          <p className="text-muted mb-4">
+            checkout my other open-source projects on Github:
+          </p>
+          <div className="flex flex-wrap justify-center gap-3">
+            <a
+              href="https://github.com/ktappdev/termigram"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-4 py-2 border border-border text-text font-medium text-sm rounded hover:border-accent hover:text-accent transition-colors"
+            >
+              termigram
+            </a>
+            <a
+              href="https://github.com/ktappdev/contexting"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-4 py-2 border border-border text-text font-medium text-sm rounded hover:border-accent hover:text-accent transition-colors"
+            >
+              contexting
+            </a>
+            <a
+              href="https://github.com/ktappdev/gitcomm"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-4 py-2 border border-border text-text font-medium text-sm rounded hover:border-accent hover:text-accent transition-colors"
+            >
+              gitcomm
+            </a>
+            <a
+              href="https://github.com/ktappdev"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-4 py-2 bg-accent text-bg font-medium text-sm rounded hover:bg-accent-dim transition-colors"
+            >
+              View all on GitHub
+            </a>
+          </div>
+        </motion.div>
       </div>
     </section>
   );
