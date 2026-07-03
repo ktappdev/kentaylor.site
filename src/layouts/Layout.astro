@@ -1,6 +1,7 @@
 ---
 import Analytics from '@vercel/analytics/astro';
 import SeoHead from '../components/SEO/SeoHead.astro';
+import { ClientRouter } from 'astro:transitions';
 import '../styles/global.css';
 import type { JsonLd } from '../lib/structured-data';
 import { SITE } from '../lib/site';
@@ -73,6 +74,8 @@ const {
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
     
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    
+    <ClientRouter />
     
     <slot name="head" />
     
