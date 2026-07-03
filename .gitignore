@@ -24,3 +24,6 @@ pnpm-debug.log*
 .idea/
 .pi/agent-sessions/
 .vercel/output/
+
+# blog drafts
+blog-drafts/
