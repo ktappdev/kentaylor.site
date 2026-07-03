@@ -5,7 +5,6 @@ const navLinks = [
   { href: '/about/', label: 'About' },
   { href: '/#projects', label: 'Projects' },
   { href: '/blog/', label: 'Blog' },
-  { href: '/blog/search/', label: 'Search' },
   { href: '/cv/', label: 'CV' },
   { href: 'https://github.com/ktappdev', label: 'GitHub', external: true },
 ];
