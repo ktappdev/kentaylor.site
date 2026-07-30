@@ -1,0 +1,150 @@
+{
+  "runId": "61f2c6a4",
+  "agent": "advisor",
+  "task": "You are running Assessment A: Design Review for an Impeccable critique. This is a UX heuristic evaluation of a personal portfolio site. You work in isolation — you will NOT see detector output.\n\n## Target\nThe homepage of kentaylor.dev — a personal portfolio for Ken Taylor, a self-taught software engineer & music producer from Georgetown, Guyana.\n\n## Surface Mode\nThis is a **Persuade** surface (personal portfolio homepage). The visitor decides whether to explore further, hire, or collaborate. But it also has some **Read** concerns (blog teaser section). Primary mode is Persuade. Heuristics 7 (Flexibility and Efficiency) and 10 (Help and Documentation) may be scored n/a for a Persuade surface.\n\n## Source Code Context\n\n### Project Stack\n- Astro 5.x + React + Framer Motion + Three.js (React Three Fiber for hero)\n- Tailwind CSS v4\n\n### Design Tokens (from global.css)\n```\ncolors: bg=#0a0a0a, surface=#141414, border=#262626, text=#fafafa, muted=#9a9a9a, accent=#00ff88, accent-dim=#00cc6a\nfonts: mono='JetBrains Mono', sans='Inter'\n```\n\n### Page Structure (index.astro)\n```astro\n<Layout jsonLd={buildHomePageSchemas(projects)}>\n  <Navigation client:load transition:persist />\n  <main id=\"main-content\">\n    <section class=\"relative min-h-screen flex items-center justify-center overflow-hidden grid-bg\">\n      <div class=\"absolute inset-0 z-0\">\n        <HeroScene client:only=\"react\" />  <!-- Three.js 3D scene -->\n      </div>\n      <div class=\"relative z-10 text-center px-6 max-w-6xl mx-auto\">\n        <HeroTitle client:load />  <!-- Animated letter-by-letter name -->\n      </div>\n      <ScrollIndicator client:load />\n    </section>\n    <AboutCard client:visible />\n    <ProjectGrid projects={projects} client:visible />\n    <BlogList posts={sortedPosts} client:visible />\n    <Footer client:visible />\n  </main>\n</Layout>\n```\n\n### Navigation Component\n- Fixed top bar with blur backdrop on scroll\n- Logo: \"/KT\" with green accent on slash\n- Desktop: horizontal links (About, Projects, Blog, CV, GitHub)\n- Mobile: hamburger menu with hamburger-to-X animation, full-width slide-down panel\n- Focus trap + Escape key on mobile menu, scroll lock when open, returns focus to hamburger button on close\n- Skip-to-main-content link hidden until focused\n- Links have hover underline animation (accent color bar sliding in from left)\n- Monospace font for all nav text\n\n### Hero Section\n- Full viewport height (min-h-screen)\n- Background: Three.js 3D scene (HeroScene via React Three Fiber)\n- Overlaid grid pattern background\n- HeroTitle: \"KEN TAYLOR\" — each letter animates in with stagger (spring: opacity 0→1, y:100→0, rotateX:-90→0), letter-by-letter with 0.08s stagger + 0.3s delay\n- Letters have hover-to-green (accent) transition, cursor:default\n- Subtitle: \"> Code • Music • Guyana\" in monospace, green caret prefix\n- Animated horizontal rule below subtitle: gradient from accent to transparent, scaleX from 0 to 1\n- ScrollIndicator: bottom center, animated bouncing dot in a pill shape, \"SCROLL\" label in mono\n\n### AboutCard Component\n- Section header: \"IDENTITY_VERIFIED\" in green mono, then \"The Human Behind The Code\" with gradient text\n- 3D tilt card: perspective tilt follows mouse (rotateX/rotateY based on mouse position within card)\n- Card has glassmorphism (bg-surface/80, backdrop-blur-xl)\n- Radial gradient glare overlay that follows mouse\n- Border glow intensifies on hover with boxShadow\n- Card header bar: green pulsing dot, \"LUUTECH_INDUSTRIES\" label, \"ID: KEN-001-GY\" right\n- Hexagonal image frame with scan line animation, corner accent brackets\n- Stats: ROLE, LOCATION, LEVEL, STATUS in label-value rows\n- Bio paragraph text\n- Footer: \"AUTHENTICATED\" with animated dots, \"CLEARANCE_LEVEL: ADMIN\"\n- Decorative rings in corners\n- Phone: stack vertically, desktop: side-by-side\n\n### ProjectGrid Component\n- Section header: \"# Projects\" (hash in green)\n- FREE banner: green-accented info bar \"FREE — All projects available to use right now at no cost.\"\n- 3-column grid on desktop\n- ProjectCard: 3D tilt card like AboutCard (less aggressive: 10deg max)\n- Cards have gradient overlay on hover, image with scale on hover\n- \"FEATURED\" badge for featured projects (green translucent)\n- Category label in mono uppercase, title, 2-line description, tech tags (up to 4), \"Try it Free\" + \"Code\" buttons\n- Featured projects span 2 columns\n- Bottom: list of open-source projects (termigram, contexting, gitcomm) as border buttons + \"View all on GitHub\" solid green button\n\n### BlogList Component\n- Section header: \"# Blog\" with muted description\n- BlogCard components in a vertical list (spaced)\n- \"View All Posts\" border button → /blog\n\n### Footer\n- Logo \"/KT\", tagline\n- Links: About, Blog, RSS, GitHub, X/Twitter, LinkedIn, YouTube, Email (8 links, mono font, hover to accent)\n- Copyright line + \"Built with Astro + React + Three.js\"\n\n## Your Tasks\n\n### 1. Design Specificity Verdict\nDoes this site feel authored specifically for Ken Taylor, or could it be any developer portfolio with a different name? Evaluate the overall coherence, structural sameness, category-interchangeable choices, and missed opportunities for product character.\n\n### 2. Heuristic Scoring\nScore all applicable Nielsen heuristics 0-4. H7 (Flexibility/Efficiency) and H10 (Help/Documentation) may be scored n/a for this Persuade surface. Be honest — most real interfaces score 20-32.\n\n### 3. Cognitive Load Assessment\nRun the 8-item checklist. Count failures.\n\n### 4. Emotional Journey\nEvaluate peak-end rule, emotional valleys, reassurance at high-stakes moments. This is a portfolio — the emotional goal is making the visitor feel Ken is credible, skilled, and interesting.\n\n### 5. Deliverables\nReturn:\n- Design specificity verdict (paragraph)\n- Heuristic scores table (include n/a rationale)\n- Cognitive load assessment (checklist results)\n- Emotional journey summary\n- 2-3 things working well (specific, with why)\n- 3-5 priority issues (P0-P3 severity, what, why, fix)\n- Persona red flags for at least 2 personas (choose from: Alex-power user, Jordan-first-timer, Sam-accessibility, Riley-stress-tester, Casey-mobile)\n- Minor observations (3-5 quick notes)\n- Provocative questions (2-3)\n\nBe direct. Be specific with element names. Don't soften criticism.",
+  "exitCode": 0,
+  "usage": {
+    "input": 48332,
+    "output": 11983,
+    "cacheRead": 0,
+    "cacheWrite": 0,
+    "cost": 0,
+    "turns": 17
+  },
+  "model": "windsurf/glm-5-2:high",
+  "attemptedModels": [
+    "windsurf/glm-5-2:high"
+  ],
+  "modelAttempts": [
+    {
+      "model": "windsurf/glm-5-2:high",
+      "success": true,
+      "exitCode": 0,
+      "usage": {
+        "input": 48332,
+        "output": 11983,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "cost": 0,
+        "turns": 17
+      }
+    }
+  ],
+  "durationMs": 228710,
+  "toolCount": 39,
+  "launchContractDigest": "c22789c61c691d74a825d5d4b7ffc3555cd88787be83041ff8ad9fe8044ee45b",
+  "acceptance": {
+    "status": "attested",
+    "evidenceStatus": "attested",
+    "explicit": false,
+    "effectiveAcceptance": {
+      "level": "attested",
+      "explicit": false,
+      "inferredReason": [
+        "read-only task wording"
+      ],
+      "criteria": [
+        {
+          "id": "criterion-1",
+          "must": "Return concrete findings with file paths and severity when applicable",
+          "evidence": [
+            "review-findings",
+            "residual-risks"
+          ],
+          "severity": "required"
+        }
+      ],
+      "evidence": [
+        "review-findings",
+        "residual-risks"
+      ],
+      "verify": [],
+      "stopRules": []
+    },
+    "inferredReason": [
+      "read-only task wording"
+    ],
+    "criteria": [
+      {
+        "id": "criterion-1",
+        "must": "Return concrete findings with file paths and severity when applicable",
+        "evidence": [
+          "review-findings",
+          "residual-risks"
+        ],
+        "severity": "required"
+      }
+    ],
+    "runtimeChecks": [],
+    "verifyRuns": [],
+    "childReport": {
+      "criteriaSatisfied": [
+        {
+          "id": "criterion-1",
+          "status": "satisfied",
+          "evidence": "Findings reference specific file paths and line numbers throughout: AboutCard.tsx:140 (external image), BlogCard.tsx:31+51 (nested anchors), Navigation.tsx:35-67 (mobile menu a11y), HeroTitle.tsx:48 (whitespace-nowrap overflow), global.css (no prefers-reduced-motion), ProjectGrid.tsx:34-39 (FREE banner), Footer.tsx:42 (no flex-wrap), cv/index.astro:265-289 (CTA absent on homepage). Severity ratings P0-P2 assigned to all priority issues."
+        }
+      ],
+      "changedFiles": [],
+      "testsAddedOrUpdated": [],
+      "commandsRun": [
+        {
+          "command": "grep -r 'prefers-reduced-motion' src/",
+          "result": "passed",
+          "summary": "No matches found — confirms zero reduced-motion support across entire codebase"
+        },
+        {
+          "command": "grep -r 'aria-|role=|sr-only|focus-visible' src/components/",
+          "result": "passed",
+          "summary": "Only Navigation.tsx and ShareButtons.tsx have accessibility attributes; most components lack focus indicators"
+        },
+        {
+          "command": "grep -r 'noscript|NoScript' src/",
+          "result": "passed",
+          "summary": "No noscript fallbacks found anywhere in codebase"
+        },
+        {
+          "command": "grep -r 'loading=|lazy|onError' src/components/",
+          "result": "passed",
+          "summary": "No lazy loading or error handlers on any images; only silent fallback comment in ShareButtons"
+        }
+      ],
+      "validationOutput": [
+        "Heuristic total: 20/32 (H7 and H10 scored n/a per Persuade surface instructions)",
+        "Cognitive load failures: 3 full + 2 partial = ~4 failures out of 8 checklist items",
+        "6 priority issues identified: 2x P0, 2x P1, 2x P2",
+        "3 persona red flag sets completed: Sam (accessibility), Casey (mobile), Riley (stress-tester)",
+        "Design specificity verdict: moderately specific — aesthetic and voice are Ken's, structure and decoration are generic"
+      ],
+      "residualRisks": [
+        "No runtime testing performed — all findings based on source code analysis, not live site inspection",
+        "Color contrast ratios estimated from hex values, not measured with tooling — text-muted/50 contrast claim needs verification",
+        "Three.js performance impact on mobile not benchmarked — flagged as risk based on bundle size and WebGL requirements",
+        "Hero text overflow on 320px screens estimated from vw calculation — needs device testing to confirm clipping behavior"
+      ],
+      "noStagedFiles": true,
+      "diffSummary": "No files changed — assessment-only task, no edits made",
+      "reviewFindings": [
+        "P0: No prefers-reduced-motion support anywhere in codebase — WCAG 2.3.3 violation — src/styles/global.css + all component files using framer-motion",
+        "P0: Hero h1 requires JavaScript (client:load/client:only) — no progressive enhancement — src/pages/index.astro:14-16, src/components/Hero/HeroTitle.tsx",
+        "P1: No visible focus indicators on nav links, footer links, project buttons, blog cards — WCAG 2.4.7 violation — all components except ShareButtons.tsx",
+        "P1: Nested anchor tags in BlogCard — invalid HTML5 — src/components/Blog/BlogCard.tsx:31 (outer a) + :51 (inner tag links)",
+        "P2: External images with no onError fallback or loading=lazy — src/components/About/AboutCard.tsx:140, src/components/Projects/ProjectCard.tsx:87",
+        "P2: No contact CTA on homepage — Persuade surface missing closing argument — src/pages/index.astro:27 (BlogList → Footer with no CTA)",
+        "Minor: LUUTECH_INDUSTRIES vs Lugetech naming inconsistency — src/components/About/AboutCard.tsx:113 vs src/content/projects/lugetech.mdx",
+        "Minor: 'checkout' typo + 'Github' capitalization — src/components/Projects/ProjectGrid.tsx:42",
+        "Minor: Footer links missing flex-wrap — src/components/UI/Footer.tsx:42"
+      ],
+      "manualNotes": "Assessment based on source code review only — no live site testing. Hero text overflow, mobile performance, and contrast ratios need runtime verification. Blog section is strongest persuasive element but is fourth in scroll order. Music producer identity is asserted 3x but never exhibited — biggest missed opportunity for differentiation."
+    }
+  },
+  "effects": {
+    "fileMutation": {
+      "status": "not-applicable",
+      "expected": false,
+      "attempted": false
+    }
+  },
+  "transcriptPath": "/Users/kentaylor/developer/kentaylor.site/.pi-subagents/artifacts/61f2c6a4_advisor_0_transcript.jsonl",
+  "timestamp": 1785441059100
+}

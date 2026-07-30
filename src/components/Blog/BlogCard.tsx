@@ -38,31 +38,35 @@ export default function BlogCard({ post, index }: BlogCardProps) {
   
   return (
     <motion.article
-      initial={{ opacity: 0, y: 30 }}
+      initial={{ y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ delay: index * 0.1, duration: 0.5 }}
       className="group"
     >
-      <a
-        href={`/blog/${getPostSlug(post)}/`}
-        className="block p-6 bg-surface border border-border rounded-lg hover:border-accent/50 transition-all duration-300"
+      <div
+        className="relative block p-6 bg-surface border border-border rounded-lg hover:border-accent/50 transition-all duration-300"
       >
-        <div className="flex items-center gap-3 mb-4 text-sm text-muted font-mono">
-          <time dateTime={date.toString()}>{formatDate(date)}</time>
-          <span>•</span>
-          <span>{readingTime} min read</span>
-        </div>
-        
-        <h3 className="text-xl md:text-2xl font-bold mb-2 group-hover:text-accent transition-colors">
-          {title}
-        </h3>
-        
-        <p className="text-muted line-clamp-2 mb-4">
-          {excerpt}
-        </p>
-        
-        <div className="flex flex-wrap gap-2">
+        <a
+          href={`/blog/${getPostSlug(post)}/`}
+          className="after:absolute after:inset-0 z-10"
+        >
+          <div className="flex items-center gap-3 mb-4 text-sm text-muted font-mono">
+            <time dateTime={date.toString()}>{formatDate(date)}</time>
+            <span>•</span>
+            <span>{readingTime} min read</span>
+          </div>
+
+          <h3 className="text-xl md:text-2xl font-bold mb-2 group-hover:text-accent transition-colors">
+            {title}
+          </h3>
+
+          <p className="text-muted line-clamp-2 mb-4">
+            {excerpt}
+          </p>
+        </a>
+
+        <div className="relative z-20 flex flex-wrap gap-2">
           {tags.slice(0, 3).map((tag: string) => (
             <a
               key={tag}
@@ -73,7 +77,7 @@ export default function BlogCard({ post, index }: BlogCardProps) {
             </a>
           ))}
         </div>
-      </a>
+      </div>
     </motion.article>
   );
 }

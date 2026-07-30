@@ -1,5 +1,4 @@
-import { useRef, useState } from 'react';
-import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
+import { motion } from 'framer-motion';
 import type { CollectionEntry } from 'astro:content';
 
 type ProjectData = CollectionEntry<'projects'>['data'];
@@ -10,69 +9,31 @@ interface ProjectCardProps {
 }
 
 export default function ProjectCard({ project, index }: ProjectCardProps) {
-  const cardRef = useRef<HTMLDivElement>(null);
-  const [isHovered, setIsHovered] = useState(false);
-  
-  const x = useMotionValue(0);
-  const y = useMotionValue(0);
-  
-  const mouseXSpring = useSpring(x, { stiffness: 300, damping: 30 });
-  const mouseYSpring = useSpring(y, { stiffness: 300, damping: 30 });
-  
-  const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ['10deg', '-10deg']);
-  const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ['-10deg', '10deg']);
-  
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!cardRef.current) return;
-    
-    const rect = cardRef.current.getBoundingClientRect();
-    const width = rect.width;
-    const height = rect.height;
-    const mouseX = e.clientX - rect.left;
-    const mouseY = e.clientY - rect.top;
-    const xPct = mouseX / width - 0.5;
-    const yPct = mouseY / height - 0.5;
-    
-    x.set(xPct);
-    y.set(yPct);
-  };
-  
-  const handleMouseLeave = () => {
-    x.set(0);
-    y.set(0);
-    setIsHovered(false);
-  };
-  
+  const prefersReducedMotion =
+    typeof window !== 'undefined' &&
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
   const getGridSpan = () => {
     if (project.featured) {
       return 'md:col-span-2';
     }
     return '';
   };
-  
+
+  const animationProps = prefersReducedMotion
+    ? {}
+    : {
+        initial: { y: 50 },
+        whileInView: { opacity: 1, y: 0 },
+        viewport: { once: true, margin: '-50px' },
+        transition: { delay: index * 0.1, duration: 0.5 },
+      };
+
   return (
-    <motion.div
-      ref={cardRef}
-      initial={{ opacity: 0, y: 50 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-50px' }}
-      transition={{ delay: index * 0.1, duration: 0.5 }}
-      onMouseMove={handleMouseMove}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={handleMouseLeave}
-      style={{
-        rotateX,
-        rotateY,
-        transformStyle: 'preserve-3d',
-      }}
-      className={`group relative ${getGridSpan()}`}
-    >
-      <div 
-        className="relative h-full bg-surface border border-border rounded-lg overflow-hidden transition-all duration-300"
-        style={{ transform: 'translateZ(0)' }}
-      >
+    <motion.div {...animationProps} className={`group relative ${getGridSpan()}`}>
+      <div className="relative h-full bg-surface border border-border rounded-lg overflow-hidden transition-all duration-300 hover:border-accent/50">
         <div className="absolute inset-0 bg-gradient-to-br from-accent/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-        
+
         {project.featured && (
           <div className="absolute top-4 left-4 z-10">
             <span className="px-2 py-1 bg-accent/20 text-accent text-xs font-mono rounded">
@@ -80,30 +41,36 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
             </span>
           </div>
         )}
-        
+
         <div className="relative aspect-[4/3] bg-surface flex items-center justify-center p-6">
           <img
             src={project.image}
             alt={project.title}
+            loading="lazy"
+            width="400"
+            height="300"
+            onError={(e) => {
+              e.currentTarget.style.display = 'none';
+            }}
             className="max-w-full max-h-full object-contain transition-transform duration-700 group-hover:scale-105"
           />
         </div>
-        
-        <div className="relative p-6" style={{ transform: 'translateZ(30px)' }}>
+
+        <div className="relative p-6">
           <div className="flex items-center gap-2 mb-3">
             <span className="text-xs font-mono text-muted uppercase tracking-wider">
               {project.category}
             </span>
           </div>
-          
+
           <h3 className="text-xl md:text-2xl font-bold mb-2 group-hover:text-accent transition-colors">
             {project.title}
           </h3>
-          
+
           <p className="text-muted text-sm line-clamp-2 mb-4">
             {project.description}
           </p>
-          
+
           <div className="flex flex-wrap gap-2 mb-4">
             {project.technologies.slice(0, 4).map((tech: string) => (
               <span
@@ -114,7 +81,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
               </span>
             ))}
           </div>
-          
+
           <div className="flex gap-3">
             {project.link && (
               <a
@@ -144,12 +111,6 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
             )}
           </div>
         </div>
-        
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: isHovered ? 1 : 0 }}
-          className="absolute inset-0 border-2 border-accent/50 rounded-lg pointer-events-none"
-        />
       </div>
     </motion.div>
   );

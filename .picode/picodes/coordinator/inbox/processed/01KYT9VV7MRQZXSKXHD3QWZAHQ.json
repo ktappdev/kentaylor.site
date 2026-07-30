@@ -1,0 +1,8 @@
+{
+  "id": "builder-5/01KYT9VV7MRQZXSKXHD3QWZAHQ",
+  "from": "builder-5",
+  "to": "coordinator",
+  "body": "All fixes applied and verified. Typecheck clean.\n\n**BlogCard.tsx** — nested anchors fixed via stretched-link pattern:\n- Outer `<a>` → `<div className=\"relative block p-6 bg-surface ...\">` (same visual classes, added `relative`)\n- New inner `<a href={postUrl} className=\"after:absolute after:inset-0 z-10\">` wraps date, title, excerpt — stretches over entire card\n- Tags container gets `relative z-20 flex flex-wrap gap-2` — sits above stretched link, remains clickable\n- No nested anchors remain. Two `<a>` tags now siblings, not parent/child.\n\n**Footer.tsx** — 4 fixes:\n1. YouTube link removed from `links` array (line ~17)\n2. Tagline: \"Music producer.\" removed → \"Self-taught software engineer. Founder. From Guyana.\"\n3. Links container: `flex gap-6` → `flex flex-wrap gap-6` (prevents overflow on narrow widths)\n4. Contrast: `text-muted/50` → `text-muted` on \"Built with Astro + React + Three.js\" line (#9a9a9a on #0a0a0a ≈ 7.6:1, passes WCAG AA)\n\n`npx tsc --noEmit` passes with no errors. No other files touched.",
+  "sentAt": "2026-07-30T20:01:16.532Z",
+  "re": "coordinator/01KYT9TSTJR1X4CA4K315VGYYV"
+}

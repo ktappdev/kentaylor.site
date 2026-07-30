@@ -12,7 +12,7 @@ export default function BlogList({ posts }: BlogListProps) {
     <section id="blog" className="py-24 md:py-32 bg-surface/50">
       <div className="max-w-4xl mx-auto px-6">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="mb-12"
@@ -32,7 +32,7 @@ export default function BlogList({ posts }: BlogListProps) {
         </div>
         
         <motion.div
-          initial={{ opacity: 0 }}
+          initial={{}}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           className="mt-12 text-center"

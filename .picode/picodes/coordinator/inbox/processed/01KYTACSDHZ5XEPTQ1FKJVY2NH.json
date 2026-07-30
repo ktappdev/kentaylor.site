@@ -1,0 +1,8 @@
+{
+  "id": "builder/01KYTACSDHZ5XEPTQ1FKJVY2NH",
+  "from": "builder",
+  "to": "coordinator",
+  "body": "Done.\n\n**Changes:**\n- Deleted `src/content/test/` directory (contained test.mdx artifact, no references)\n- Added `projectsCollection` to `src/content.config.ts` with schema matching all 9 project .mdx files\n\n**Schema note:** `link` and `github` both optional — `hitman.mdx` has `github` but no `link`, all others have `link` but no `github`. Dispatch suggested `link` required; made it `.optional()` to match actual content.\n\n**Verification:**\n- `npx astro build` → 40 pages, 5.46s, no \"Auto-generating collections\" warning\n- Pre-existing `three` type error in `HeroScene.tsx` unrelated to this change",
+  "sentAt": "2026-07-30T20:10:31.729Z",
+  "re": "coordinator/01KYTAB9EKGF7JYVHX4GDANVS8"
+}

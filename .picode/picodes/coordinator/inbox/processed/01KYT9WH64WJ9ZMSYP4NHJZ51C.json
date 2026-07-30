@@ -1,0 +1,8 @@
+{
+  "id": "builder-3/01KYT9WH64WJ9ZMSYP4NHJZ51C",
+  "from": "builder-3",
+  "to": "coordinator",
+  "body": "All 16 changes complete. Zero music refs remain.\n\n**AboutCard.tsx:**\n- L30: ROLE → 'Software Engineer' (removed '& Music Producer')\n- L42: grid-bg div deleted\n- L51: text-gradient → text-accent\n- L93: LUUTECH_INDUSTRIES → LUGETECH_INDUSTRIES\n- L118-124: img added width=\"192\" height=\"208\" loading=\"lazy\" + onError hide-broken-image\n- Scan line motion.div deleted (was inside hexagon container)\n- Decorative rings deleted (top-20/right-4 + bottom-20/left-4)\n- L6: prefersReducedMotion guard added; tilt transforms skipped when reduced-motion enabled\n- Bio: \"producing tracks that slap\" → \"exploring new ways to build for the Caribbean\"\n\n**site.ts:**\n- defaultTitle: removed 'Guyanese Developer • Music Producer' → 'Guyanese Software Engineer & Entrepreneur'\n- defaultDescription: removed 'music producer, and' + 'and creative'\n- alternateNames: removed 'KenDaBeatmaker'\n- shortBio: removed 'music producer, and'\n- longBio: removed 'music producer (known professionally as KenDaBeatmaker)' + 'and creative'\n- jobTitle: removed 'Music Producer'\n- sameAs: removed YouTube @KendaBeatMaker URL\n\nVerified: rg -i for music/producer/beatmaker/youtube/LUUTECH/text-gradient/grid-bg → exit 1 (zero matches). npx tsc --noEmit clean.",
+  "sentAt": "2026-07-30T20:01:39.012Z",
+  "re": "coordinator/01KYT9TSTHS8XZJ13EDFB95ZGB"
+}

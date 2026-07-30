@@ -1,9 +1,24 @@
 import { motion } from 'framer-motion';
 
 export default function ScrollIndicator() {
+  const prefersReducedMotion = typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (prefersReducedMotion) {
+    return (
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
+        <span className="text-muted text-xs font-mono uppercase tracking-widest">
+          Scroll
+        </span>
+        <div className="w-6 h-10 border border-muted rounded-full flex justify-center pt-2">
+          <div className="w-1 h-2 bg-accent rounded-full" />
+        </div>
+      </div>
+    );
+  }
+
   return (
     <motion.div
-      initial={{ opacity: 0, y: -20 }}
+      initial={{ y: -20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 2, duration: 0.8 }}
       className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"

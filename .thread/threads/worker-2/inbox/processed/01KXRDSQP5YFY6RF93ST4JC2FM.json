@@ -1,0 +1,8 @@
+{
+  "id": "coordinator/01KXRDSQP5YFY6RF93ST4JC2FM",
+  "from": "coordinator",
+  "to": "worker-2",
+  "body": "Theme test task 2. Confirm alive, report which model/context.toml model you're using, and echo one sentence about the rose-pine theme colors if you can tell.",
+  "sentAt": "2026-07-17T16:15:50.981Z",
+  "expects": true
+}

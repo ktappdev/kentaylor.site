@@ -13,7 +13,7 @@ export default function ProjectGrid({ projects }: ProjectGridProps) {
     <section id="projects" className="py-24 md:py-32">
       <div className="max-w-7xl mx-auto px-6">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="mb-12"
@@ -28,7 +28,7 @@ export default function ProjectGrid({ projects }: ProjectGridProps) {
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="mb-8 p-4 border border-accent/30 bg-accent/5 rounded-lg"
@@ -43,7 +43,7 @@ export default function ProjectGrid({ projects }: ProjectGridProps) {
           {projects.map((project, index) => (
             <motion.div
               key={project.id}
-              initial={{ opacity: 0, scale: 0.9 }}
+              initial={{ scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.3, delay: index * 0.1 }}
@@ -54,13 +54,13 @@ export default function ProjectGrid({ projects }: ProjectGridProps) {
         </div>
 
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="mt-12 text-center"
         >
           <p className="text-muted mb-4">
-            checkout my other open-source projects on Github:
+            Check out my other open-source projects on GitHub:
           </p>
           <div className="flex flex-wrap justify-center gap-3">
             <a

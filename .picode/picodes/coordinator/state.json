@@ -1,0 +1,45 @@
+{
+  "id": "coordinator",
+  "pid": 18648,
+  "cwd": "/Users/kentaylor/developer/kentaylor.site",
+  "parent": null,
+  "role": "coordinator",
+  "sessionFile": "/Users/kentaylor/.pi/agent/sessions/--Users-kentaylor-developer-kentaylor.site--/2026-07-30T19-44-18-766Z_019fb48e-654e-76d1-92ca-88eb2eee5464.jsonl",
+  "state": "done",
+  "status": "running",
+  "holdReason": null,
+  "obligations": [
+    {
+      "id": "coordinator/01KYT9Z9P5VZ972T69HAA7491G",
+      "to": "builder-7",
+      "summary": "## Objective\nReview the full diff from a 5-builder critique fix session. Verify ",
+      "sentAt": "2026-07-30T20:03:09.637Z",
+      "deadline": "2026-07-30T20:18:09.637Z",
+      "nudged": true
+    }
+  ],
+  "owed": [],
+  "barriers": [
+    {
+      "id": "barrier.coordinator.1785441789639.5",
+      "pending": [
+        "coordinator/01KYT9Z9P5VZ972T69HAA7491G"
+      ],
+      "mode": "all",
+      "createdAt": "2026-07-30T20:03:09.639Z",
+      "deadline": "2026-07-30T20:18:09.637Z",
+      "nudged": true
+    }
+  ],
+  "startedAt": "2026-07-30T20:22:21.463Z",
+  "lastSeen": "2026-07-30T20:30:41.621Z",
+  "updatedAt": "2026-07-30T20:30:41.621Z",
+  "capabilities": [
+    "urgency",
+    "barriers",
+    "deliverAfter",
+    "expiresAt",
+    "journal",
+    "canary"
+  ]
+}

@@ -1,7 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Navigation from '../components/UI/Navigation';
-import HeroTitle from '../components/Hero/HeroTitle';
 import HeroScene from '../components/Hero/HeroScene';
 import ScrollIndicator from '../components/Hero/ScrollIndicator';
 import AboutCard from '../components/About/AboutCard';
@@ -20,13 +19,76 @@ const projects = await getPublishedProjects();
   <Navigation client:load transition:persist />
   
   <main id="main-content">
-    <section class="relative min-h-screen flex items-center justify-center overflow-hidden grid-bg">
+    <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
     <div class="absolute inset-0 z-0">
       <HeroScene client:only="react" />
+      <noscript><p class="text-muted text-center text-sm mt-4">3D scene requires JavaScript</p></noscript>
     </div>
     
     <div class="relative z-10 text-center px-6 max-w-6xl mx-auto">
-      <HeroTitle client:load />
+      <style>
+        @keyframes letterReveal {
+          from {
+            opacity: 0;
+            transform: translateY(100%) rotateX(-90deg);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0) rotateX(0);
+          }
+        }
+        .letter {
+          display: inline-block;
+          opacity: 0;
+          animation: letterReveal 0.6s ease-out forwards;
+        }
+        .letter:nth-child(1) { animation-delay: 0.3s; }
+        .letter:nth-child(2) { animation-delay: 0.38s; }
+        .letter:nth-child(3) { animation-delay: 0.46s; }
+        .letter:nth-child(4) { animation-delay: 0.54s; }
+        .letter:nth-child(5) { animation-delay: 0.62s; }
+        .letter:nth-child(6) { animation-delay: 0.7s; }
+        .letter:nth-child(7) { animation-delay: 0.78s; }
+        .letter:nth-child(8) { animation-delay: 0.86s; }
+        .letter:nth-child(9) { animation-delay: 0.94s; }
+        .letter:nth-child(10) { animation-delay: 1.02s; }
+        @keyframes gradientLine {
+          from { transform: scaleX(0); }
+          to { transform: scaleX(1); }
+        }
+        .gradient-line {
+          transform-origin: left;
+          animation: gradientLine 1s ease-out 1.5s forwards;
+          transform: scaleX(0);
+        }
+        @keyframes subtitleFadeIn {
+          from { opacity: 0; transform: translateY(20px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+        .subtitle {
+          opacity: 0;
+          animation: subtitleFadeIn 0.8s ease-out 1.2s forwards;
+        }
+      </style>
+      <h1 class="text-[12vw] md:text-[10vw] lg:text-[8vw] xl:text-[7vw] font-bold leading-none tracking-tighter font-mono">
+        <span class="sr-only">Ken Taylor</span>
+        <span aria-hidden="true">
+          <span class="letter hover:text-accent transition-colors duration-300 cursor-default">K</span>
+          <span class="letter hover:text-accent transition-colors duration-300 cursor-default">E</span>
+          <span class="letter hover:text-accent transition-colors duration-300 cursor-default">N</span>
+          <span class="letter">&nbsp;</span>
+          <span class="letter hover:text-accent transition-colors duration-300 cursor-default">T</span>
+          <span class="letter hover:text-accent transition-colors duration-300 cursor-default">A</span>
+          <span class="letter hover:text-accent transition-colors duration-300 cursor-default">Y</span>
+          <span class="letter hover:text-accent transition-colors duration-300 cursor-default">L</span>
+          <span class="letter hover:text-accent transition-colors duration-300 cursor-default">O</span>
+          <span class="letter hover:text-accent transition-colors duration-300 cursor-default">R</span>
+        </span>
+      </h1>
+      <p class="subtitle text-muted text-lg md:text-xl font-mono tracking-wide mt-6 md:mt-8">
+        <span class="text-accent">&gt;</span> Code • Guyana
+      </p>
+      <div class="gradient-line mt-8 h-px bg-gradient-to-r from-accent via-accent/50 to-transparent"></div>
     </div>
     
     <ScrollIndicator client:load />
@@ -37,6 +99,28 @@ const projects = await getPublishedProjects();
   <ProjectGrid projects={projects} client:visible />
   
   <BlogList posts={sortedPosts} client:visible />
+  
+  <section class="py-24 md:py-32 border-t border-border">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <h2 class="text-4xl md:text-5xl font-bold mb-4">
+        <span class="text-accent">#</span> Let's Work Together
+      </h2>
+      <p class="text-muted mb-8 max-w-2xl mx-auto">
+        Open to software engineering roles, freelance projects, and collaborations.
+      </p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href="mailto:kentaylorappdev@gmail.com" class="px-6 py-3 bg-accent text-bg font-semibold rounded hover:bg-accent-dim transition-colors">
+          Get in Touch
+        </a>
+        <a href="https://github.com/ktappdev" target="_blank" rel="noopener noreferrer" class="px-6 py-3 border border-border text-text font-semibold rounded hover:border-accent hover:text-accent transition-colors">
+          GitHub
+        </a>
+        <a href="https://gy.linkedin.com/in/ken-taylor-16006280" target="_blank" rel="noopener noreferrer" class="px-6 py-3 border border-border text-text font-semibold rounded hover:border-accent hover:text-accent transition-colors">
+          LinkedIn
+        </a>
+      </div>
+    </div>
+  </section>
   
   <Footer client:visible />
   </main>

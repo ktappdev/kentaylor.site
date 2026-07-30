@@ -1,9 +1,9 @@
 export const SITE = {
   url: "https://kentaylor.dev",
   name: "Ken Taylor",
-  defaultTitle: "Ken Taylor | Guyanese Developer • Music Producer • Entrepreneur",
+  defaultTitle: "Ken Taylor | Guyanese Software Engineer & Entrepreneur",
   defaultDescription:
-    "Co-founder of Lugetech & creator of ReviewIt.gy. Self-taught Guyanese software engineer, music producer, and entrepreneur from Georgetown, Guyana building tech and creative solutions for the Caribbean.",
+    "Co-founder of Lugetech & creator of ReviewIt.gy. Self-taught Guyanese software engineer and entrepreneur from Georgetown, Guyana building tech solutions for the Caribbean.",
   defaultSocialImage: "/og-image.jpg",
   locale: "en_GY",
   language: "en-US",
@@ -12,20 +12,19 @@ export const SITE = {
   aboutPath: "/about/",
   author: {
     name: "Ken Taylor",
-    alternateNames: ["KenDaBeatmaker", "ktappdev"],
+    alternateNames: ["ktappdev"],
     location: "Georgetown, Guyana",
     email: "kentaylorappdev@gmail.com",
     shortBio:
-      "Self-taught software engineer, music producer, and entrepreneur from Georgetown, Guyana.",
+      "Self-taught software engineer and entrepreneur from Georgetown, Guyana.",
     longBio:
-      "Self-taught Guyanese software engineer, music producer (known professionally as KenDaBeatmaker), and entrepreneur from Georgetown, Guyana building tech and creative solutions for the Caribbean.",
-    jobTitle: "Software Engineer, Music Producer, Entrepreneur",
+      "Self-taught Guyanese software engineer and entrepreneur from Georgetown, Guyana building tech solutions for the Caribbean.",
+    jobTitle: "Software Engineer, Entrepreneur",
     socialHandle: "@ktappdev",
     sameAs: [
       "https://github.com/ktappdev",
       "https://x.com/ktappdev",
       "https://gy.linkedin.com/in/ken-taylor-16006280",
-      "https://www.youtube.com/@KendaBeatMaker",
     ],
   },
 } as const;

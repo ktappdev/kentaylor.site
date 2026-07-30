@@ -1,0 +1,8 @@
+{
+  "id": "builder/01KYTB4RN9RAH81M57Y9XWBVYQ",
+  "from": "builder",
+  "to": "coordinator",
+  "body": "Schema investigation complete. **The schema is NOT the issue.**\n\nVerified:\n- All 9 project .mdx files have all required fields matching the schema exactly (id, title, description, category, image, technologies, featured). Optional fields (link, github) present where expected.\n- Dev server starts with `[content] Synced content` — no validation errors.\n- SSR HTML output contains all project names (ReviewIt, Lugetech, Maad Radio, Hitman, Lyricut, SSH Thing, Domain Echo, Scan.gy, SecretNotez).\n- ProjectGrid astro-island inner HTML is 20,876 chars with full project card content.\n- Headless browser test confirms: after scroll, project cards have `opacity: 1`, AboutCard `opacity: 1`, BlogList `opacity: 1`. All sections render correctly.\n\nThe \"no projects\" the user sees is a **client-side hydration/visibility issue**, not a data/schema issue. When JS fails to load or dev server is in a stale state, Framer Motion components stay at `initial={{ opacity: 0 }}` and never animate in. The CTA (plain HTML) and Navigation (`transition:persist`) remain visible, matching the reported symptom exactly.\n\n**Fix:** Restart dev server + hard refresh (Cmd+Shift+R). No code changes needed.\n\nIf we want to harden against this, could add `vite.optimizeDeps.include` for the heavy React/Three.js deps in astro.config.mjs to prevent stale optimize-deps 504s — but that's a dev-experience improvement, not a bug fix.",
+  "sentAt": "2026-07-30T20:23:37.385Z",
+  "re": "coordinator/01KYTAPDAZPP4C3P3CRVJAEQ1Z"
+}

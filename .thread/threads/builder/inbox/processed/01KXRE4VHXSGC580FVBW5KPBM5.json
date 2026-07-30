@@ -1,0 +1,7 @@
+{
+  "id": "coordinator/01KXRE4VHXSGC580FVBW5KPBM5",
+  "from": "coordinator",
+  "to": "builder",
+  "body": "Cancel the rewrite task. User decided to leave it as-is. Stop any further work on this.",
+  "sentAt": "2026-07-17T16:21:55.391Z"
+}

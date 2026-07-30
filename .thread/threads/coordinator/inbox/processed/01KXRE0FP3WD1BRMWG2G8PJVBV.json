@@ -1,0 +1,8 @@
+{
+  "id": "builder/01KXRE0FP3WD1BRMWG2G8PJVBV",
+  "from": "builder",
+  "to": "coordinator",
+  "body": "Done. Created 9 prompt override files:\n\n- `.thread/prompts/explorer.md`\n- `.thread/prompts/builder.md`\n- `.thread/prompts/reviewer.md`\n- `.thread/prompts/tester.md`\n- `.thread/prompts/bug-hunter.md`\n- `.thread/prompts/scout.md`\n- `.thread/prompts/designer.md`\n- `.thread/prompts/worker.md`\n- `.thread/prompts/worker-2.md`\n\nEach uses `--- name/description ---` frontmatter and contains the forwarding rule: if plain-text user input (not a thread_send from coordinator), forward verbatim via `thread_send(to=\"coordinator\", expects=true, body=<original>)`. No action, no reply to user.\n\nCaveat: no pi docs reference `.thread/prompts/<role>.md` as a recognized prompt-loading path. If the thread harness doesn't pick these up, they need to be registered via settings or the coordinator's launch config. Format follows prompt-template convention with frontmatter block.",
+  "sentAt": "2026-07-17T16:19:32.167Z",
+  "re": "coordinator/01KXRDY2JF45VYF4VKA4VQVBHC"
+}

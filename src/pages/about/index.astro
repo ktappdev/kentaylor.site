@@ -12,9 +12,9 @@ import { SITE } from "../../lib/site";
 
 const recentPosts = (await getPublishedBlogPosts()).slice(0, 3);
 const pageTitle =
-  "About Ken Taylor | Guyanese Developer, Music Producer, Entrepreneur";
+  "About Ken Taylor | Guyanese Developer, Entrepreneur";
 const pageDescription =
-  "Learn more about Ken Taylor, a self-taught software engineer, music producer, and entrepreneur from Georgetown, Guyana.";
+  "Learn more about Ken Taylor, a self-taught software engineer and entrepreneur from Georgetown, Guyana.";
 const jsonLd = [
   ...buildProfilePageSchemas(recentPosts),
   buildBreadcrumbSchema([
@@ -30,7 +30,6 @@ const socialLinks = [
     href: "https://gy.linkedin.com/in/ken-taylor-16006280",
     label: "LinkedIn",
   },
-  { href: "https://www.youtube.com/@KendaBeatMaker", label: "YouTube" },
   { href: "mailto:kentaylorappdev@gmail.com", label: "Email" },
 ];
 ---
@@ -87,9 +86,12 @@ const socialLinks = [
         </article>
 
         <article class="rounded-2xl border border-border bg-surface/70 p-6">
-          <h2 class="text-2xl font-bold">Beyond Code (KenDaBeatmaker)</h2>
+          <h2 class="text-2xl font-bold">Beyond Code</h2>
           <p class="mt-4 text-muted">
-            I also produce music professionally under my persona KenDaBeatmaker. This creative identity is deeply tied to my software engineering work. The problem-solving rigor of coding informs my music production workflows (like building custom tools for radio content management), while my music background shapes how I design user-centric products. This dual perspective lets me build tech solutions that address real needs for Guyana's creative and tech communities, bridging two worlds that often operate in silos.
+            I'm passionate about entrepreneurship and building useful things
+            for the Guyanese and Caribbean market. My work spans web apps,
+            desktop tools, self-hosted infrastructure, and AI — always focused
+            on solving real problems with practical technology.
           </p>
         </article>
       </section>
@@ -115,7 +117,7 @@ const socialLinks = [
           <div>
             <h2 class="text-2xl font-bold">Recent Writing</h2>
             <p class="mt-2 text-muted">
-              A few recent posts about software, music, entrepreneurship, and
+              A few recent posts about software, entrepreneurship, and
               building from Guyana.
             </p>
           </div>

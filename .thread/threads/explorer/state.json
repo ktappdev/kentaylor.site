@@ -1,0 +1,25 @@
+{
+  "id": "explorer",
+  "pid": 27816,
+  "cwd": "/Users/kentaylor/developer/kentaylor.site",
+  "parent": "coordinator",
+  "role": "explorer",
+  "sessionFile": "/Users/kentaylor/.pi/agent/sessions/--Users-kentaylor-developer-kentaylor.site--/2026-07-17T16-14-48-889Z_019f70db-ec39-7763-aacc-ccc15bf59f71.jsonl",
+  "state": "done",
+  "status": "running",
+  "holdReason": null,
+  "obligations": [],
+  "owed": [],
+  "barriers": [],
+  "startedAt": "2026-07-17T16:14:53.298Z",
+  "lastSeen": "2026-07-17T16:24:13.478Z",
+  "updatedAt": "2026-07-17T16:24:13.478Z",
+  "capabilities": [
+    "urgency",
+    "barriers",
+    "deliverAfter",
+    "expiresAt",
+    "journal",
+    "canary"
+  ]
+}

@@ -75,7 +75,7 @@ export function buildBlogIndexSchemas(posts: BlogPost[]): JsonLd[] {
       url: pageUrl,
       name: "Blog | Ken Taylor",
       description:
-        "Articles and insights on tech, music production, and entrepreneurship from Ken Taylor.",
+        "Articles and insights on tech, software, and entrepreneurship from Ken Taylor.",
       isPartOf: { "@id": WEBSITE_ID },
       about: { "@id": PERSON_ID },
       mainEntity: {
@@ -111,7 +111,7 @@ export function buildProfilePageSchemas(posts: BlogPost[]): JsonLd[] {
         "@id": PERSON_ID,
         "@type": "Person",
         name: SITE.author.name,
-        alternateName: ["KenDaBeatmaker", "ktappdev"],
+        alternateName: ["ktappdev"],
         identifier: "kentaylor",
         description: SITE.author.longBio,
         url: pageUrl,
@@ -183,7 +183,7 @@ function buildPersonSchema(): JsonLd {
     "@id": PERSON_ID,
     name: SITE.author.name,
     url: absoluteUrl(SITE.aboutPath),
-    alternateName: ["KenDaBeatmaker", "ktappdev"],
+    alternateName: ["ktappdev"],
     identifier: "kentaylor",
     description: SITE.author.longBio,
     jobTitle: SITE.author.jobTitle,

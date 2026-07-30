@@ -1,0 +1,8 @@
+{
+  "id": "builder-4/01KYT9WWWKE0DFQPRM7WQDBV5J",
+  "from": "builder-4",
+  "to": "coordinator",
+  "body": "Done. All changes verified, `npx tsc --noEmit` clean.\n\n**ProjectGrid.tsx**\n- Line 42: `checkout my other open-source projects on Github:` → `Check out my other open-source projects on GitHub:` (capitalized, two words, GitHub capitalization)\n- No `grid-bg` class present — nothing to remove.\n\n**ProjectCard.tsx** — full rewrite, removed:\n- `useRef`, `useState` imports (no longer needed)\n- `useMotionValue`, `useSpring`, `useTransform` imports (tilt machinery)\n- `x`, `y`, `mouseXSpring`, `mouseYSpring`, `rotateX`, `rotateY` declarations\n- `handleMouseMove`, `handleMouseLeave` functions\n- `onMouseMove`, `onMouseEnter`, `onMouseLeave` handlers\n- `isHovered` state\n- `style={{ rotateX, rotateY, transformStyle: 'preserve-3d' }}` on outer div\n- `style={{ transform: 'translateZ(0)' }}` on card container\n- `style={{ transform: 'translateZ(30px)' }}` on content div\n- `motion.div` border glow overlay (the one with `animate={{ opacity: isHovered ? 1 : 0 }}`)\n\nAdded/kept:\n- CSS hover: `hover:border-accent/50` on card container (replaces motion border glow)\n- Image: `loading=\"lazy\"`, `width=\"400\"`, `height=\"300\"` (matches aspect-[4/3])\n- Image: `onError={(e) => { e.currentTarget.style.display = 'none'; }}`\n- Reduced-motion guard: `window.matchMedia('(prefers-reduced-motion: reduce)').matches` — if true, entrance animation props are empty (card renders visible immediately, no flash)\n- Kept: `group-hover:scale-105` on image, `group-hover:text-accent` on title, gradient overlay on hover, featured badge, all content/links",
+  "sentAt": "2026-07-30T20:01:50.995Z",
+  "re": "coordinator/01KYT9TSTHS8XZJ13EDFB95ZGC"
+}

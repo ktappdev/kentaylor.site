@@ -1,0 +1,25 @@
+{
+  "id": "worker-2",
+  "pid": 28948,
+  "cwd": "/Users/kentaylor/developer/kentaylor.site",
+  "parent": "coordinator",
+  "role": "worker",
+  "sessionFile": "/Users/kentaylor/.pi/agent/sessions/--Users-kentaylor-developer-kentaylor.site--/2026-07-17T16-15-48-907Z_019f70dc-d6ab-74d9-a16c-e1466e843901.jsonl",
+  "state": "done",
+  "status": "running",
+  "holdReason": null,
+  "obligations": [],
+  "owed": [],
+  "barriers": [],
+  "startedAt": "2026-07-17T16:16:02.410Z",
+  "lastSeen": "2026-07-17T16:24:22.474Z",
+  "updatedAt": "2026-07-17T16:24:22.474Z",
+  "capabilities": [
+    "urgency",
+    "barriers",
+    "deliverAfter",
+    "expiresAt",
+    "journal",
+    "canary"
+  ]
+}

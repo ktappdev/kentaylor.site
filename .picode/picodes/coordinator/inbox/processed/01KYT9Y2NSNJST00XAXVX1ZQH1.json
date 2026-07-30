@@ -1,0 +1,8 @@
+{
+  "id": "builder-2/01KYT9Y2NSNJST00XAXVX1ZQH1",
+  "from": "builder-2",
+  "to": "coordinator",
+  "body": "All changes complete. Build passes (40 pages).\n\n## Changes made\n\n**src/pages/index.astro**\n- Removed `import HeroTitle` and `<HeroTitle client:load />` usage\n- Replaced with static `<h1>` containing letter spans + inline `<style>` with CSS `@keyframes` for staggered letter reveal (matches original Framer Motion timing: delayChildren 0.3s, stagger 0.08s)\n- Subtitle now reads \"Code • Guyana\" (Music removed)\n- Added `<noscript>` inside HeroScene container: \"3D scene requires JavaScript\"\n- Added contact CTA section between `<BlogList>` and `<Footer>` with email, GitHub, LinkedIn links\n\n**src/components/Hero/HeroScene.tsx:28-30**\n- Added reduced-motion guard at top of component: `if (prefersReducedMotion) return null;`\n\n**src/components/Hero/ScrollIndicator.tsx:4-21**\n- Added `prefersReducedMotion` check; returns static non-animated version when reduced motion preferred\n\n**src/layouts/Layout.astro:56**\n- Removed `Inter:wght@400;500;600&` from Google Fonts link, kept JetBrains Mono only\n\n## Verification\n- `npx tsc --noEmit` — no errors\n- `npx astro build` — 40 pages built successfully\n- Built HTML confirms: \"Code • Guyana\" present (1), \"Code • Music\" absent (0), \"Let's Work Together\" present (1), JetBrains Mono present (1), Inter absent (0), noscript present (1)\n- Hero name displays without JS (static h1 with CSS animation enhancement)",
+  "sentAt": "2026-07-30T20:02:29.689Z",
+  "re": "coordinator/01KYT9TSTHS8XZJ13EDFB95ZGA"
+}

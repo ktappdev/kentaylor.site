@@ -1,0 +1,8 @@
+{
+  "id": "builder/01KYTB6DMC5F1WYG18FV0C5E5W",
+  "from": "builder",
+  "to": "coordinator",
+  "body": "Re-checked thoroughly. **Zero schema mismatches found.**\n\nRan `npx astro check` — no errors. Dev server: `[content] Synced content` clean. Programmatic frontmatter-vs-schema comparison of all 9 files: every file has all 7 required fields (id, title, description, category, image, technologies, featured) and optional fields (link, github) where present. No missing fields, no wrong types, no extra fields.\n\nHTML output confirms all 9 projects present in SSR: ReviewIt, Lugetech, Maad Radio, Hitman, Lyricut, SSH Thing, Domain Echo, Scan.gy, SecretNotez.\n\n**The schema is correct and all content validates.** The \"no projects\" issue is not a data/schema problem — it's a client-side hydration/visibility issue (Framer Motion `initial={{ opacity: 0 }}` not transitioning when JS fails to load). No schema fix needed. No .mdx changes needed.",
+  "sentAt": "2026-07-30T20:24:31.628Z",
+  "re": "coordinator/01KYTB1R30G1SRR73VCM2CGRVX"
+}

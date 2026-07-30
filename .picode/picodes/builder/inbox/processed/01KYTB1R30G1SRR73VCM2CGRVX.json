@@ -1,0 +1,8 @@
+{
+  "id": "coordinator/01KYTB1R30G1SRR73VCM2CGRVX",
+  "from": "coordinator",
+  "to": "builder",
+  "body": "User reports projects specifically not showing. You said no code bug, but user sees no projects. \n\nCheck the projects collection schema validation. The content.config.ts was just changed to add projectsCollection. If any project .mdx frontmatter doesn't match schema, getCollection(\"projects\") returns empty → no projects render.\n\n1. Read ALL 9 project .mdx files in src/content/projects/:\n   secretnotez, ssh-thing, lugetech, reviewit, domain-echo, scangy, hitman, maad-radio, lyricut\n\n2. Compare each file's frontmatter to the schema in content.config.ts\n\n3. Run dev server, check console for validation errors:\n   ```bash\n   cd /Users/kentaylor/developer/kentaylor.site && npx astro check 2>&1 | grep -i \"projects\\|validation\\|schema\\|error\"\n   ```\n\n4. Look for: missing required fields, wrong types, fields in schema but not in files, fields in files but not in schema\n\n5. If mismatches found, FIX THE SCHEMA in content.config.ts to match actual content. Make fields optional or fix types. Do NOT modify .mdx files.\n\nReport exact mismatches found and what you fixed.",
+  "sentAt": "2026-07-30T20:21:58.496Z",
+  "expects": true
+}

@@ -14,7 +14,7 @@ import {
 const sortedPosts = await getPublishedBlogPosts();
 const pageTitle = 'Blog | Ken Taylor';
 const pageDescription =
-  'Articles and insights on tech, music production, entrepreneurship, and building from Guyana.';
+  'Articles and insights on tech, software, entrepreneurship, and building from Guyana.';
 const jsonLd = [
   ...buildBlogIndexSchemas(sortedPosts),
   buildBreadcrumbSchema([
@@ -52,7 +52,7 @@ const BEEHIIV_EMBED_CODE = `<script async src="https://subscribe-forms.beehiiv.c
         <span class="text-accent">#</span> Blog
       </h1>
       <p class="text-muted text-lg mb-12">
-        Essays on software, music, entrepreneurship, and building useful things
+        Essays on software, entrepreneurship, and building useful things
         from Guyana.
       </p>
       

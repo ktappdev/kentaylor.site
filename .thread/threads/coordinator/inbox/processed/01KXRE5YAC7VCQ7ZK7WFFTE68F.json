@@ -1,0 +1,8 @@
+{
+  "id": "builder/01KXRE5YAC7VCQ7ZK7WFFTE68F",
+  "from": "builder",
+  "to": "coordinator",
+  "body": "Done. Rewrote all role prompt files with complete bundled content.\n\nFiles in `.thread/prompts/`:\n- explorer.md (WORKER_BASE_RULES + EXPLORER_RULES)\n- builder.md (WORKER_BASE_RULES + BUILDER_RULES)\n- reviewer.md (WORKER_BASE_RULES + REVIEWER_RULES)\n- scout.md (WORKER_BASE_RULES + SCOUT_RULES)\n- designer.md (WORKER_BASE_RULES + DESIGNER_RULES)\n- tester.md (WORKER_BASE_RULES + TESTER_RULES)\n- bug-hunter.md (WORKER_BASE_RULES + BUG_HUNTER_RULES)\n- worker.md (WORKER_BASE_RULES only)\n\nDeleted: worker-2.md (unknown roles fall back to worker.md automatically).\n\nStructure per file:\n1. YAML frontmatter (`name`/`description`)\n2. `### Direct User Message Forwarding` — verbatim rule from spec\n3. `### Role: Worker` — WORKER_BASE_RULES from source\n4. `### Subtype: <Role>` — matching subtype rules (omitted for worker.md)\n\nValidation output confirms correct structure for explorer.md and builder.md.",
+  "sentAt": "2026-07-17T16:22:30.989Z",
+  "re": "coordinator/01KXRE2C1893FFPFR829QESJHK"
+}

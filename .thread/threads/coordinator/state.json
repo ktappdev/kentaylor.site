@@ -1,0 +1,25 @@
+{
+  "id": "coordinator",
+  "pid": 25176,
+  "cwd": "/Users/kentaylor/developer/kentaylor.site",
+  "parent": null,
+  "role": "coordinator",
+  "sessionFile": "/Users/kentaylor/.pi/agent/sessions/--Users-kentaylor-developer-kentaylor.site--/2026-07-17T16-12-37-326Z_019f70d9-ea4e-7413-90e5-cd6d4df08ced.jsonl",
+  "state": "stopped",
+  "status": "stopped",
+  "holdReason": null,
+  "obligations": [],
+  "owed": [],
+  "barriers": [],
+  "startedAt": "2026-07-17T16:12:41.091Z",
+  "lastSeen": "2026-07-17T16:24:46.956Z",
+  "updatedAt": "2026-07-17T16:24:46.957Z",
+  "capabilities": [
+    "urgency",
+    "barriers",
+    "deliverAfter",
+    "expiresAt",
+    "journal",
+    "canary"
+  ]
+}

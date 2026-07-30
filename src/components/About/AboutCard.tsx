@@ -1,6 +1,8 @@
 import { useRef, useState } from 'react';
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 
+const prefersReducedMotion = typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
 export default function AboutCard() {
   const cardRef = useRef<HTMLDivElement>(null);
   const [isHovered, setIsHovered] = useState(false);
@@ -39,7 +41,7 @@ export default function AboutCard() {
   };
   
   const stats = [
-    { label: 'ROLE', value: 'Software Engineer & Music Producer' },
+    { label: 'ROLE', value: 'Software Engineer' },
     { label: 'LOCATION', value: 'Georgetown, Guyana' },
     { label: 'LEVEL', value: 'Self-Taught' },
     { label: 'STATUS', value: 'Currently Debugging Life' },
@@ -47,18 +49,18 @@ export default function AboutCard() {
   
   return (
     <section className="relative py-24 md:py-32 overflow-hidden">
-      <div className="absolute inset-0 grid-bg opacity-50" />
+
       
       <div className="relative z-10 max-w-7xl mx-auto px-6">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
           <span className="text-accent font-mono text-sm tracking-wider">IDENTITY_VERIFIED</span>
-          <h2 className="text-4xl md:text-5xl font-bold mt-4 text-gradient">
+          <h2 className="text-4xl md:text-5xl font-bold mt-4 text-accent">
             The Human Behind The Code
           </h2>
         </motion.div>
@@ -66,18 +68,22 @@ export default function AboutCard() {
         <div className="flex justify-center">
           <motion.div
             ref={cardRef}
-            initial={{ opacity: 0, y: 50 }}
+            initial={{ y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
             onMouseMove={handleMouseMove}
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={handleMouseLeave}
-            style={{
-              rotateX,
-              rotateY,
-              transformStyle: 'preserve-3d',
-            }}
+            style={
+              prefersReducedMotion
+                ? {}
+                : {
+                    rotateX,
+                    rotateY,
+                    transformStyle: 'preserve-3d',
+                  }
+            }
             className="relative w-full max-w-2xl"
           >
             {/* Card Container */}
@@ -109,7 +115,7 @@ export default function AboutCard() {
               <div className="relative bg-accent/10 border-b border-border/50 px-6 py-4 flex items-center justify-between">
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 bg-accent rounded-full animate-pulse" />
-                  <span className="font-mono text-xs text-accent tracking-wider">LUUTECH_INDUSTRIES</span>
+                  <span className="font-mono text-xs text-accent tracking-wider">LUGETECH_INDUSTRIES</span>
                 </div>
                 <span className="font-mono text-xs text-muted">ID: KEN-001-GY</span>
               </div>
@@ -139,18 +145,10 @@ export default function AboutCard() {
                           src="https://www.lugetech.com/team/ken.webp"
                           alt="Ken Taylor"
                           className="w-full h-full object-cover"
-                        />
-                        {/* Scan line effect */}
-                        <motion.div
-                          animate={{ 
-                            top: ['0%', '100%', '0%'],
-                          }}
-                          transition={{ 
-                            duration: 3, 
-                            repeat: Infinity, 
-                            ease: 'linear' 
-                          }}
-                          className="absolute left-0 right-0 h-1 bg-accent/50 blur-sm"
+                          width="192"
+                          height="208"
+                          loading="lazy"
+                          onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = 'none'; }}
                         />
                       </div>
                       
@@ -166,7 +164,7 @@ export default function AboutCard() {
                   <div className="flex-1 w-full" style={{ transform: 'translateZ(30px)' }}>
                     <motion.h3 
                       className="text-3xl md:text-4xl font-bold font-mono mb-1"
-                      initial={{ opacity: 0, x: -20 }}
+                      initial={{ x: -20 }}
                       whileInView={{ opacity: 1, x: 0 }}
                       viewport={{ once: true }}
                       transition={{ delay: 0.3 }}
@@ -176,7 +174,7 @@ export default function AboutCard() {
                     
                     <motion.p 
                       className="text-accent font-mono text-sm mb-6 tracking-wider"
-                      initial={{ opacity: 0, x: -20 }}
+                      initial={{ x: -20 }}
                       whileInView={{ opacity: 1, x: 0 }}
                       viewport={{ once: true }}
                       transition={{ delay: 0.4 }}
@@ -188,7 +186,7 @@ export default function AboutCard() {
                       {stats.map((stat, index) => (
                         <motion.div
                           key={stat.label}
-                          initial={{ opacity: 0, x: -20 }}
+                          initial={{ x: -20 }}
                           whileInView={{ opacity: 1, x: 0 }}
                           viewport={{ once: true }}
                           transition={{ delay: 0.5 + index * 0.1 }}
@@ -206,13 +204,13 @@ export default function AboutCard() {
                     
                     {/* Bio text */}
                     <motion.p
-                      initial={{ opacity: 0 }}
+                      initial={{}}
                       whileInView={{ opacity: 1 }}
                       viewport={{ once: true }}
                       transition={{ delay: 0.9 }}
                       className="mt-6 text-muted text-sm leading-relaxed"
                     >
-                      Co-founder of Lugetech & creator of ReviewIt.gy. A self-taught software engineer from Georgetown, Guyana who believes the best code is written with headphones on. When not shipping products, I'm producing tracks that slap.
+                      Co-founder of Lugetech & creator of ReviewIt.gy. A self-taught software engineer from Georgetown, Guyana who believes the best code is written with headphones on. When not shipping products, I'm exploring new ways to build for the Caribbean.
                     </motion.p>
                   </div>
                 </div>
@@ -241,10 +239,6 @@ export default function AboutCard() {
                   <span className="font-mono text-xs text-accent">CLEARANCE_LEVEL: ADMIN</span>
                 </div>
               </div>
-              
-              {/* Decorative elements */}
-              <div className="absolute top-20 right-4 w-20 h-20 border border-accent/10 rounded-full" />
-              <div className="absolute bottom-20 left-4 w-12 h-12 border border-accent/10 rounded-full" />
             </div>
             
             {/* Shadow */}

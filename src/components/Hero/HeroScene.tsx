@@ -32,6 +32,10 @@ function FloatingShape() {
 }
 
 export default function HeroScene() {
+  if (typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    return null;
+  }
+
   return (
     <Canvas
       camera={{ position: [0, 0, 5], fov: 75 }}

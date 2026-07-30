@@ -1,0 +1,8 @@
+{
+  "id": "coordinator/01KXRDR89T8XYBGN8ZG1B8BPT4",
+  "from": "coordinator",
+  "to": "explorer",
+  "body": "Theme test task. Just confirm you're alive and report: (1) what model you're running, (2) list the top-level files/dirs in the project root at /Users/kentaylor/developer/kentaylor.site. Keep it short.",
+  "sentAt": "2026-07-17T16:15:02.461Z",
+  "expects": true
+}

@@ -10,7 +10,6 @@ export default function Footer() {
     { href: 'https://github.com/ktappdev', label: 'GitHub', external: true },
     { href: 'https://x.com/ktappdev', label: 'X/Twitter', external: true },
     { href: 'https://gy.linkedin.com/in/ken-taylor-16006280', label: 'LinkedIn', external: true },
-    { href: 'https://www.youtube.com/@KendaBeatMaker', label: 'YouTube', external: true },
     { href: 'mailto:kentaylorappdev@gmail.com', label: 'Email', external: false },
   ];
   
@@ -19,7 +18,7 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           <motion.div
-            initial={{ opacity: 0 }}
+            initial={{}}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             className="text-center md:text-left"
@@ -28,15 +27,15 @@ export default function Footer() {
               <span className="text-accent">/</span>KT
             </a>
             <p className="text-muted text-sm mt-2">
-              Self-taught software engineer. Founder. Music producer. From Guyana.
+              Self-taught software engineer. Founder. From Guyana.
             </p>
           </motion.div>
           
           <motion.div
-            initial={{ opacity: 0, y: 10 }}
+            initial={{ y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="flex gap-6"
+            className="flex flex-wrap gap-6"
           >
             {links.map((link) => (
               <a
@@ -53,7 +52,7 @@ export default function Footer() {
         </div>
         
         <motion.div
-          initial={{ opacity: 0 }}
+          initial={{}}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           className="mt-8 pt-8 border-t border-border text-center"
@@ -61,7 +60,7 @@ export default function Footer() {
           <p className="text-muted text-sm font-mono">
             © {currentYear} Ken Taylor. All rights reserved.
           </p>
-          <p className="text-muted/50 text-xs mt-2 font-mono">
+          <p className="text-muted text-xs mt-2 font-mono">
             Built with Astro + React + Three.js
           </p>
         </motion.div>
