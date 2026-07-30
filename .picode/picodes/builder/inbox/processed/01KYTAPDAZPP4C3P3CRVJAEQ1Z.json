@@ -1,9 +1,0 @@
-{
-  "id": "coordinator/01KYTAPDAZPP4C3P3CRVJAEQ1Z",
-  "from": "coordinator",
-  "to": "builder",
-  "body": "Additional info from user: \"no projects\" — the projects section specifically has no projects showing.\n\nThis is likely caused by the content.config.ts schema change. The projectsCollection schema was just added. If any project .mdx file's frontmatter doesn't match the schema, Astro validation fails and `getCollection(\"projects\")` returns empty → no projects render.\n\nCheck this:\n1. Read ALL project .mdx files in src/content/projects/ and compare frontmatter to the schema in content.config.ts\n2. Look for schema mismatches — wrong types, missing required fields, extra fields\n3. Run `npx astro build` or check dev server console for validation errors\n4. The schema has `id` as required string, but check if all files have it. Check `category`, `image`, `technologies`, `link`, `featured` — are all present in every file?\n\nIf schema mismatches found, fix the schema in content.config.ts to match actual content (make fields optional or fix types). Do NOT modify the .mdx files.\n\nThis may be the root cause of the blank sections — if projects collection fails, the page might error out partially.",
-  "sentAt": "2026-07-30T20:15:47.040Z",
-  "re": "coordinator/01KYTAGGAFD4R04QDYW633W4T4",
-  "expects": true
-}

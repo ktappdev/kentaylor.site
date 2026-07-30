@@ -42,16 +42,16 @@ const projects = await getPublishedProjects();
           opacity: 0;
           animation: letterReveal 0.6s ease-out forwards;
         }
-        .letter:nth-child(1) { animation-delay: 0.3s; }
-        .letter:nth-child(2) { animation-delay: 0.38s; }
-        .letter:nth-child(3) { animation-delay: 0.46s; }
-        .letter:nth-child(4) { animation-delay: 0.54s; }
-        .letter:nth-child(5) { animation-delay: 0.62s; }
-        .letter:nth-child(6) { animation-delay: 0.7s; }
-        .letter:nth-child(7) { animation-delay: 0.78s; }
-        .letter:nth-child(8) { animation-delay: 0.86s; }
-        .letter:nth-child(9) { animation-delay: 0.94s; }
-        .letter:nth-child(10) { animation-delay: 1.02s; }
+        .letter:nth-of-type(1) { animation-delay: 0.3s; }
+        .letter:nth-of-type(2) { animation-delay: 0.38s; }
+        .letter:nth-of-type(3) { animation-delay: 0.46s; }
+        .letter:nth-of-type(4) { animation-delay: 0.54s; }
+        .letter:nth-of-type(5) { animation-delay: 0.62s; }
+        .letter:nth-of-type(6) { animation-delay: 0.7s; }
+        .letter:nth-of-type(7) { animation-delay: 0.78s; }
+        .letter:nth-of-type(8) { animation-delay: 0.86s; }
+        .letter:nth-of-type(9) { animation-delay: 0.94s; }
+        .letter:nth-of-type(10) { animation-delay: 1.02s; }
         @keyframes gradientLine {
           from { transform: scaleX(0); }
           to { transform: scaleX(1); }
@@ -76,8 +76,8 @@ const projects = await getPublishedProjects();
           <span class="letter hover:text-accent transition-colors duration-300 cursor-default">K</span>
           <span class="letter hover:text-accent transition-colors duration-300 cursor-default">E</span>
           <span class="letter hover:text-accent transition-colors duration-300 cursor-default">N</span>
-          <span class="letter">&nbsp;</span>
-          <span class="letter hover:text-accent transition-colors duration-300 cursor-default">T</span>
+          <br class="md:hidden" />
+          <span class="letter md:ml-[0.25em] hover:text-accent transition-colors duration-300 cursor-default">T</span>
           <span class="letter hover:text-accent transition-colors duration-300 cursor-default">A</span>
           <span class="letter hover:text-accent transition-colors duration-300 cursor-default">Y</span>
           <span class="letter hover:text-accent transition-colors duration-300 cursor-default">L</span>

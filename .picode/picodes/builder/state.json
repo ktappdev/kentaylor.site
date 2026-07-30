@@ -1,56 +1,19 @@
 {
   "id": "builder",
-  "pid": 55011,
+  "pid": 29692,
   "cwd": "/Users/kentaylor/developer/kentaylor.site",
   "parent": "coordinator",
   "role": "builder",
-  "sessionFile": "/Users/kentaylor/.pi/agent/sessions/--Users-kentaylor-developer-kentaylor.site--/2026-07-30T20-12-17-017Z_019fb4a8-00f8-73aa-aeb3-c5987879a179.jsonl",
+  "sessionFile": "/Users/kentaylor/.pi/agent/sessions/--Users-kentaylor-developer-kentaylor.site--/2026-07-30T22-03-19-299Z_019fb50d-a983-7795-8433-fe932cc012a9.jsonl",
   "state": "done",
   "status": "running",
   "holdReason": null,
   "obligations": [],
   "owed": [],
-  "barriers": [
-    {
-      "id": "barrier.builder.1785442912445.0",
-      "pending": [
-        "coordinator/01KYTB1FHJHNKSWWR5C683469Q"
-      ],
-      "mode": "all",
-      "createdAt": "2026-07-30T20:21:52.445Z",
-      "deadline": "2026-07-30T20:36:52.445Z"
-    },
-    {
-      "id": "barrier.builder.1785443019949.1",
-      "pending": [
-        "coordinator/01KYTB4RN9RAH81M57Y9XWBVYQ"
-      ],
-      "mode": "all",
-      "createdAt": "2026-07-30T20:23:39.949Z",
-      "deadline": "2026-07-30T20:38:39.949Z"
-    },
-    {
-      "id": "barrier.builder.1785443074130.2",
-      "pending": [
-        "coordinator/01KYTB6DMC5F1WYG18FV0C5E5W"
-      ],
-      "mode": "all",
-      "createdAt": "2026-07-30T20:24:34.130Z",
-      "deadline": "2026-07-30T20:39:34.130Z"
-    },
-    {
-      "id": "barrier.builder.1785443185929.3",
-      "pending": [
-        "coordinator/01KYTB9TMXQA1M201BT6BAFV9R"
-      ],
-      "mode": "all",
-      "createdAt": "2026-07-30T20:26:25.929Z",
-      "deadline": "2026-07-30T20:41:25.928Z"
-    }
-  ],
-  "startedAt": "2026-07-30T20:12:21.341Z",
-  "lastSeen": "2026-07-30T20:26:29.770Z",
-  "updatedAt": "2026-07-30T20:26:29.770Z",
+  "barriers": [],
+  "startedAt": "2026-07-30T22:03:24.545Z",
+  "lastSeen": "2026-07-30T22:04:04.564Z",
+  "updatedAt": "2026-07-30T22:04:04.564Z",
   "capabilities": [
     "urgency",
     "barriers",

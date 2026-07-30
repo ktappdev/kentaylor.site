@@ -117,3 +117,24 @@ Done: Hardened Framer Motion components — removed `opacity: 0` from all `initi
 Doing: Awaiting user confirmation after dev server hard refresh that all sections now display correctly
 Next: Verify visually (via pi-chrome once extension is loaded, or user screenshot) that hero, about, projects, blog, CTA all render; commit changes if confirmed working
 Blockers: none
+
+<!-- 2026-07-30 20:33 -->
+Working on: Fixing blank-page rendering issue on kentaylor.dev dev server (projects/sections invisible)
+Done: Removed all `opacity: 0` from Framer Motion `initial` props across 9 component files (AboutCard, ProjectGrid, ProjectCard, BlogList, BlogCard, RelatedPosts, NewsletterEmbed, Footer, ScrollIndicator) — content now visible by default even if JS fails to hydrate
+Doing: Waiting for user to hard-refresh dev server and verify sections render; chrome bridge now authorized for visual verification
+Next: Confirm fix works in browser via screenshot or user report; address any remaining rendering issues if sections still don't appear
+Blockers: none
+
+<!-- 2026-07-30 22:03 -->
+Working on: Split hero name "KEN TAYLOR" into two lines on mobile (KEN / TAYLOR), keep desktop inline
+Done: Located hero markup in src/pages/index.astro, identified animation conflict (replacing space span with `<br>` shifts nth-child indices for letter delays), drafted plan to use `<br class="md:hidden" />` + switch `.letter:nth-child` to `.letter:nth-of-type`, dispatched to builder pane
+Doing: Builder pane implementing the edit in src/pages/index.astro — swapping the space span for mobile-only br, adding md:ml spacing on T, converting nth-child → nth-of-type to preserve stagger
+Next: Receive builder confirmation, verify mobile/desktop render and animation order intact
+Blockers: none
+
+<!-- 2026-07-30 22:04 -->
+Working on: Hero section responsive name display (KEN / TAYLOR mobile split)
+Done: Updated src/pages/index.astro — replaced &nbsp; span with `<br class="md:hidden">`, added md:ml-[0.25em] to T span, switched CSS selectors to nth-of-type to preserve animation delays
+Doing: Awaiting user verification on mobile/desktop view
+Next: User confirms visual result; no further code changes unless issues found
+Blockers: none

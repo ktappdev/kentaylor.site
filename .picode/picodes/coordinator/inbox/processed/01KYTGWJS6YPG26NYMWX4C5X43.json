@@ -1,0 +1,8 @@
+{
+  "id": "builder/01KYTGWJS6YPG26NYMWX4C5X43",
+  "from": "builder",
+  "to": "coordinator",
+  "body": "Done. Changes in src/pages/index.astro:\n\n1. Replaced `<span class=\"letter\">&nbsp;</span>` (between N and T) with `<br class=\"md:hidden\" />` — forces line break on mobile only.\n2. Added `md:ml-[0.25em]` to the T span so desktop keeps visible space between KEN and TAYLOR.\n3. Changed all 10 CSS selectors from `.letter:nth-child(N)` to `.letter:nth-of-type(N)` so the `<br>` (not a span) is ignored by the animation delay selectors — letter spans keep their original 1-10 ordering and delays.\n\nResult:\n- Mobile: KEN / TAYLOR stacked, centered\n- Desktop: KEN TAYLOR inline with space\n- Animation delays unchanged",
+  "sentAt": "2026-07-30T22:04:00.678Z",
+  "re": "coordinator/01KYTGVXC8E3M8X28669EB21PM"
+}
