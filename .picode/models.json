@@ -1,13 +1,13 @@
 {
-  "builder": "streamlake/KAT-Coder-Pro-v2.5",
-  "reviewer": "opencode-go/deepseek-v4-pro",
+  "builder": "commandcode/deepseek/deepseek-v4-flash",
+  "reviewer": "commandcode/deepseek/deepseek-v4-flash",
   "tester": "commandcode/xiaomi/mimo-v2.5",
   "designer": "streamlake/KAT-Coder-Pro-v2.5",
   "bug-hunter": "commandcode/deepseek/deepseek-v4-pro",
-  "scout": "commandcode/xiaomi/mimo-v2.5-pro",
+  "scout": "commandcode/deepseek/deepseek-v4-flash",
   "default": "opencode-go/qwen3.7-plus",
-  "journal": "commandcode/MiniMaxAI/MiniMax-M3",
+  "journal": "streamlake/KAT-Coder-Pro-v2.5",
   "journal-cadence": "done",
-  "planner": "windsurf/gpt-5-6-sol-medium",
+  "planner": "opencode-go/deepseek-v4-flash",
   "runner": "commandcode/deepseek/deepseek-v4-flash"
 }

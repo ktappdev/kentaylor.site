@@ -138,3 +138,73 @@ Done: Updated src/pages/index.astro — replaced &nbsp; span with `<br class="md
 Doing: Awaiting user verification on mobile/desktop view
 Next: User confirms visual result; no further code changes unless issues found
 Blockers: none
+
+<!-- 2026-07-31 12:16 -->
+Working on: Updating `.picode/models.json` so builder, reviewer, scout use `commandcode/deepseek/deepseek-v4-flash`
+Done: Dispatched builder with the model swap task
+Doing: Waiting for builder to report final `.picode/models.json` contents
+Next: Verify builder's reply shows builder/reviewer/scout set to `commandcode/deepseek/deepseek-v4-flash`, with other keys preserved
+Blockers: none
+
+<!-- 2026-07-31 12:16 -->
+Working on: Updating role model assignments in .picode/models.json
+Done: Set builder, reviewer, scout to commandcode/deepseek/deepseek-v4-flash
+Doing: Awaiting any further role config changes
+Next: Verify any subsequent picode dispatch uses new models
+Blockers: none
+
+<!-- 2026-07-31 12:17 -->
+Working on: Updating .picode/models.json planner and journal models
+Done: Dispatched builder to set planner → opencode-go/deepseek-v4-flash and journal → streamlake/KAT-Coder-Pro-v2.5
+Doing: Waiting for builder reply to confirm the two key changes
+Next: Apply builder's edit, verify file, close builder pane
+Blockers: none
+
+<!-- 2026-07-31 12:17 -->
+Working on: Updating .picode/models.json role-to-model assignments per user requests
+Done: builder, reviewer, scout → commandcode/deepseek/deepseek-v4-flash; planner → opencode-go/deepseek-v4-flash; journal → streamlake/KAT-Coder-Pro-v2.5
+Doing: none — all requested changes completed
+Next: awaiting further instructions
+Blockers: none
+
+<!-- 2026-08-05 23:18 -->
+Working on: Adding Coursera certificates to /cv section
+Done: Dispatched scout agent to investigate CV page structure and data format
+Doing: Waiting for scout findings on CV page layout and existing certifications section
+Next: Review scout report, then implement cert entries once user provides cert details (name, issuer, date, URL, image)
+Blockers: none
+
+<!-- 2026-08-05 23:19 -->
+Working on: Adding Coursera certificates to the /cv section
+Done: Investigated CV page structure via scout; confirmed no existing certifications section, all content hardcoded in src/pages/cv/index.astro
+Doing: Waiting for user to provide cert details (name, issuer, date, verification URL, image preference)
+Next: Add certifications const array + new section to cv/index.astro once details received
+Blockers: none
+
+<!-- 2026-08-05 23:32 -->
+Working on: Adding Coursera certificates to /cv section
+Done: Extracted cert details from share links, confirmed images (cyber.png, go.png) in public/
+Doing: Builder moving images to public/images/ and adding certifications section to CV page
+Next: Verify builder completion, check rendered CV page
+Blockers: none
+
+<!-- 2026-08-05 23:33 -->
+Working on: Adding Coursera certificates to /cv section
+Done: Images moved to public/images/, certifications section added to CV page, JSON-LD schema updated, build passes
+Doing: None
+Next: Preview /cv on dev server or await feedback on 2026 dates
+Blockers: none
+
+<!-- 2026-08-05 23:35 -->
+Working on: Adding Coursera certificates to /cv section
+Done: Images moved to public/images/, certifications section added to CV page with cards + verify links + JSON-LD schema, build passes
+Doing: Reviewer auditing code quality and design consistency of new section
+Next: Review findings, fix any issues, preview in browser
+Blockers: none
+
+<!-- 2026-08-05 23:38 -->
+Working on: Adding Coursera certifications to /cv section
+Done: Images moved to public/images/, certifications section added to CV page with cards (image, issuer, title, date, verify link), JSON-LD schema updated, build passes
+Doing: Reviewing design consistency and image handling issues flagged by reviewer
+Next: Fix image sizing (max-w-md → full-width or 2-col), add width/height + decoding="async" to imgs, fix alt text duplication
+Blockers: none
