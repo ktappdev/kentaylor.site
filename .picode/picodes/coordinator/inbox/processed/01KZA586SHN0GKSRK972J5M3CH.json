@@ -1,0 +1,8 @@
+{
+  "id": "builder/01KZA586SHN0GKSRK972J5M3CH",
+  "from": "builder",
+  "to": "coordinator",
+  "body": "Both fixes done. Build clean (exit 0, 40 pages).\n\nFIX 1 (FOUC): `src/layouts/Layout.astro:47` — `<html lang=\"en\">` → `<html lang=\"en\" style=\"background-color:#0a0a0a\">`. Inline bg covers view-transition swap gap + slow first load.\n\nFIX 2 (cert images, src/pages/cv/index.astro certifications section):\n1. `width=\"1650\" height=\"1275\"` added — CLS fixed\n2. `decoding=\"async\"` added\n3. `alt=\"\"` — screen reader no longer reads title twice\n4. `max-w-md` removed, kept `w-full` — image now fills card width with rounded-lg border border-border\n5. Link: `transition-colors hover:underline` — deviation from spec: spec said `hover:text-accent` but link is already `text-accent`, so color change is a no-op = zero hover feedback. Kept underline (existing visible hover state) + added transition-colors per consistency intent.\n6. Arrow dropped — link reads \"Verify on Coursera\"\n\nNot touched: dates, JSON-LD, other content. All changes verified by re-read. Build: `pnpm build` → ✓ 40 page(s) built, Complete, no errors.",
+  "sentAt": "2026-08-05T23:48:29.618Z",
+  "re": "coordinator/01KZA566772WBJXQAVJ38W30B5"
+}

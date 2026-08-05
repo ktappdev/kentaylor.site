@@ -208,3 +208,38 @@ Done: Images moved to public/images/, certifications section added to CV page wi
 Doing: Reviewing design consistency and image handling issues flagged by reviewer
 Next: Fix image sizing (max-w-md → full-width or 2-col), add width/height + decoding="async" to imgs, fix alt text duplication
 Blockers: none
+
+<!-- 2026-08-05 23:43 -->
+Working on: Adding Coursera certs to /cv + investigating FOUC on nav
+Done: Certs section added, images moved, build passes, review completed
+Doing: Scout investigating CSS flash root cause
+Next: Fix cert image issues (sizing, dims, alt) + fix FOUC once root cause known
+Blockers: none
+
+<!-- 2026-08-05 23:47 -->
+Working on: Adding Coursera certs to /cv + fixing FOUC on nav transitions
+Done: Certifications section added with images, issuer, dates, verify links; JSON-LD schema updated; images moved to public/images/; FOUC root cause identified (Astro View Transitions + no inline bg on `<html>`)
+Doing: Builder fixing FOUC (inline `background-color:#0a0a0a` on `<html>`) and cert image issues (width/height, decoding, alt text, sizing, hover, arrow removal)
+Next: Verify build passes, test nav transitions for flash, deploy
+Blockers: none
+
+<!-- 2026-08-05 23:48 -->
+Working on: Adding Coursera certificates to /cv and fixing FOUC
+Done: Certifications section added to CV page with images; FOUC fixed via inline background on html; cert image issues resolved (width/height, alt, sizing, hover)
+Doing: Awaiting user verification in browser
+Next: User to verify fixes in browser or provide new tasks
+Blockers: none
+
+<!-- 2026-08-05 23:52 -->
+Working on: Fixing nav 404s — "/home" link pointing to wrong path instead of "/"
+Done: Certifications section added to /cv; FOUC fixed with inline bg on <html>; cert image issues fixed (width/height, decoding, alt, sizing, hover)
+Doing: Scout tracking down "/home" link source in Navigation component
+Next: Fix nav link to point to "/" homepage
+Blockers: none
+
+<!-- 2026-08-05 23:53 -->
+Working on: Certifications section + FOUC fix on /cv
+Done: Added Coursera certs to CV page; fixed FOUC (inline dark bg on <html>); fixed cert image issues (dims, decoding, alt, sizing, hover, arrow)
+Doing: Investigated /home 404s — no /home link exists in codebase, not a source issue
+Next: User to verify FOUC fix in browser; confirm /home 404 source (browser extension/external link)
+Blockers: none
