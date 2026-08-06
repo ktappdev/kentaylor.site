@@ -1,0 +1,8 @@
+{
+  "id": "builder/01KZA63J736C979AWFT8H60PDP",
+  "from": "builder",
+  "to": "coordinator",
+  "body": "Implemented `build.inlineStylesheets: 'always'` in `astro.config.mjs` after reading existing config. `pnpm build` passes (`40 page(s) built`, `Complete!`). Verified `dist/index.html`: no external stylesheet link (Google Fonts link remains), no CSS files in `dist/_astro`, inline style block is 55,115 bytes and contains `#0a0a0a`; existing html bg fallback preserved. Only config changed.",
+  "sentAt": "2026-08-06T00:03:26.051Z",
+  "re": "coordinator/01KZA61J2HPNWHZY87PWT8DKJ7"
+}

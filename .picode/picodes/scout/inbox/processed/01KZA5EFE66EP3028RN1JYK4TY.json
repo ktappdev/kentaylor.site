@@ -1,8 +1,0 @@
-{
-  "id": "coordinator/01KZA5EFE66EP3028RN1JYK4TY",
-  "from": "coordinator",
-  "to": "scout",
-  "body": "Objective: Find where \"/home\" link is defined — nav links are 404ing on \"/home\" instead of \"/\".\n\nContext: Dev server logs show repeated [404] /home when clicking nav links. The homepage should be \"/\" not \"/home\". The nav component is likely src/components/Navigation.tsx (React, client:load, transition:persist).\n\nInvestigate:\n1. Search all source files for href=\"/home\" or link to \"/home\" or any nav config pointing to \"/home\"\n2. Check Navigation.tsx — what links are defined? Is there an array of nav items?\n3. Check if there's a nav config file (JSON/TS) that defines routes\n4. Check src/pages/ — is there a home.astro or index.astro at root? (confirm homepage is \"/\")\n5. Report exact file:line where \"/home\" is referenced\n\nDeliverables: Exact file path + line number where \"/home\" link is defined. Show the surrounding code context.\n\nPrerequisites: Read src/components/Navigation.tsx. Grep for \"/home\" across src/.",
-  "sentAt": "2026-08-05T23:51:55.079Z",
-  "expects": true
-}

@@ -1,6 +1,6 @@
 {
   "id": "coordinator",
-  "pid": 8571,
+  "pid": 2129,
   "cwd": "/Users/kentaylor/developer/kentaylor.site",
   "parent": null,
   "role": "coordinator",
@@ -11,9 +11,9 @@
   "obligations": [],
   "owed": [],
   "barriers": [],
-  "startedAt": "2026-08-05T23:16:53.814Z",
-  "lastSeen": "2026-08-05T23:57:34.142Z",
-  "updatedAt": "2026-08-05T23:57:34.142Z",
+  "startedAt": "2026-08-06T00:09:29.929Z",
+  "lastSeen": "2026-08-06T00:18:50.032Z",
+  "updatedAt": "2026-08-06T00:18:50.032Z",
   "capabilities": [
     "urgency",
     "barriers",

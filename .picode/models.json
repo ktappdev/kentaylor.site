@@ -1,5 +1,5 @@
 {
-  "builder": "commandcode/deepseek/deepseek-v4-flash",
+  "builder": "commandcode/gpt-5.6-luna",
   "reviewer": "commandcode/deepseek/deepseek-v4-flash",
   "tester": "commandcode/xiaomi/mimo-v2.5",
   "designer": "streamlake/KAT-Coder-Pro-v2.5",

@@ -13,6 +13,9 @@ import vercel from '@astrojs/vercel';
 export default defineConfig({
   site: 'https://kentaylor.dev',
   output: 'static',
+  build: {
+    inlineStylesheets: 'always',
+  },
   legacy: {
     collectionsBackwardsCompat: true,
   },

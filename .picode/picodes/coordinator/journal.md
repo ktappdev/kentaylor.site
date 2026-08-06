@@ -243,3 +243,24 @@ Done: Added Coursera certs to CV page; fixed FOUC (inline dark bg on <html>); fi
 Doing: Investigated /home 404s — no /home link exists in codebase, not a source issue
 Next: User to verify FOUC fix in browser; confirm /home 404 source (browser extension/external link)
 Blockers: none
+
+<!-- 2026-08-06 00:02 -->
+Working on: Fixing FOUC (flash of unstyled content) on nav view transitions
+Done: Added Coursera certifications to /cv with images; fixed inline dark bg on <html>; fixed cert image sizing/alt/decoding; confirmed /home 404 is not in codebase
+Doing: Inlining CSS via astro.config.mjs build.inlineStylesheets to eliminate dark unstyled flash during view transitions
+Next: Verify CSS inlined in build output, test nav transitions in browser
+Blockers: none
+
+<!-- 2026-08-06 00:03 -->
+Working on: Adding Coursera certs to /cv + fixing FOUC on nav transitions
+Done: Certifications section added with images/links; FOUC fixed via inline html bg + CSS inlining (build.inlineStylesheets: 'always'); cert image review issues resolved (dims, decoding, alt, sizing, hover)
+Doing: Waiting for user to verify fixes in browser
+Next: User to restart dev server and test nav transitions + CV page
+Blockers: none
+
+<!-- 2026-08-06 00:10 -->
+Working on: CV section and FOUC fixes — verifying with Chrome DevTools
+Done: Added two Coursera certs to /cv, fixed FOUC (inline CSS + bg), fixed cert image issues, investigated /home 404s (not a code issue)
+Doing: Testing visual fixes via Chrome DevTools — just navigated to /cv/ and captured screenshot
+Next: Review screenshot for flash/visual issues, test nav transitions if needed
+Blockers: none

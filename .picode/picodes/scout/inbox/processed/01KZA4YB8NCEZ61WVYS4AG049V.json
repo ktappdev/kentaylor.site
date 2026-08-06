@@ -1,8 +1,0 @@
-{
-  "id": "coordinator/01KZA4YB8NCEZ61WVYS4AG049V",
-  "from": "coordinator",
-  "to": "scout",
-  "body": "Objective: Investigate FOUC (flash of unstyled content) — white flash when clicking nav links, CSS not loaded before page renders.\n\nContext: Astro 5.x site with Tailwind CSS v4. Dark theme site (bg #0a0a0a). When navigating between pages via nav links, there's a brief white flash where CSS appears unloaded. This suggests CSS is not being inlined or preloaded properly, or view transitions are causing it.\n\nInvestigate:\n1. How is CSS loaded? Check src/styles/global.css and how it's imported in Layout.astro — is it imported in <head>, <body>, or via a component?\n2. Is there an Astro view transitions / client-side routing setup? Check for `<ViewTransitions />` or `transition:animate` in Layout.astro. View transitions can cause FOUC if CSS isn't handled properly.\n3. Check the <head> in src/layouts/Layout.astro — is the CSS <link> in the head? Is there any render-blocking issue?\n4. Check astro.config.* — any CSS-related config? Tailwind v4 integration setup?\n5. Are there any client-side scripts that might delay CSS application?\n6. Check if Navigation component uses client-side navigation (View Transitions API) or standard anchor links.\n\nDeliverables:\n- Root cause analysis of the FOUC\n- Exact file paths and line numbers for relevant code\n- How CSS is currently loaded and what might cause the flash\n- Any view transitions / client-side routing setup found\n\nPrerequisites: Read src/layouts/Layout.astro, src/styles/global.css (first 30 lines), astro.config.* , and the Navigation component.",
-  "sentAt": "2026-08-05T23:43:06.517Z",
-  "expects": true
-}
