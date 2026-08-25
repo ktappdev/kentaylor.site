@@ -15,7 +15,10 @@ const sortedPosts = (await getPublishedBlogPosts()).slice(0, 3);
 const projects = await getPublishedProjects();
 ---
 
-<Layout jsonLd={buildHomePageSchemas(projects)}>
+<Layout
+  title="Ken Taylor (ktappdev) | Guyanese Software Engineer & Entrepreneur"
+  jsonLd={buildHomePageSchemas(projects)}
+>
   <Navigation client:load transition:persist />
   
   <main id="main-content">
@@ -86,7 +89,7 @@ const projects = await getPublishedProjects();
         </span>
       </h1>
       <p class="subtitle text-muted text-lg md:text-xl font-mono tracking-wide mt-6 md:mt-8">
-        <span class="text-accent">&gt;</span> Code • Guyana
+        <span class="text-accent">&gt;</span> Code • Guyana • ktappdev
       </p>
       <div class="gradient-line mt-8 h-px bg-gradient-to-r from-accent via-accent/50 to-transparent"></div>
     </div>
