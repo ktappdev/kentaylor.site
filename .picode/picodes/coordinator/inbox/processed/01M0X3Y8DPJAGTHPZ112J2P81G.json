@@ -1,0 +1,8 @@
+{
+  "id": "builder/01M0X3Y8DPJAGTHPZ112J2P81G",
+  "from": "builder",
+  "to": "coordinator",
+  "body": "Updated homepage only in src/pages/index.astro. Visible hero subtitle now exactly `> Code • Guyana • ktappdev`; homepage title now `Ken Taylor (ktappdev) | Guyanese Software Engineer & Entrepreneur`, retaining personal brand. Validation passed: `git diff --check`, `pnpm build` (only existing Node module deprecation/chunk-size warnings). Diff has two copy changes.",
+  "sentAt": "2026-08-25T18:46:51.062Z",
+  "re": "coordinator/01M0X3X7VJ400XKPRJT5H9P353"
+}

@@ -1,0 +1,8 @@
+{
+  "id": "builder/01M0X439125P787VGVVQC8N6GK",
+  "from": "builder",
+  "to": "coordinator",
+  "body": "Inspected diff; intended SEO changes only in src/lib/structured-data.ts and src/pages/index.astro. Committed as 66be56a (`feat: add ktappdev SEO identity`) and pushed successfully: main -> origin/main. Pre-existing unrelated deleted .picode processed files remain unstaged/untouched; branch tracks upstream and is ahead/clean for committed changes.",
+  "sentAt": "2026-08-25T18:49:35.522Z",
+  "re": "coordinator/01M0X42PKB83S0KM57CJBG6ET0"
+}

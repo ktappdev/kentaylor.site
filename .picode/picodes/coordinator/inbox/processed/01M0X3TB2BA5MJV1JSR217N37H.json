@@ -1,0 +1,8 @@
+{
+  "id": "builder/01M0X3TB2BA5MJV1JSR217N37H",
+  "from": "builder",
+  "to": "coordinator",
+  "body": "Changed both Person JSON-LD identifiers in src/lib/structured-data.ts (profile schema and shared Person schema) from \"kentaylor\" to \"ktappdev\". Validation passed: git diff --check and pnpm build. Diff only contains requested two lines.",
+  "sentAt": "2026-08-25T18:44:42.700Z",
+  "re": "coordinator/01M0X3SD0230B797G741Z8HSEV"
+}

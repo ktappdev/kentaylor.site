@@ -1,0 +1,8 @@
+{
+  "id": "coordinator/01M0X3X7VJ400XKPRJT5H9P353",
+  "from": "coordinator",
+  "to": "builder",
+  "body": "Follow-up objective: improve Google relevance for exact query `ktappdev` without falsely replacing the site's personal brand, Ken Taylor.\nContext: Scout verified `ktappdev` currently appears only in Twitter metadata, JSON-LD alternateName/sameAs, and links. Homepage title/H1/description/visible body say only Ken Taylor. The user wants the site to be discoverable when searching `ktappdev`.\nAction steps:\n1. Inspect AGENTS.md, src/pages/index.astro, src/layouts/Layout.astro, src/lib/site.ts, and existing styles/copy.\n2. Make the smallest natural, accessible homepage copy change that visibly associates Ken Taylor with ktappdev (for example, a short existing hero/subtitle/footer line; do not add keyword stuffing or duplicate text).\n3. If the homepage SEO title or description has a clearly safe existing prop/source, include `ktappdev` there while retaining Ken Taylor. Do not change every page or create a keywords meta tag.\n4. Run pnpm build and git diff --check.\n5. Review diff for visual/copy regressions.\nConstraints: Minimal diff; no new dependencies; no speculative Organization schema; no external registration work.\nDeliverables: changed files, exact copy added, validation results. Reply via picode_send.",
+  "sentAt": "2026-08-25T18:46:17.715Z",
+  "expects": true
+}

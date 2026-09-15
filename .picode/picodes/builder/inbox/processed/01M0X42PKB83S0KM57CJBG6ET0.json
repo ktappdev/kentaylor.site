@@ -1,0 +1,8 @@
+{
+  "id": "coordinator/01M0X42PKB83S0KM57CJBG6ET0",
+  "from": "coordinator",
+  "to": "builder",
+  "body": "Objective: Commit and push current SEO changes to the repository remote.\nContext: Current changes update `src/lib/structured-data.ts` identifiers to `ktappdev` and `src/pages/index.astro` homepage title/subtitle to include `ktappdev`. Builder previously confirmed `pnpm build` and `git diff --check` pass.\nConstraints: Inspect git status/diff first. Commit only these intended changes. Do not amend unrelated work, force-push, or alter files. Push current branch to its configured upstream.\nAction steps:\n1. Run git status and git diff --stat/diff.\n2. Commit with a concise message such as `feat: add ktappdev SEO identity`.\n3. Push to upstream.\n4. Report commit hash, branch, push result, and any issue.\nDeliverables: commit/push confirmation via picode_send.",
+  "sentAt": "2026-08-25T18:49:16.652Z",
+  "expects": true
+}

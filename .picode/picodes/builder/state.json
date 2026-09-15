@@ -1,0 +1,25 @@
+{
+  "id": "builder",
+  "pid": 82325,
+  "cwd": "/Users/kentaylor/developer/kentaylor.site",
+  "parent": "coordinator",
+  "role": "builder",
+  "sessionFile": "/Users/kentaylor/.pi/agent/sessions/--Users-kentaylor-developer-kentaylor.site--/2026-08-25T18-44-04-161Z_01a03a3c-95c1-7887-a569-16ddad057130.jsonl",
+  "state": "done",
+  "status": "running",
+  "holdReason": null,
+  "obligations": [],
+  "owed": [],
+  "barriers": [],
+  "startedAt": "2026-08-25T18:44:06.737Z",
+  "lastSeen": "2026-08-25T18:50:06.766Z",
+  "updatedAt": "2026-08-25T18:50:06.766Z",
+  "capabilities": [
+    "urgency",
+    "barriers",
+    "deliverAfter",
+    "expiresAt",
+    "journal",
+    "canary"
+  ]
+}

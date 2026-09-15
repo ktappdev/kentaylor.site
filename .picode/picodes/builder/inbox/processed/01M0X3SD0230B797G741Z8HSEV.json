@@ -1,0 +1,8 @@
+{
+  "id": "coordinator/01M0X3SD0230B797G741Z8HSEV",
+  "from": "coordinator",
+  "to": "builder",
+  "body": "Objective: Align Person JSON-LD identifier with `ktappdev`.\nContext: Scout found `src/lib/structured-data.ts` is the only SEO identity mismatch: `identifier: \"kentaylor\"` appears at lines ~115 and ~187, while site source already uses `alternateName: \"ktappdev\"`, @ktappdev handles, GitHub/X sameAs, and sitemap/robots are configured. This helps Google associate query `ktappdev` with kentaylor.dev, but external Search Console registration remains separate.\nConstraints: Minimal diff only. Do not add new schema types, dependencies, or speculative SEO changes.\nAction steps:\n1. Read project instructions and `src/lib/structured-data.ts`.\n2. Change both Person JSON-LD `identifier: \"kentaylor\"` values to `identifier: \"ktappdev\"`.\n3. Run the smallest relevant validation (typecheck/build if practical) and inspect diff.\nDeliverables: changed file(s), validation result, concise note of any issue. Reply via picode_send.",
+  "sentAt": "2026-08-25T18:44:11.906Z",
+  "expects": true
+}
