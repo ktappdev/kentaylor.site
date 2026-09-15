@@ -189,8 +189,30 @@ const jsonLd = [
     .blog-content strong {
       color: #fafafa;
     }
+    .blog-content :where(.blog-float-image) {
+      margin: 1.5rem 0 !important;
+    }
+    .blog-content :where(.blog-float-image img) {
+      width: 100%;
+      margin: 0 !important;
+      border-radius: 0.5rem;
+      box-shadow: 0 10px 30px rgb(0 0 0 / 30%);
+    }
     .blog-content :where(h2, h3, h4) {
+      clear: both;
       scroll-margin-top: 6rem;
+    }
+    .blog-content::after {
+      display: block;
+      clear: both;
+      content: '';
+    }
+    @media (min-width: 768px) {
+      .blog-content :where(.blog-float-image--right) {
+        float: right;
+        width: min(36%, 18rem);
+        margin: 0.25rem 0 1.5rem 2rem !important;
+      }
     }
   </style>
   <Navigation client:load transition:persist />
