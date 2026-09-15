@@ -92,7 +92,7 @@ function publicAssetExists(path: string): boolean {
 
   try {
     return existsSync(
-      fileURLToPath(new URL(`../../public${path}`, import.meta.url)),
+      fileURLToPath(new URL(`../../../public${path}`, import.meta.url)),
     );
   } catch {
     return false;
