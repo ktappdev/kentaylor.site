@@ -10,6 +10,7 @@ const blogCollection = defineCollection({
     updatedDate: z.coerce.date().optional(),
     image: z.string().optional(),
     imageAlt: z.string().optional(),
+    imageCaption: z.string().optional(),
     seoTitle: z.string().optional(),
     seoDescription: z.string().optional(),
     draft: z.boolean().optional(),

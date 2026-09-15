@@ -189,10 +189,10 @@ const jsonLd = [
     .blog-content strong {
       color: #fafafa;
     }
-    .blog-content :where(.blog-float-image) {
+    .blog-content :global(.blog-float-image) {
       margin: 1.5rem 0 !important;
     }
-    .blog-content :where(.blog-float-image img) {
+    .blog-content :global(.blog-float-image img) {
       width: 100%;
       margin: 0 !important;
       border-radius: 0.5rem;
@@ -208,7 +208,7 @@ const jsonLd = [
       content: '';
     }
     @media (min-width: 768px) {
-      .blog-content :where(.blog-float-image--right) {
+      .blog-content :global(.blog-float-image--right) {
         float: right;
         width: min(36%, 18rem);
         margin: 0.25rem 0 1.5rem 2rem !important;
@@ -282,7 +282,7 @@ const jsonLd = [
       </header>
       
       {post.data.image && (
-        <div class="mb-12 -mx-6 md:-mx-12">
+        <figure class="mb-12 -mx-6 md:-mx-12">
           <Image 
             src={post.data.image} 
             alt={pageImageAlt}
@@ -292,7 +292,12 @@ const jsonLd = [
             loading="lazy"
             decoding="async"
           />
-        </div>
+          {post.data.imageCaption && (
+            <figcaption class="mt-3 px-6 text-sm leading-relaxed text-muted md:px-12">
+              {post.data.imageCaption}
+            </figcaption>
+          )}
+        </figure>
       )}
       
       <div class="blog-content prose prose-invert max-w-none">
