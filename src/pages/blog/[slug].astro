@@ -12,16 +12,18 @@ import type { InferGetStaticPropsType, GetStaticPaths } from 'astro';
 import { Image } from 'astro:assets';
 import { render } from 'astro:content';
 import {
-  getPostCoverImage,
   getPostImageAlt,
+  getPostImageMetadata,
   getPostReadingTimeLabel,
   getPostSeoDescription,
   getPostSeoTitle,
+  getPostSocialImage,
   getPostUpdatedDate,
   getPostUrl,
   getPublishedBlogPosts,
 } from '../../lib/blog';
 import { getPostSlug } from '../../lib/post-slug';
+import { getTagUrl } from '../../lib/tags';
 import { absoluteUrl } from '../../lib/site';
 import {
   buildBlogPostingSchemas,
@@ -75,8 +77,11 @@ const formatDate = (date: Date) => {
 
 const pageTitle = getPostSeoTitle(post);
 const pageDescription = getPostSeoDescription(post);
-const pageImage = getPostCoverImage(post);
 const pageImageAlt = getPostImageAlt(post);
+const socialImage = await getPostSocialImage(post);
+const coverImageMetadata = post.data.image
+  ? await getPostImageMetadata(post.data.image)
+  : null;
 const pageKeywords = [
   ...post.data.tags,
   'Ken Taylor',
@@ -102,15 +107,11 @@ const jsonLd = [
   canonical={getPostUrl(post)}
   type="article"
   image={{
-    src: pageImage,
-    alt: pageImageAlt,
-    width: 1200,
-    height: 630,
-    type: pageImage.endsWith('.jpg') || pageImage.endsWith('.jpeg')
-      ? 'image/jpeg'
-      : pageImage.endsWith('.png')
-        ? 'image/png'
-        : undefined,
+    src: socialImage.src,
+    alt: socialImage.alt,
+    width: socialImage.width,
+    height: socialImage.height,
+    type: socialImage.type,
   }}
   keywords={pageKeywords}
   publishedTime={publishedTime}
@@ -272,7 +273,7 @@ const jsonLd = [
           {post.data.tags.map((tag: string) => (
             <a
               key={tag}
-              href={`/blog/tag/${tag.toLowerCase().replace(/\s+/g, '-')}/`}
+              href={getTagUrl(tag)}
               class="px-3 py-1 text-sm font-mono text-accent bg-accent/10 rounded hover:bg-accent/20 transition-colors"
             >
               #{tag}
@@ -287,8 +288,8 @@ const jsonLd = [
             src={post.data.image} 
             alt={pageImageAlt}
             class="w-full h-auto rounded-lg shadow-lg"
-            width="1200"
-            height="630"
+            width={coverImageMetadata?.width ?? 1200}
+            height={coverImageMetadata?.height ?? 630}
             loading="lazy"
             decoding="async"
           />

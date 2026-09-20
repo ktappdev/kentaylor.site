@@ -22,7 +22,10 @@ export async function createBlogOgImage(
   options: CreateOgImageOptions,
 ): Promise<Buffer> {
   const svg = buildSvg(options);
-  return sharp(Buffer.from(svg), { density: 144 }).png().toBuffer();
+  // No density override: sharp rasterizes SVG at 72 DPI, so the PNG comes out at
+  // exactly the requested width and height. Raising the density scales the output
+  // and makes OG_SOCIAL_SIZE and OG_STRUCTURED_SIZES disagree with the real files.
+  return sharp(Buffer.from(svg)).png().toBuffer();
 }
 
 export function isOgStructuredRatio(value: string): value is OgStructuredRatio {

@@ -6,13 +6,14 @@ import BlogCard from '../../../components/Blog/BlogCard';
 import Breadcrumbs from '../../../components/Blog/Breadcrumbs.astro';
 import { getPublishedBlogPosts } from '../../../lib/blog';
 import { buildBreadcrumbSchema } from '../../../lib/structured-data';
+import { tagToSlug } from '../../../lib/tags';
 
 export const getStaticPaths = async () => {
   const posts = await getPublishedBlogPosts();
   const tags = [...new Set(posts.flatMap(post => post.data.tags))];
   
   return tags.map(tag => ({
-    params: { tag: tag.toLowerCase().replace(/\s+/g, '-') },
+    params: { tag: tagToSlug(tag) },
     props: { tag, posts: posts.filter(post => post.data.tags.includes(tag)) },
   }));
 };
@@ -20,6 +21,9 @@ export const getStaticPaths = async () => {
 const { tag, posts } = Astro.props;
 const pageTitle = `#${tag} | Ken Taylor Blog`;
 const pageDescription = `Blog posts tagged with "${tag}" by Ken Taylor.`;
+// A tag backed by one post is a near-duplicate of that post, so keep it browsable
+// but out of the index. SeoHead falls back to index,follow when this is undefined.
+const robots = posts.length < 2 ? 'noindex,follow' : undefined;
 const jsonLd = [
   buildBreadcrumbSchema([
     { name: 'Home', path: '/' },
@@ -29,7 +33,7 @@ const jsonLd = [
 ];
 ---
 
-<Layout title={pageTitle} description={pageDescription} jsonLd={jsonLd}>
+<Layout title={pageTitle} description={pageDescription} robots={robots} jsonLd={jsonLd}>
   <Navigation client:load transition:persist />
   
   <main id="main-content" class="pt-24 pb-16 min-h-screen">

@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import type { CollectionEntry } from 'astro:content';
 import { getPostSlug } from '../../lib/post-slug';
+import { getTagUrl } from '../../lib/tags';
 
 const WORDS_PER_MINUTE = 200;
 
@@ -70,7 +71,7 @@ export default function BlogCard({ post, index }: BlogCardProps) {
           {tags.slice(0, 3).map((tag: string) => (
             <a
               key={tag}
-              href={`/blog/tag/${tag.toLowerCase().replace(/\s+/g, '-')}/`}
+              href={getTagUrl(tag)}
               className="px-2 py-1 text-xs font-mono text-accent/80 bg-accent/10 rounded hover:bg-accent/20 transition-colors"
             >
               #{tag}
