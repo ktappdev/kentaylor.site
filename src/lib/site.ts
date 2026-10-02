@@ -14,6 +14,11 @@ export const SITE = {
     name: "Ken Taylor",
     alternateNames: ["ktappdev"],
     location: "Georgetown, Guyana",
+    locality: "Georgetown",
+    region: "Demerara-Mahaica",
+    country: "Guyana",
+    countryCode: "GY",
+    geo: { latitude: 6.8013, longitude: -58.1551 },
     email: "kentaylorappdev@gmail.com",
     shortBio:
       "Self-taught software engineer and entrepreneur from Georgetown, Guyana.",
@@ -21,6 +26,21 @@ export const SITE = {
       "Self-taught Guyanese software engineer and entrepreneur from Georgetown, Guyana building tech solutions for the Caribbean.",
     jobTitle: "Software Engineer, Entrepreneur",
     socialHandle: "@ktappdev",
+    knowsAbout: [
+      "Software Engineering",
+      "Go",
+      "Rust",
+      "TypeScript",
+      "Artificial Intelligence",
+      "Large Language Models",
+      "Self-Hosting",
+      "Cloud Infrastructure",
+      "Web Development",
+    ],
+    areaServed: [
+      { name: "Guyana", type: "Country" },
+      { name: "Caribbean", type: "AdministrativeArea" },
+    ],
     sameAs: [
       "https://github.com/ktappdev",
       "https://x.com/ktappdev",

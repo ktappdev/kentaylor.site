@@ -16,7 +16,11 @@ const pageTitle =
 const pageDescription =
   "Learn more about Ken Taylor, a self-taught software engineer and entrepreneur from Georgetown, Guyana.";
 const jsonLd = [
-  ...buildProfilePageSchemas(recentPosts),
+  ...buildProfilePageSchemas(recentPosts, {
+    path: SITE.aboutPath,
+    name: pageTitle,
+    description: pageDescription,
+  }),
   buildBreadcrumbSchema([
     { name: "Home", path: "/" },
     { name: "About", path: SITE.aboutPath },

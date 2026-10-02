@@ -7,6 +7,10 @@ const blogCollection = defineCollection({
     excerpt: z.string(),
     date: z.coerce.date(),
     tags: z.array(z.string()),
+    // Declared so a frontmatter slug survives validation. getPostSlug() reads it
+    // and falls back to the filename, and astro.config.mjs reads it too, so the
+    // field has to exist in the schema for both paths to agree.
+    slug: z.string().optional(),
     updatedDate: z.coerce.date().optional(),
     image: z.string().optional(),
     imageAlt: z.string().optional(),

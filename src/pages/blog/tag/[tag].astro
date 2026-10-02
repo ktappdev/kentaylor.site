@@ -5,7 +5,7 @@ import Footer from '../../../components/UI/Footer';
 import BlogCard from '../../../components/Blog/BlogCard';
 import Breadcrumbs from '../../../components/Blog/Breadcrumbs.astro';
 import { getPublishedBlogPosts } from '../../../lib/blog';
-import { buildBreadcrumbSchema } from '../../../lib/structured-data';
+import { buildBreadcrumbSchema, buildTagCollectionSchema } from '../../../lib/structured-data';
 import { tagToSlug } from '../../../lib/tags';
 
 export const getStaticPaths = async () => {
@@ -19,12 +19,26 @@ export const getStaticPaths = async () => {
 };
 
 const { tag, posts } = Astro.props;
-const pageTitle = `#${tag} | Ken Taylor Blog`;
-const pageDescription = `Blog posts tagged with "${tag}" by Ken Taylor.`;
+const postCount = posts.length;
+// Tags are stored lowercase for stable slugs; sentence case reads better in a
+// title and description. The on-page #heading keeps the original lowercase form.
+const displayTag = tag.charAt(0).toUpperCase() + tag.slice(1);
+const pageTitle = `${displayTag} Articles | Ken Taylor`;
+// A tag page is a topical hub, so the description leads with the topic and the
+// count rather than echoing the tag name back at the reader.
+const pageDescription = `${postCount} article${postCount === 1 ? '' : 's'} on ${tag} by Ken Taylor, a software engineer in Georgetown, Guyana writing about tech, building products, and the Caribbean tech scene.`;
+const keywords = [
+  tag,
+  'Ken Taylor',
+  'ktappdev',
+  'Guyana developer blog',
+  'software engineer Guyana',
+];
 // A tag backed by one post is a near-duplicate of that post, so keep it browsable
 // but out of the index. SeoHead falls back to index,follow when this is undefined.
-const robots = posts.length < 2 ? 'noindex,follow' : undefined;
+const robots = postCount < 2 ? 'noindex,follow' : undefined;
 const jsonLd = [
+  buildTagCollectionSchema(tag, posts),
   buildBreadcrumbSchema([
     { name: 'Home', path: '/' },
     { name: 'Blog', path: '/blog/' },
@@ -33,7 +47,7 @@ const jsonLd = [
 ];
 ---
 
-<Layout title={pageTitle} description={pageDescription} robots={robots} jsonLd={jsonLd}>
+<Layout title={pageTitle} description={pageDescription} keywords={keywords} robots={robots} jsonLd={jsonLd}>
   <Navigation client:load transition:persist />
   
   <main id="main-content" class="pt-24 pb-16 min-h-screen">
