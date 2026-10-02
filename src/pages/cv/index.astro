@@ -13,7 +13,11 @@ const pageTitle = "Ken Taylor | Full-Stack Systems Engineer CV";
 const pageDescription = "Curriculum Vitae of Ken Taylor — Full-Stack Systems Engineer & AI Specialist based in Georgetown, Guyana. Specializing in Go, Rust, AI/LLM systems, and production infrastructure.";
 
 const jsonLd = [
-  ...buildProfilePageSchemas(recentPosts),
+  ...buildProfilePageSchemas(recentPosts, {
+    path: "/cv/",
+    name: "CV | Ken Taylor",
+    description: pageDescription,
+  }),
   buildBreadcrumbSchema([
     { name: "Home", path: "/" },
     { name: "CV", path: "/cv/" },

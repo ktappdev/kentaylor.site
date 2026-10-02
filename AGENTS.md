@@ -42,16 +42,30 @@ All custom colors, fonts, etc. are defined in the `@theme` block in global.css:
 Tailwind v4 automatically detects content - no `content: []` array needed.
 
 ## Project Stack
-- **Framework**: Astro 5.x
+- **Framework**: Astro 6.x (content layer with `legacy.collectionsBackwardsCompat`)
 - **Styling**: Tailwind CSS v4 + custom CSS
 - **UI Components**: React + Framer Motion
-- **Content**: MDX for blog posts
+- **Content**: MDX for blog posts and projects
 - **3D**: React Three Fiber (@react-three/fiber)
 
 ## Key Files
 - `src/styles/global.css` - Tailwind config + global styles
 - `src/content/blog/*.mdx` - Blog posts
+- `src/content/projects/*.mdx` - Project entries
+- `src/content.config.ts` - Collection schemas (blog, projects)
+- `src/lib/site.ts` - Site constants, author identity, geo data
+- `src/lib/blog.ts` - Post helpers: slugs, reading time, OG fallback, tag counts
+- `src/lib/tags.ts` - Tag slug helpers. **Keep dependency-free**: `astro.config.mjs` imports it, so it must not pull in `astro:content`.
+- `src/lib/structured-data.ts` - JSON-LD builders
 - `src/layouts/Layout.astro` - Root layout
+- `BLOG-GUIDE.md` - Authoritative blog writing, voice, and tagging rules
+
+## Site Config
+- `src/lib/site.ts` is the single source of truth for title, description,
+  canonical URL, social handles, and location. Change it there, not in pages.
+- `astro.config.mjs` duplicates frontmatter parsing for the sitemap because the
+  integration runs outside the content layer. If blog frontmatter changes shape,
+  update `readBlogFrontmatter()` in the same commit.
 
 ## Blog Posts and SEO
 - New blog posts automatically get SEO metadata, structured data, sitemap inclusion, RSS inclusion, and social image support when they follow the existing MDX frontmatter format.
@@ -70,12 +84,23 @@ Tailwind v4 automatically detects content - no `content: []` array needed.
   - `draft`
 - If `image` is omitted or the referenced file does not exist, the site falls back to an auto-generated OG image for that post.
 - No extra manual SEO step is required for each new blog post after adding the file and deploying.
+- `slug` is optional frontmatter. It is declared in `src/content.config.ts` so `getPostSlug()` and the sitemap's frontmatter parser agree. Omit it unless you need a URL that differs from the filename.
+
+## Tagging Rules (important for SEO)
+- Tags come from a fixed controlled vocabulary documented in `BLOG-GUIDE.md`: `programming`, `ai`, `self-hosting`, `development`, `guyana`, `personal`, `career`, `music`, `opinion`.
+- Pick 2 to 5 tags per post.
+- Do not invent per-post tags. `astro.config.mjs` marks a tag page `noindex` and strips it from the sitemap when fewer than 2 posts share it, so a one-off tag creates a dead page.
+- Do not tag proper nouns, event names, sponsors, technologies, or project names. Those terms belong in the prose and in `seoTitle`/`seoDescription`.
+- Tag pages are internal-link hubs linked from `/blog/` via `getTagCounts()` in `src/lib/blog.ts`. Keep that list in sync by using the vocabulary rather than ad-hoc tags.
 
 ## Common Mistakes to Avoid
 1. Don't create a `tailwind.config.js` file
 2. Don't use `@import` for Tailwind plugins - use `@plugin`
 3. Custom colors use CSS variables (`--color-*`) not JS config
 4. The typography plugin classes work differently in v4
+5. Don't add a one-off blog tag; it produces a noindexed dead-end tag page
+6. Don't hardcode site metadata in a page; edit `src/lib/site.ts`
+7. Don't move tag logic into `astro.config.mjs` helpers that need `astro:content`
 
 ## Writing Style — Anti-AI-Tell Rules
 

@@ -17,6 +17,17 @@ const projects = await getPublishedProjects();
 
 <Layout
   title="Ken Taylor (ktappdev) | Guyanese Software Engineer & Entrepreneur"
+  description="Ken Taylor is a self-taught software engineer and entrepreneur in Georgetown, Guyana. He builds with Go, Rust and TypeScript, works on AI and self-hosting, and ships products for the Caribbean."
+  keywords={[
+    'Ken Taylor',
+    'ktappdev',
+    'software engineer Guyana',
+    'developer Georgetown Guyana',
+    'Caribbean software engineer',
+    'Guyana tech',
+    'Go developer Guyana',
+    'Lugetech',
+  ]}
   jsonLd={buildHomePageSchemas(projects)}
 >
   <Navigation client:load transition:persist />
