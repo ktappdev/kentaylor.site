@@ -5,6 +5,7 @@ import HeroScene from '../components/Hero/HeroScene';
 import ScrollIndicator from '../components/Hero/ScrollIndicator';
 import AboutCard from '../components/About/AboutCard';
 import ProjectGrid from '../components/Projects/ProjectGrid';
+import LyricutPromo from '../components/Promo/LyricutPromo.astro';
 import BlogList from '../components/Blog/BlogList';
 import Footer from '../components/UI/Footer';
 import { getPublishedBlogPosts } from '../lib/blog';
@@ -110,6 +111,8 @@ const projects = await getPublishedProjects();
   
   <AboutCard client:visible />
   
+  <LyricutPromo />
+
   <ProjectGrid projects={projects} client:visible />
   
   <BlogList posts={sortedPosts} client:visible />

@@ -1,0 +1,140 @@
+---
+// Horizontal promo for Lyricut, shown above the project grid. Pure HTML/CSS:
+// no hydration, so it costs nothing on page load.
+const BARS = 56;
+const censored = [
+  { from: 14, to: 19, label: 'muted' },
+  { from: 36, to: 40, label: 'beeped' },
+];
+const bars = Array.from({ length: BARS }, (_, i) => {
+  const h = 22 + Math.round(70 * Math.abs(Math.sin(i * 1.7) * Math.cos(i * 0.45)));
+  const hit = censored.find((c) => i >= c.from && i <= c.to);
+  return { h, hit: Boolean(hit), delay: (i % 8) * 0.12 };
+});
+const products = ['Web app', 'Desktop editor', 'CLI', 'Browser extension', 'Station Monitor'];
+---
+
+<section aria-labelledby="lyricut-promo-title" class="px-6 pt-8 md:pt-12">
+  <div class="promo relative mx-auto max-w-7xl overflow-hidden rounded-2xl border border-[#dc403b]/40 bg-surface">
+    <div class="glow" aria-hidden="true"></div>
+    <div class="relative grid items-center gap-10 p-8 md:grid-cols-[1.1fr_1fr] md:p-12">
+      <div>
+        <div class="mb-5 flex items-center gap-3">
+          <img src="https://www.lyricut.com/logo.png" alt="" width="40" height="40" class="h-10 w-10 object-contain" loading="lazy" />
+          <span class="rounded-full border border-[#dc403b]/50 bg-[#dc403b]/10 px-3 py-1 font-mono text-xs uppercase tracking-widest text-[#ff8a85]">
+            Featured product
+          </span>
+        </div>
+        <h2 id="lyricut-promo-title" class="text-4xl font-bold leading-tight tracking-tight md:text-5xl">
+          Clean any song<br /><span class="text-[#ff5a54]">before it hits the air.</span>
+        </h2>
+        <p class="mt-5 max-w-xl text-lg text-muted">
+          Lyricut transcribes the track, finds every explicit word and anything else on your list, and exports a
+          radio-ready version with mute, beep, scratch or white noise edits. Built for broadcasters, DJs and creators.
+        </p>
+        <ul class="mt-6 flex flex-wrap gap-2" aria-label="Lyricut products">
+          {products.map((p) => (
+            <li class="rounded-md border border-border bg-bg/60 px-3 py-1 font-mono text-xs text-text/80">{p}</li>
+          ))}
+        </ul>
+        <div class="mt-8 flex flex-wrap items-center gap-4">
+          <a
+            href="https://lyricut.com"
+            class="cta rounded-lg bg-[#dc403b] px-6 py-3 font-semibold text-white transition-colors hover:bg-[#c5352f]"
+          >
+            Try Lyricut free
+          </a>
+          <a
+            href="https://lyricut.com/pricing"
+            class="rounded-lg border border-border px-6 py-3 font-semibold text-text transition-colors hover:border-[#dc403b] hover:text-[#ff8a85]"
+          >
+            See pricing
+          </a>
+          <span class="font-mono text-sm text-muted">Free plan · Pro from $19/mo</span>
+        </div>
+      </div>
+
+      <div class="wave relative rounded-xl border border-border bg-bg/70 p-5" aria-hidden="true">
+        <div class="mb-4 flex items-center justify-between font-mono text-xs text-muted">
+          <span>track_final.mp3</span>
+          <span class="text-[#ff8a85]">2 words cleaned</span>
+        </div>
+        <div class="relative flex h-40 items-center gap-[3px]">
+          {bars.map((b) => (
+            <span
+              class:list={['bar', b.hit && 'hit']}
+              style={`--h:${b.h}%; animation-delay:${b.delay}s`}
+            ></span>
+          ))}
+          <span class="playhead"></span>
+        </div>
+        <div class="relative mt-3 h-6 font-mono text-[11px]">
+          {censored.map((c) => (
+            <span
+              class="absolute -translate-x-1/2 rounded bg-[#dc403b]/15 px-2 py-0.5 text-[#ff8a85]"
+              style={`left:${(((c.from + c.to) / 2 + 0.5) / BARS) * 100}%`}
+            >
+              {c.label}
+            </span>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .glow {
+    position: absolute;
+    inset: -40% -10% auto auto;
+    width: 60%;
+    height: 140%;
+    background: radial-gradient(closest-side, rgb(220 64 59 / 0.28), transparent);
+    filter: blur(20px);
+    pointer-events: none;
+  }
+  .bar {
+    flex: 1;
+    height: var(--h);
+    border-radius: 2px;
+    background: rgb(250 250 250 / 0.35);
+    transform-origin: center;
+    animation: pulse 1.6s ease-in-out infinite;
+  }
+  .bar.hit {
+    background: #dc403b;
+    height: 14%;
+    animation: none;
+    box-shadow: 0 0 12px rgb(220 64 59 / 0.6);
+  }
+  .playhead {
+    position: absolute;
+    top: -6px;
+    bottom: -6px;
+    left: 0;
+    width: 2px;
+    background: #ff5a54;
+    box-shadow: 0 0 10px #ff5a54;
+    animation: sweep 6s linear infinite;
+  }
+  .cta {
+    box-shadow: 0 0 0 0 rgb(220 64 59 / 0.5);
+    animation: ring 2.4s ease-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { transform: scaleY(0.75); }
+    50% { transform: scaleY(1); }
+  }
+  @keyframes sweep {
+    from { left: 0; }
+    to { left: calc(100% - 2px); }
+  }
+  @keyframes ring {
+    0% { box-shadow: 0 0 0 0 rgb(220 64 59 / 0.5); }
+    70%, 100% { box-shadow: 0 0 0 14px rgb(220 64 59 / 0); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .bar, .playhead, .cta { animation: none; }
+    .playhead { left: 45%; }
+  }
+</style>

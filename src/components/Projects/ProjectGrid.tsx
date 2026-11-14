@@ -34,8 +34,8 @@ export default function ProjectGrid({ projects }: ProjectGridProps) {
           className="mb-8 p-4 border border-accent/30 bg-accent/5 rounded-lg"
         >
           <p className="text-center text-lg">
-            <span className="text-accent font-bold">FREE</span> — All projects
-            available to use right now at no cost. Feel free to try them all!
+            <span className="text-accent font-bold">FREE</span> to try. Most
+            projects cost nothing to use, and the rest have a free plan.
           </p>
         </motion.div>
 
