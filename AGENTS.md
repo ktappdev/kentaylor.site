@@ -130,3 +130,8 @@ Blog posts on this site start as the author's spoken thoughts, then get rewritte
 
 ### North star
 After writing, ask: would someone who knows the author recognize his voice? If the answer is no, rewrite.
+
+## Lyricut (product advertised here)
+
+Lyricut (lyricut.com) is the main product promoted on this site. Its code lives in a separate monorepo at `/Users/kentaylor/developer/lyricut-editor` (see its `AGENTS.md`). Lyricut content here: `src/content/projects/lyricut.mdx`, `src/pages/cv/index.astro`, `src/content/blog/lyricut.mdx`, `src/components/Promo/LyricutPromo.astro`, `src/components/Projects/ProjectGrid.tsx`. When Lyricut's pricing, payment provider, apps or downloads change, update these. Facts to check against the Lyricut repo: plans and prices (`docs/payments/gumroad.md`), downloads (`src/lib/releases.ts`).
+
